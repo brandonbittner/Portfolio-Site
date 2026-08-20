@@ -1,18 +1,35 @@
-/**
- * Add your portfolio projects here.
- * Each object maps to both a Work grid card and a /work/:slug case study page.
- */
 export const projects = [
   {
     id: 1,
-    slug: 'project-one',
-    title: 'Project One',
-    category: 'UI/UX Design',
+    slug: 'apex-brand-identity',
+    title: 'Apex Brand Identity',
+    category: 'Brand Design',
     year: 2024,
-    coverImage: '/images/project-one-cover.jpg',
-    tags: ['Figma', 'Product Design', 'Branding'],
-    summary: 'Short teaser shown on the Work grid.',
-    description: 'Full case study content goes here.',
-    externalUrl: '',
+    coverImage: '/images/project-1.jpg',
+    tags: ['Brand Identity', 'Logo Design', 'Style Guide'],
+    summary: 'A comprehensive brand identity for a fintech startup — logomark, type system, color, and a full design system handed off to engineering.',
+    description: '',
+  },
+  {
+    id: 2,
+    slug: 'meridian-app',
+    title: 'Meridian',
+    category: 'Product Design',
+    year: 2024,
+    coverImage: '/images/project-2.jpg',
+    tags: ['UX Design', 'Figma', 'Prototyping'],
+    summary: 'End-to-end UX for a personal finance app — from discovery and research through wireframes to a high-fidelity interactive prototype.',
+    description: '',
+  },
+  {
+    id: 3,
+    slug: 'wealth-builder',
+    title: 'Wealth Builder Pitch Deck',
+    category: 'Presentation Design',
+    year: 2023,
+    coverImage: '/images/project-3.png',
+    tags: ['Presentation', 'Brand', 'Motion'],
+    summary: 'A polished investor pitch deck for a wealth management platform built for a Series A raise — motion, data viz, and on-brand throughout.',
+    description: '',
   },
 ]

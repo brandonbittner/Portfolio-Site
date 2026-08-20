@@ -72,17 +72,17 @@ export default function Home() {
         <div className={styles.grid}>
           {projects.map((p) => (
             <Link key={p.id} to={`/work/${p.slug}`} className={styles.card}>
-              <div className={styles.cardThumb}>
-                {p.coverImage && (
-                  <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
-                )}
-              </div>
+              {p.coverImage && (
+                <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
+              )}
               <div className={styles.cardBody}>
-                <div className={styles.cardTop}>
-                  <span className={styles.cardCategory}>{p.category}</span>
+                <h2 className={styles.cardTitle}>{p.title}</h2>
+                <div className={styles.cardMeta}>
+                  {p.tags.map((tag) => (
+                    <span key={tag} className={styles.cardTag}>{tag}</span>
+                  ))}
                   <span className={styles.cardYear}>{p.year}</span>
                 </div>
-                <h2 className={styles.cardTitle}>{p.title}</h2>
                 <p className={styles.cardSummary}>{p.summary}</p>
               </div>
             </Link>
