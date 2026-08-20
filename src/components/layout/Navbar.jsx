@@ -1,32 +1,50 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/work', label: 'Work' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-]
-
 export default function Navbar() {
+  const { pathname } = useLocation()
+
   return (
     <header className={styles.header}>
       <NavLink to="/" className={styles.logo}>
         Brandon Bittner
       </NavLink>
       <nav className={styles.nav}>
-        {links.map(({ to, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
-          >
-            {label}
-          </NavLink>
-        ))}
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : styles.link
+          }
+        >
+          Home
+        </NavLink>
+
+        {/* Work scrolls to the #work section on the home page */}
+        <a
+          href="/#work"
+          className={pathname === '/' ? `${styles.link}` : styles.link}
+        >
+          Work
+        </a>
+
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : styles.link
+          }
+        >
+          About
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : styles.link
+          }
+        >
+          Contact
+        </NavLink>
       </nav>
     </header>
   )
