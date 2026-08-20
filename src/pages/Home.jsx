@@ -1,15 +1,27 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
-
 import { projects } from '../data/projects'
 
-const TAGS = [
+const HERO_TAGS = [
   { label: 'UI/UX Design',   rotate: -8,  left: '54%', top: '43%' },
   { label: 'Brand Identity', rotate:  6,  left: '63%', top: '13%' },
   { label: 'Motion',         rotate: -5,  left: '73%', top: '56%' },
 ]
 
+const FILTERS = [
+  { label: 'All',             value: 'all' },
+  { label: 'Graphic Design',  value: 'graphic-design' },
+  { label: 'Product Design',  value: 'product-design' },
+]
+
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const visible = activeFilter === 'all'
+    ? projects
+    : projects.filter(p => p.type === activeFilter)
+
   return (
     <div className={styles.page}>
 
@@ -24,7 +36,7 @@ export default function Home() {
           className={styles.photo}
         />
 
-        {TAGS.map((t, i) => (
+        {HERO_TAGS.map((t, i) => (
           <div
             key={t.label}
             className={styles.tag}
@@ -63,14 +75,22 @@ export default function Home() {
       {/* ── Work ─────────────────────────────────────────────── */}
       <section id="work" className={styles.work}>
         <header className={styles.workHeader}>
-          <div className={styles.workMeta}>
-            <span className={styles.workStar} aria-hidden="true">✦</span>
-            <span className={styles.workLabel}>Selected Work</span>
+          <h2 className={styles.workTitle}>Selected Work</h2>
+          <div className={styles.filters}>
+            {FILTERS.map(f => (
+              <button
+                key={f.value}
+                className={`${styles.filterBtn} ${activeFilter === f.value ? styles.filterActive : ''}`}
+                onClick={() => setActiveFilter(f.value)}
+              >
+                {f.label}
+              </button>
+            ))}
           </div>
         </header>
 
         <div className={styles.grid}>
-          {projects.map((p) => (
+          {visible.map((p) => (
             <Link key={p.id} to={`/work/${p.slug}`} className={styles.card}>
               {p.coverImage && (
                 <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
