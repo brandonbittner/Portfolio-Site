@@ -223,7 +223,59 @@ export default function CaseStudy() {
               <p>Rather than launching to all ~300 LOs at once, I rolled the new email series out in phases to reduce risk. I piloted the series with a single loan originator for a week to confirm everything worked as expected. Once that held up, I expanded to that LO's full branch to test at a slightly larger scale. After the branch rollout showed no issues and received positive feedback from our testing LOs, I launched the series company-wide to all loan originators.</p>
             </div>
           </section>
-          <section id="reflection" className={styles.section} />
+          <section id="reflection" className={styles.section}>
+            <h2 className={styles.sectionLabel}>Reflection</h2>
+            <p className={styles.pullQuote}>What I've Learned From This Project</p>
+
+            <div className={styles.learnedGrid}>
+              <div className={styles.learnedCard}>
+                <div className={styles.learnedIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 3v18M3 9h6M3 15h6" />
+                  </svg>
+                </div>
+                <div className={styles.learnedContent}>
+                  <h3 className={styles.learnedTitle}>Designing Within System Constraints</h3>
+                  <p className={styles.learnedText}>Arive's limitations taught me to design around real platform constraints, rather than designing an ideal version first and adjusting later.</p>
+                </div>
+              </div>
+
+              <div className={styles.learnedCard}>
+                <div className={styles.learnedIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div className={styles.learnedContent}>
+                  <h3 className={styles.learnedTitle}>Cross-Industry Inspiration</h3>
+                  <p className={styles.learnedText}>Looking outside mortgage at how delivery services communicate progress led to a stronger direction than staying inside industry norms would have.</p>
+                </div>
+              </div>
+
+              <div className={styles.learnedCard}>
+                <div className={styles.learnedIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
+                <div className={styles.learnedContent}>
+                  <h3 className={styles.learnedTitle}>Hands-On Email Development</h3>
+                  <p className={styles.learnedText}>Building this solo gave me real, practical experience with email development and the constraints that come with inconsistencies across email clients.</p>
+                </div>
+              </div>
+            </div>
+
+            <p className={styles.pullQuote}>What I Would've Done Differently</p>
+            <div className={styles.body_text}>
+              <p>If I were starting this project again, I'd spend more time upfront learning Arive's technical limitations and email client quirks, rather than discovering them mid-build after already designing around different assumptions. I'd also want to spend time doing discovery on a way to track actual borrower engagement with the emails. Arive doesn't provide any analytics on its system email sends, so the only feedback I have is qualitative, from LOs and borrowers after launch, rather than real data to measure success against.</p>
+            </div>
+          </section>
 
         </div>
 
