@@ -306,6 +306,46 @@
   margin-bottom: 2rem;
 }
 
+/* ─── Feature rows (image + description) ────────────────── */
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.featureRow .placeholder {
+  margin-bottom: 0;
+}
+
+.featureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.featureTitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.featureText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
 /* ─── 404 fallback ───────────────────────────────────────── */
 
 .notFound {

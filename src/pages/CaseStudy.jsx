@@ -187,7 +187,42 @@ export default function CaseStudy() {
               <p>From there, I brought the designs to our sales team for feedback, focused mainly on the copy and the specific action items being asked of borrowers at each step. I iterated through several rounds with loan originators directly, refining the language and structure until we landed on the final version of the full five-email series.</p>
             </div>
           </section>
-          <section id="solution"   className={styles.section} />
+          <section id="solution" className={styles.section}>
+            <h2 className={styles.sectionLabel}>Solution</h2>
+            <p className={styles.pullQuote}>What I Built</p>
+            <div className={styles.placeholder}>Placeholder</div>
+            <div className={styles.body_text}>
+              <p>The result is a set of five emails, each tied to a specific milestone in the loan process. Every email tells the borrower where their loan currently stands, what the next part of the process involves, and what they need to do next to keep things moving.</p>
+            </div>
+
+            <div className={styles.featureList}>
+              <div className={styles.featureRow}>
+                <div className={styles.placeholder}>Placeholder</div>
+                <div className={styles.featureInfo}>
+                  <h3 className={styles.featureTitle}>Introduction & Explainer</h3>
+                  <p className={styles.featureText}>This section explains what step the loan is currently in and what that step means for the borrower, using plain language instead of internal mortgage terminology.</p>
+                </div>
+              </div>
+              <div className={styles.featureRow}>
+                <div className={styles.placeholder}>Placeholder</div>
+                <div className={styles.featureInfo}>
+                  <h3 className={styles.featureTitle}>Progress Tracker</h3>
+                  <p className={styles.featureText}>This shows the borrower's current position within the overall loan process, so they can see how far along they are and what steps remain before closing.</p>
+                </div>
+              </div>
+              <div className={styles.featureRow}>
+                <div className={styles.placeholder}>Placeholder</div>
+                <div className={styles.featureInfo}>
+                  <h3 className={styles.featureTitle}>Next Steps</h3>
+                  <p className={styles.featureText}>This section outlines any action the borrower needs to take at this stage, so it's clear what's expected of them and why it's urgent.</p>
+                </div>
+              </div>
+            </div>
+            <p className={styles.pullQuote}>Rollout</p>
+            <div className={styles.body_text}>
+              <p>Rather than launching to all ~300 LOs at once, I rolled the new email series out in phases to reduce risk. I piloted the series with a single loan originator for a week to confirm everything worked as expected. Once that held up, I expanded to that LO's full branch to test at a slightly larger scale. After the branch rollout showed no issues and received positive feedback from our testing LOs, I launched the series company-wide to all loan originators.</p>
+            </div>
+          </section>
           <section id="reflection" className={styles.section} />
 
         </div>
