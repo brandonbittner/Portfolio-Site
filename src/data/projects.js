@@ -3,7 +3,7 @@ export const projects = [
     id: 4,
     slug: 'loan-status-update-emails',
     title: 'Loan Status Update Emails',
-    employer: '',
+    employer: 'UMortgage',
     section: 'case-studies',
     type: 'product-design',
     year: 2024,
