@@ -1,5 +1,19 @@
 export const projects = [
   {
+    id: 4,
+    slug: 'loan-status-update-emails',
+    title: 'Loan Status Update Emails',
+    employer: '',
+    section: 'case-studies',
+    type: 'product-design',
+    year: 2024,
+    coverImage: '',
+    heroImage: '',
+    tags: ['Product Design', 'UX Research', 'Email Development'],
+    summary: "A complete overhaul of UMortgage's automated loan status emails — turning plain, text-heavy notifications into clear, milestone-driven updates that tell borrowers exactly where their loan stands and what to do next. Owned solo from strategy through design, development, and launch.",
+    description: '',
+  },
+  {
     id: 1,
     slug: 'apex-brand-identity',
     title: 'Apex Brand Identity',

@@ -18,13 +18,18 @@ export default function CaseStudy() {
   return (
     <article className={styles.page}>
 
-      {/* ── Header ─────────────────────────────────────────── */}
-      <header className={styles.hero}>
-        {project.employer && (
-          <p className={styles.overline}>{project.employer}</p>
+      {/* ── Hero splash image ───────────────────────────────── */}
+      <div className={styles.splash}>
+        {project.heroImage || project.coverImage ? (
+          <img
+            src={project.heroImage || project.coverImage}
+            alt={project.title}
+            className={styles.splashImg}
+          />
+        ) : (
+          <div className={styles.splashPlaceholder}>Hero Placeholder</div>
         )}
-        <h1 className={styles.title}>{project.title}</h1>
-      </header>
+      </div>
 
     </article>
   )
