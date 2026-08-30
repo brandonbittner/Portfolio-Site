@@ -176,6 +176,16 @@ export default function CaseStudy() {
             </div>
             <div className={styles.placeholder}>Two-Column Milestone Mapping Grid</div>
             <p className={styles.pullQuote}>Design & Iteration</p>
+            <div className={styles.body_text}>
+              <p>With the milestones mapped, I moved into design. I started with rough sketches to explore different ways of visually communicating progress, then moved into high-fidelity Figma prototypes once I had a direction worth refining.</p>
+            </div>
+            <div className={styles.placeholderRow}>
+              <div className={styles.placeholder}>Placeholder</div>
+              <div className={styles.placeholder}>Placeholder</div>
+            </div>
+            <div className={styles.body_text}>
+              <p>From there, I brought the designs to our sales team for feedback, focused mainly on the copy and the specific action items being asked of borrowers at each step. I iterated through several rounds with loan originators directly, refining the language and structure until we landed on the final version of the full five-email series.</p>
+            </div>
           </section>
           <section id="solution"   className={styles.section} />
           <section id="reflection" className={styles.section} />
