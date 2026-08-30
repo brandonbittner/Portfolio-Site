@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { projects } from '../data/projects'
+import ProjectGrid from '../components/sections/ProjectGrid'
 
 const HERO_TAGS = [
   { label: 'UI/UX Design',   rotate: -8,  left: '54%', top: '43%' },
@@ -9,19 +8,10 @@ const HERO_TAGS = [
   { label: 'Motion',         rotate: -5,  left: '73%', top: '56%' },
 ]
 
-const FILTERS = [
-  { label: 'All',             value: 'all' },
-  { label: 'Graphic Design',  value: 'graphic-design' },
-  { label: 'Product Design',  value: 'product-design' },
-]
+const caseStudies   = projects.filter(p => p.section === 'case-studies')
+const selectedWork  = projects.filter(p => p.section === 'selected-work')
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState('all')
-
-  const visible = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.type === activeFilter)
-
   return (
     <div className={styles.page}>
 
@@ -72,43 +62,8 @@ export default function Home() {
 
       </section>
 
-      {/* ── Work ─────────────────────────────────────────────── */}
-      <section id="work" className={styles.work}>
-        <header className={styles.workHeader}>
-          <h2 className={styles.workTitle}>Selected Work</h2>
-          <div className={styles.filters}>
-            {FILTERS.map(f => (
-              <button
-                key={f.value}
-                className={`${styles.filterBtn} ${activeFilter === f.value ? styles.filterActive : ''}`}
-                onClick={() => setActiveFilter(f.value)}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </header>
-
-        <div className={styles.grid}>
-          {visible.map((p) => (
-            <Link key={p.id} to={`/work/${p.slug}`} className={styles.card}>
-              {p.coverImage && (
-                <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
-              )}
-              <div className={styles.cardBody}>
-                <h2 className={styles.cardTitle}>{p.title}</h2>
-                <div className={styles.cardMeta}>
-                  {p.tags.map((tag) => (
-                    <span key={tag} className={styles.cardTag}>{tag}</span>
-                  ))}
-                  <span className={styles.cardYear}>{p.year}</span>
-                </div>
-                <p className={styles.cardSummary}>{p.summary}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <ProjectGrid id="work" title="Case Studies"  projects={caseStudies} />
+      <ProjectGrid          title="Selected Work"  projects={selectedWork} />
 
     </div>
   )
