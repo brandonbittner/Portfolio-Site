@@ -169,6 +169,13 @@ export default function CaseStudy() {
               </div>
             </div>
             <p className={styles.pullQuote}>Mapping Milestones to Email Triggers</p>
+            <div className={styles.body_text}>
+              <p>With a direction in mind, the next challenge was figuring out what to actually build it around. Arive, our loan origination system, only supports a fixed set of email triggers tied to specific system events. Those triggers don't necessarily line up with the moments that actually matter to a borrower.</p>
+              <p>To solve for this, I ran two parallel conversations. First, with loan originators, to define the handful of milestones borrowers most needed to hear about, the moments that would actually help someone understand where they stood. Second, with our loan ops team and an Arive subject matter expert, to understand exactly what triggers were available and what system event each one corresponded to.</p>
+              <p>From there, I cross-referenced the two. In some cases, a borrower milestone lined up directly with an available trigger. In others, there wasn't a perfect match, so I found the trigger that fired closest to the right moment in the process, close enough to keep the information timely and useful without waiting on a system limitation to catch up. That mapping became the backbone for the entire email series: five milestones, each backed by a trigger that could reliably fire at the right point in a borrower's loan.</p>
+            </div>
+            <div className={styles.placeholder}>Two-Column Milestone Mapping Grid</div>
+            <p className={styles.pullQuote}>Design & Iteration</p>
           </section>
           <section id="solution"   className={styles.section} />
           <section id="reflection" className={styles.section} />
