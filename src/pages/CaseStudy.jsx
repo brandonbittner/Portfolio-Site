@@ -107,29 +107,32 @@ export default function CaseStudy() {
 
           <section id="overview" className={styles.section}>
             <h2 className={styles.sectionLabel}>Overview</h2>
-            <p className={styles.pullQuote}>Turning a routine status email into borrowers' clearest guide through the mortgage process.</p>
+            <div className={styles.overviewLayout}>
+              <div className={styles.overviewLeft}>
+              <p className={styles.pullQuote}>Turning a routine status email into borrowers' clearest guide through the mortgage process.</p>
+              <div className={styles.body_text}>
+                <p>UMortgage's automated loan status emails — triggered by milestones in the company's loan origination system (Arive) and sent directly to borrowers — were plain, text-heavy notifications that gave no real sense of where someone stood in the mortgage process or what to do next. For an audience already navigating one of the most confusing financial transactions of their lives, that was a missed opportunity.</p>
+                <p>What started as a simple request to refresh the email header became a full ground-up redesign — one built to give borrowers clarity on where their loan stood, what the current step involved, and what action to take next.</p>
+              </div>
+              </div>
 
-            <div className={styles.body_text}>
-              <p>UMortgage's automated loan status emails — triggered by milestones in the company's loan origination system (Arive) and sent directly to borrowers — were plain, text-heavy notifications that gave no real sense of where someone stood in the mortgage process or what to do next. For an audience already navigating one of the most confusing financial transactions of their lives, that was a missed opportunity.</p>
-              <p>What started as a simple request to refresh the email header became a full ground-up redesign — one built to give borrowers clarity on where their loan stood, what the current step involved, and what action to take next.</p>
-            </div>
-
-            <div className={styles.metaGrid}>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Role</span>
-                <span className={styles.metaValue}>Product Designer, Strategy, Design, Development</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Timeline</span>
-                <span className={styles.metaValue}>Q1–Q2 2025</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Tools</span>
-                <span className={styles.metaValue}>Figma, Stripo, Arive</span>
-              </div>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Scale</span>
-                <span className={styles.metaValue}>Emails sent on behalf of ~300 loan originators, ~4,500 emails sent monthly</span>
+              <div className={styles.metaGrid}>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Role</span>
+                  <span className={styles.metaValue}>Product Designer, Strategy, Design, Development</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Timeline</span>
+                  <span className={styles.metaValue}>Q1–Q2 2025</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Tools</span>
+                  <span className={styles.metaValue}>Figma, Stripo, Arive</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Scale</span>
+                  <span className={styles.metaValue}>Emails sent on behalf of ~300 loan originators, ~4,500 emails sent monthly</span>
+                </div>
               </div>
             </div>
           </section>
