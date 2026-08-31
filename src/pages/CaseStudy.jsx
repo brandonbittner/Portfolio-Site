@@ -185,7 +185,7 @@ export default function CaseStudy() {
             <div className={styles.body_text}>
               <p>With a direction in mind, the next challenge was figuring out what to actually build it around. Arive, our loan origination system, only supports a fixed set of email triggers tied to specific system events. Those triggers don't necessarily line up with the moments that actually matter to a borrower.</p>
               <p>To solve for this, I ran two parallel conversations. First, with loan originators, to define the handful of milestones borrowers most needed to hear about, the moments that would actually help someone understand where they stood. Second, with our loan ops team and an Arive subject matter expert, to understand exactly what triggers were available and what system event each one corresponded to.</p>
-              <p>From there, I cross-referenced the two. In some cases, a borrower milestone lined up directly with an available trigger. In others, there wasn't a perfect match, so I found the trigger that fired closest to the right moment in the process, close enough to keep the information timely and useful without waiting on a system limitation to catch up. That mapping became the backbone for the entire email series: five milestones, each backed by a trigger that could reliably fire at the right point in a borrower's loan.</p>
+              <p>From there, I cross-referenced the two. In some cases, a borrower milestone lined up directly with an available trigger. In others, there wasn't a perfect match, so I found the trigger that fired closest to the right moment in the process, close enough to keep the information timely and useful without waiting on a system limitation to catch up. That mapping became the backbone for the entire email series: six milestones, each backed by a trigger that could reliably fire at the right point in a borrower's loan.</p>
             </div>
             <div className={styles.mappingGrid}>
               <div className={styles.mappingHeader}>
@@ -221,7 +221,7 @@ export default function CaseStudy() {
               <div className={styles.placeholder}>Placeholder</div>
             </div>
             <div className={styles.body_text}>
-              <p>From there, I brought the designs to our sales team for feedback, focused mainly on the copy and the specific action items being asked of borrowers at each step. I iterated through several rounds with loan originators directly, refining the language and structure until we landed on the final version of the full five-email series.</p>
+              <p>From there, I brought the designs to our sales team for feedback, focused mainly on the copy and the specific action items being asked of borrowers at each step. I iterated through several rounds with loan originators directly, refining the language and structure until we landed on the final version of the full six-email series.</p>
             </div>
           </section>
           <section id="solution" className={styles.section}>
@@ -229,7 +229,7 @@ export default function CaseStudy() {
             <p className={styles.pullQuote}>What I Built</p>
             <div className={styles.placeholder}>Placeholder</div>
             <div className={styles.body_text}>
-              <p>The result is a set of five emails, each tied to a specific milestone in the loan process. Every email tells the borrower where their loan currently stands, what the next part of the process involves, and what they need to do next to keep things moving.</p>
+              <p>The result is a set of six emails, each tied to a specific milestone in the loan process. Every email tells the borrower where their loan currently stands, what the next part of the process involves, and what they need to do next to keep things moving.</p>
             </div>
 
             <div className={styles.featureList}>
