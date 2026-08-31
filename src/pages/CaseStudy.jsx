@@ -144,7 +144,14 @@ export default function CaseStudy() {
               <p>I was asked by our marketing team to redesign a set of legacy emails sent to borrowers from our loan origination system (LOS) whenever their loan file hit certain milestones in the process. Once I looked into it, the emails were unclear at their core. Borrowers had no real sense of where their loan stood or what came next. Conversations with loan originators (LOs) revealed an even bigger gap: many didn't even know these emails were being sent to their own borrowers, and engagement was poor across the board.</p>
               <p>That confirmed this needed to be more than a visual refresh. This was a chance to fix a real, underused touchpoint in the borrower experience.</p>
             </div>
-            <div className={styles.placeholder}>Legacy email screenshots</div>
+            <div className={styles.placeholderRow}>
+              <div className={styles.placeholderCol}>
+                <img src="/images/legacy-email-1.png" alt="Legacy loan status email" className={styles.sectionImg} />
+              </div>
+              <div className={styles.placeholderCol}>
+                <img src="/images/legacy-email-2.png" alt="Legacy loan status email" className={styles.sectionImg} />
+              </div>
+            </div>
             <p className={styles.caption}>Screenshots of UMortgage's legacy loan status update emails</p>
             <div className={styles.body_text}>
               <p>Digging deeper, the core issue became clear: borrowers had no sense of where they actually stood in a long, multi-step process. They couldn't tell how far along their loan was, what had already happened, or what still needed to happen before closing.</p>
