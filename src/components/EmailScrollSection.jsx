@@ -12,14 +12,12 @@ const EMAILS = [
 
 const GAP = 24
 const SENSITIVITY = 2.0
-const CENTER_THRESHOLD = 60
 
 export default function EmailScrollSection() {
   const containerRef = useRef(null)
   const railRef = useRef(null)
   const progressRef = useRef(0)
   const lockedRef = useRef(false)
-  const savedScrollY = useRef(0)
 
   useEffect(() => {
     const container = containerRef.current
@@ -32,31 +30,24 @@ export default function EmailScrollSection() {
       return (first.offsetWidth + GAP) * (EMAILS.length - 1)
     }
 
-    const containerCenterOffset = () => {
+    // True when the container's center is within ~200px of the viewport center
+    const isCentered = () => {
       const rect = container.getBoundingClientRect()
-      return Math.abs(((rect.top + rect.bottom) / 2) - (window.innerHeight / 2))
+      const containerCenter = (rect.top + rect.bottom) / 2
+      const viewportCenter = window.innerHeight / 2
+      return Math.abs(containerCenter - viewportCenter) < 200
     }
 
     const lock = () => {
-      savedScrollY.current = window.scrollY
-      // Preserve scrollbar width so content doesn't shift
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-      if (scrollbarWidth > 0) {
-        document.documentElement.style.paddingRight = `${scrollbarWidth}px`
-      }
-      // overflow:hidden stops momentum scroll at the layout level
+      const sw = window.innerWidth - document.documentElement.clientWidth
+      if (sw > 0) document.documentElement.style.paddingRight = `${sw}px`
       document.documentElement.style.overflow = 'hidden'
       lockedRef.current = true
     }
 
-    const unlock = (direction) => {
+    const unlock = () => {
       document.documentElement.style.overflow = ''
       document.documentElement.style.paddingRight = ''
-      const buffer = Math.max(250, CENTER_THRESHOLD * 5)
-      const targetY = direction === 'down'
-        ? savedScrollY.current + buffer
-        : Math.max(0, savedScrollY.current - buffer)
-      window.scrollTo(0, targetY)
       lockedRef.current = false
     }
 
@@ -65,12 +56,12 @@ export default function EmailScrollSection() {
 
       if (lockedRef.current) {
         e.preventDefault()
-
         const p = progressRef.current
         const max = getMax()
 
-        if (p <= 0 && !goingDown) { unlock('up'); return }
-        if (p >= 1 && goingDown) { unlock('down'); return }
+        // At boundaries: release the page, let normal scroll resume
+        if (p <= 0 && !goingDown) { unlock(); return }
+        if (p >= 1 && goingDown) { unlock(); return }
 
         const newP = Math.max(0, Math.min(1, p + e.deltaY / (max * SENSITIVITY)))
         progressRef.current = newP
@@ -78,23 +69,23 @@ export default function EmailScrollSection() {
         return
       }
 
-      // Not locked — check if we should lock
-      if (containerCenterOffset() < CENTER_THRESHOLD) {
-        const p = progressRef.current
-        const canScroll = (goingDown && p < 1) || (!goingDown && p > 0)
-        if (canScroll) {
-          lock()
-          e.preventDefault()
-          const max = getMax()
-          const newP = Math.max(0, Math.min(1, p + e.deltaY / (max * SENSITIVITY)))
-          progressRef.current = newP
-          rail.style.transform = `translateX(${-newP * max}px)`
-        }
+      // Not locked — engage when viewport midline is inside the container
+      // and there are emails left to reveal in this direction
+      if (!isCentered()) return
+
+      const p = progressRef.current
+      const canScroll = (goingDown && p < 1) || (!goingDown && p > 0)
+      if (canScroll) {
+        lock()
+        e.preventDefault()
+        const max = getMax()
+        const newP = Math.max(0, Math.min(1, p + e.deltaY / (max * SENSITIVITY)))
+        progressRef.current = newP
+        rail.style.transform = `translateX(${-newP * max}px)`
       }
     }
 
     document.addEventListener('wheel', onWheel, { passive: false })
-
     return () => {
       document.removeEventListener('wheel', onWheel)
       document.documentElement.style.overflow = ''
