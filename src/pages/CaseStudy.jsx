@@ -173,11 +173,11 @@ export default function CaseStudy() {
             </div>
             <div className={styles.placeholderRow}>
               <div className={styles.placeholderCol}>
-                <div className={styles.placeholder}>Placeholder</div>
-                <p className={styles.caption}>UPS Shipment Tracker</p>
+                <img src="/images/usps-tracker.jpg" alt="USPS Shipment Tracker" className={styles.sectionImg} />
+                <p className={styles.caption}>USPS Shipment Tracker</p>
               </div>
               <div className={styles.placeholderCol}>
-                <div className={styles.placeholder}>Placeholder</div>
+                <img src="/images/dominos-tracker.webp" alt="Domino's Pizza Tracker" className={styles.sectionImg} />
                 <p className={styles.caption}>Domino's Pizza Tracker</p>
               </div>
             </div>
