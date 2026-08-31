@@ -8,7 +8,7 @@ export const projects = [
     type: 'product-design',
     year: 2024,
     coverImage: '',
-    heroImage: '',
+    heroImage: '/images/HeroImage_LSU.jpg',
     tags: ['Product Design', 'UX Research', 'Email Development'],
     summary: "A complete overhaul of UMortgage's automated loan status emails — turning plain, text-heavy notifications into clear, milestone-driven updates that tell borrowers exactly where their loan stands and what to do next. Owned solo from strategy through design, development, and launch.",
     description: '',

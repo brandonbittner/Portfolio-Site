@@ -114,7 +114,7 @@
   font-family: var(--font-sans);
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: oklch(44.6% 0.043 257.281);
   text-decoration: none;
   padding: 0.4rem 0.75rem;
   position: relative;
@@ -140,10 +140,11 @@
 
 .navActive {
   color: var(--color-text);
+  font-weight: 700;
 }
 
 .navActive::before {
-  background: var(--color-text);
+  background: #5FA7FF;
 }
 
 /* ─── Content sections ───────────────────────────────────── */
@@ -170,7 +171,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #5FA7FF;
   margin-bottom: 0.75rem;
 }
 
@@ -226,7 +227,7 @@
   font-family: var(--font-sans);
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--color-text);
+  color: #555555;
 }
 
 /* ── Meta chart ── */
@@ -234,8 +235,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  background: oklch(96.8% 0.007 247.896);
-  border-radius: var(--radius-md);
+  background: oklch(98.4% 0.003 247.858);
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -257,7 +258,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #5FA7FF;
 }
 
 .metaValue {
@@ -275,8 +276,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  background: oklch(98.4% 0.003 247.858);
+  border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -342,8 +343,8 @@
 
 .caption {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  color: oklch(70.4% 0.04 256.788);
   text-align: center;
   margin-top: -1.25rem;
   margin-bottom: 2rem;
@@ -404,9 +405,8 @@
   align-items: flex-start;
   gap: 1.25rem;
   padding: 1.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-subtle);
+  border-radius: 16px;
+  background: oklch(98.4% 0.003 247.858);
 }
 
 .learnedContent {
@@ -421,10 +421,9 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  color: var(--color-accent);
+  border-radius: 10px;
+  background: oklch(92.9% 0.013 255.508);
+  color: #5FA7FF;
   flex-shrink: 0;
 }
 
