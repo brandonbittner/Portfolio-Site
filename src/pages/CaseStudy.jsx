@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './CaseStudy.module.css'
 import { projects } from '../data/projects'
+import EmailScrollSection from '../components/EmailScrollSection'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview' },
@@ -227,7 +228,7 @@ export default function CaseStudy() {
           <section id="solution" className={styles.section}>
             <h2 className={styles.sectionLabel}>Solution</h2>
             <p className={styles.pullQuote}>What I Built</p>
-            <div className={styles.placeholder}>Placeholder</div>
+            <EmailScrollSection />
             <div className={styles.body_text}>
               <p>The result is a set of six emails, each tied to a specific milestone in the loan process. Every email tells the borrower where their loan currently stands, what the next part of the process involves, and what they need to do next to keep things moving.</p>
             </div>
