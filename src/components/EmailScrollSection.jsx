@@ -25,9 +25,7 @@ export default function EmailScrollSection() {
     if (!container || !rail) return
 
     const getMax = () => {
-      const first = rail.firstChild
-      if (!first) return 0
-      return (first.offsetWidth + GAP) * (EMAILS.length - 1)
+      return rail.scrollWidth - container.offsetWidth + 48
     }
 
     // True when the container's center is within ~200px of the viewport center

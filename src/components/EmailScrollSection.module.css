@@ -1,20 +1,21 @@
 .container {
   background: oklch(98.4% 0.003 247.858);
   border-radius: 16px;
-  padding: 1.75rem;
+  padding: 1.75rem 0;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 /* ── Rail viewport ── */
 .viewport {
   overflow-x: hidden;
   overflow-y: visible;
-  border-radius: 10px;
 }
 
 .rail {
   display: flex;
   gap: 24px;
+  padding: 0 48px;
   will-change: transform;
   transition: transform 0.08s linear;
 }
@@ -22,7 +23,7 @@
 /* ── Slide ── */
 .slide {
   flex-shrink: 0;
-  width: 42%;
+  width: 44%;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
