@@ -187,7 +187,31 @@ export default function CaseStudy() {
               <p>To solve for this, I ran two parallel conversations. First, with loan originators, to define the handful of milestones borrowers most needed to hear about, the moments that would actually help someone understand where they stood. Second, with our loan ops team and an Arive subject matter expert, to understand exactly what triggers were available and what system event each one corresponded to.</p>
               <p>From there, I cross-referenced the two. In some cases, a borrower milestone lined up directly with an available trigger. In others, there wasn't a perfect match, so I found the trigger that fired closest to the right moment in the process, close enough to keep the information timely and useful without waiting on a system limitation to catch up. That mapping became the backbone for the entire email series: five milestones, each backed by a trigger that could reliably fire at the right point in a borrower's loan.</p>
             </div>
-            <div className={styles.placeholder}>Two-Column Milestone Mapping Grid</div>
+            <div className={styles.mappingGrid}>
+              <div className={styles.mappingHeader}>
+                <span>Email Content Milestone</span>
+                <span />
+                <span>LOS Email Trigger</span>
+              </div>
+              {[
+                ['Application Received',      'Loan Setup'],
+                ['Initial Disclosures Sent',   'Disclosed'],
+                ['Loan In Processing',         'Sent to Underwriting'],
+                ['Initial Approval',           'Approved w/ Conditions'],
+                ['Cleared to Close',           'Clear to Close'],
+                ['Loan Funded',                'Loan Funded'],
+              ].map(([left, right], i) => (
+                <div key={i} className={styles.mappingRow}>
+                  <div className={styles.mappingCell}>{left}</div>
+                  <div className={styles.mappingArrow}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                  <div className={`${styles.mappingCell} ${styles.mappingCellRight}`}>{right}</div>
+                </div>
+              ))}
+            </div>
             <p className={styles.pullQuote}>Design & Iteration</p>
             <div className={styles.body_text}>
               <p>With the milestones mapped, I moved into design. I started with rough sketches to explore different ways of visually communicating progress, then moved into high-fidelity Figma prototypes once I had a direction worth refining.</p>

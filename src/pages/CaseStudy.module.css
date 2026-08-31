@@ -312,6 +312,77 @@
   background-position: center;
 }
 
+/* ─── Milestone mapping grid ─────────────────────────────── */
+
+.mappingGrid {
+  background: oklch(98.4% 0.003 247.858);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.mappingHeader {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: stretch;
+  background: #5FA7FF;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.mappingHeader span {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.mappingHeader span:nth-child(2) {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+.mappingRow {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: stretch;
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508);
+}
+
+.mappingRow:last-child {
+  border-bottom: none;
+}
+
+.mappingCell {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.mappingCellRight {
+  color: #555555;
+  font-weight: 400;
+}
+
+.mappingArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5FA7FF;
+  background: #e2e8f0;
+  border-left: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+  align-self: stretch;
+  margin-bottom: -1px;
+}
+
 /* ─── Side-by-side placeholders ─────────────────────────── */
 
 .placeholderRow {
