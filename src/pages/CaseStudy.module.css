@@ -51,9 +51,9 @@
 
 .employer {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .caseStudyTag {
@@ -62,9 +62,10 @@
   gap: 0.4rem;
   font-family: var(--font-sans);
   font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  color: #5FA7FF;
+  background: rgba(95, 167, 255, 0.15);
+  border: 1px solid rgba(95, 167, 255, 0.35);
   border-radius: 999px;
   padding: 0.35rem 1rem;
   white-space: nowrap;
