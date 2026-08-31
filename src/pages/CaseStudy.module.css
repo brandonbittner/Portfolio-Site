@@ -460,6 +460,15 @@
   margin-bottom: 0;
 }
 
+.featureImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
 .featureInfo {
   display: flex;
   flex-direction: column;
@@ -468,7 +477,7 @@
 
 .featureTitle {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text);
@@ -476,8 +485,8 @@
 
 .featureText {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.45;
   color: var(--color-text-muted);
 }
 
@@ -493,7 +502,7 @@
 .learnedCard {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.25rem;
   padding: 1.5rem;
   border-radius: 16px;
@@ -503,7 +512,7 @@
 .learnedContent {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.2rem;
 }
 
 .learnedIcon {
@@ -513,14 +522,14 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: oklch(92.9% 0.013 255.508);
-  color: #5FA7FF;
+  background: #5FA7FF;
+  color: #ffffff;
   flex-shrink: 0;
 }
 
 .learnedTitle {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text);
@@ -528,8 +537,8 @@
 
 .learnedText {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--color-text-muted);
 }
 

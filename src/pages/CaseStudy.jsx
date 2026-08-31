@@ -235,21 +235,21 @@ export default function CaseStudy() {
 
             <div className={styles.featureList}>
               <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Placeholder</div>
+                <img src="/images/lsu-feature-1.png" alt="Introduction & Explainer" className={styles.featureImg} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Introduction & Explainer</h3>
                   <p className={styles.featureText}>This section explains what step the loan is currently in and what that step means for the borrower, using plain language instead of internal mortgage terminology.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Placeholder</div>
+                <img src="/images/lsu-feature-2.png" alt="Progress Tracker" className={styles.featureImg} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Progress Tracker</h3>
-                  <p className={styles.featureText}>This shows the borrower's current position within the overall loan process, so they can see how far along they are and what steps remain before closing.</p>
+                  <p className={styles.featureText}>This show's a borrower's current position within the overall loan process & a timeline of their completed steps thus far so they can better understand how far along they are and what steps remain before closing.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Placeholder</div>
+                <img src="/images/lsu-feature-3.png" alt="Next Steps" className={styles.featureImg} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Next Steps</h3>
                   <p className={styles.featureText}>This section outlines any action the borrower needs to take at this stage, so it's clear what's expected of them and why it's urgent.</p>
@@ -270,8 +270,10 @@ export default function CaseStudy() {
                 <div className={styles.learnedIcon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M9 3v18M3 9h6M3 15h6" />
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
                   </svg>
                 </div>
                 <div className={styles.learnedContent}>
@@ -284,8 +286,8 @@ export default function CaseStudy() {
                 <div className={styles.learnedIcon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    <path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                   </svg>
                 </div>
                 <div className={styles.learnedContent}>
