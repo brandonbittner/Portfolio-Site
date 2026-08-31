@@ -8,6 +8,16 @@
   z-index: 100;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  transition: none;
+}
+
+.headerReady {
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.headerDark {
+  background: #141414;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .logo {
@@ -19,6 +29,15 @@
   letter-spacing: -0.01em;
 }
 
+.headerReady .logo,
+.headerReady .link {
+  transition: color 0.35s ease;
+}
+
+.logoDark {
+  color: #ffffff;
+}
+
 .nav {
   display: flex;
   gap: 2rem;
@@ -28,10 +47,18 @@
   text-decoration: none;
   color: var(--color-text-muted);
   font-size: 0.9rem;
-  transition: color 0.2s ease;
 }
 
 .link:hover,
 .active {
   color: var(--color-text);
+}
+
+.linkDark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.linkDark:hover,
+.linkDark.active {
+  color: #ffffff;
 }

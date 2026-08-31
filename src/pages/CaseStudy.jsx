@@ -49,6 +49,7 @@ export default function CaseStudy() {
   return (
     <article className={styles.page}>
 
+      <div className={styles.pageTop} data-nav-dark>
       {/* ── Hero splash image ───────────────────────────────── */}
       <div className={styles.splash}>
         {project.heroImage || project.coverImage ? (
@@ -78,6 +79,8 @@ export default function CaseStudy() {
           )}
         </div>
         <h1 className={styles.projectTitle}>{project.title}</h1>
+      </div>
+
       </div>
 
       {/* ── Divider ─────────────────────────────────────────── */}
@@ -271,7 +274,7 @@ export default function CaseStudy() {
               </div>
             </div>
 
-            <p className={styles.pullQuote}>What I Would've Done Differently</p>
+            <p className={styles.pullQuote}>In Retrospect...</p>
             <div className={styles.body_text}>
               <p>If I were starting this project again, I'd spend more time upfront learning Arive's technical limitations and email client quirks, rather than discovering them mid-build after already designing around different assumptions. I'd also want to spend time doing discovery on a way to track actual borrower engagement with the emails. Arive doesn't provide any analytics on its system email sends, so the only feedback I have is qualitative, from LOs and borrowers after launch, rather than real data to measure success against.</p>
             </div>

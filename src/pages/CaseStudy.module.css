@@ -2,6 +2,10 @@
   background: var(--color-bg);
 }
 
+.pageTop {
+  background: #141414;
+}
+
 /* ─── Hero splash image ──────────────────────────────────── */
 
 .splash {
@@ -49,7 +53,7 @@
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .caseStudyTag {
@@ -59,8 +63,8 @@
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   padding: 0.3rem 0.85rem;
   white-space: nowrap;
@@ -73,7 +77,7 @@
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
-  color: var(--color-text);
+  color: #ffffff;
   text-align: center;
 }
 
