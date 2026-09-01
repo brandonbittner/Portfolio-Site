@@ -1,5 +1,19 @@
 export const projects = [
   {
+    id: 5,
+    slug: 'loan-product-blog-website',
+    title: 'Loan Product Blog Website',
+    employer: 'UMortgage',
+    section: 'case-studies',
+    type: 'product-design',
+    year: 2025,
+    coverImage: '',
+    heroImage: '',
+    tags: ['Product Design', 'Web Design', 'Content Strategy'],
+    summary: 'Placeholder summary for the Loan Product Blog Website case study.',
+    description: '',
+  },
+  {
     id: 4,
     slug: 'loan-status-update-emails',
     title: 'Loan Status Update Emails',

@@ -415,6 +415,70 @@
   color: oklch(70.4% 0.04 256.788);
 }
 
+/* ─── Pain point columns ─────────────────────────────────── */
+
+.painPointHeadline {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.painPointRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.painPointRow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #5FA7FF;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.painPointCard {
+  background: oklch(98.4% 0.003 247.858);
+  border-radius: 16px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-align: center;
+  border: 1.5px solid #5FA7FF;
+  position: relative;
+  z-index: 1;
+}
+
+.painPointLabel {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 0.1rem;
+}
+
+.painPointText {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
 /* ─── Side-by-side placeholders ─────────────────────────── */
 
 .placeholderRow {
