@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './CaseStudy.module.css'
 import { projects } from '../data/projects'
@@ -16,6 +16,17 @@ export default function CaseStudy() {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
   const [activeSection, setActiveSection] = useState('overview')
+  const [lightbox, setLightbox] = useState(null)
+
+  const openLightbox = useCallback((src, alt) => setLightbox({ src, alt }), [])
+  const closeLightbox = useCallback(() => setLightbox(null), [])
+
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e) => { if (e.key === 'Escape') closeLightbox() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox, closeLightbox])
 
   useEffect(() => {
     const observers = []
@@ -48,6 +59,7 @@ export default function CaseStudy() {
   }
 
   return (
+    <>
     <article className={styles.page}>
 
       <div className={styles.pageTop} data-nav-dark>
@@ -217,8 +229,19 @@ export default function CaseStudy() {
             <div className={styles.body_text}>
               <p>With the milestones mapped, I moved into design. I started with rough sketches to explore different ways of visually communicating progress, then moved into high-fidelity Figma prototypes once I had a direction worth refining.</p>
             </div>
-            <div className={styles.placeholderRow}>
+            <div className={styles.iterationRow}>
+              <img src="/images/lsu-sketch-1.jpg" alt="Initial wireframe sketch" className={styles.iterationImg} onClick={() => openLightbox('/images/lsu-sketch-1.jpg', 'Initial Wireframe Sketch')} />
+              <div className={styles.iterationArrow}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
               <div className={styles.placeholder}>Placeholder</div>
+              <div className={styles.iterationArrow}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
               <div className={styles.placeholder}>Placeholder</div>
             </div>
             <div className={styles.body_text}>
@@ -235,21 +258,21 @@ export default function CaseStudy() {
 
             <div className={styles.featureList}>
               <div className={styles.featureRow}>
-                <img src="/images/lsu-feature-1.png" alt="Introduction & Explainer" className={styles.featureImg} />
+                <img src="/images/lsu-feature-1.png" alt="Introduction & Explainer" className={styles.featureImg} onClick={() => openLightbox('/images/lsu-feature-1.png', 'Introduction & Explainer')} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Introduction & Explainer</h3>
                   <p className={styles.featureText}>This section explains what step the loan is currently in and what that step means for the borrower, using plain language instead of internal mortgage terminology.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <img src="/images/lsu-feature-2.png" alt="Progress Tracker" className={styles.featureImg} />
+                <img src="/images/lsu-feature-2.png" alt="Progress Tracker" className={styles.featureImg} onClick={() => openLightbox('/images/lsu-feature-2.png', 'Progress Tracker')} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Progress Tracker</h3>
                   <p className={styles.featureText}>This show's a borrower's current position within the overall loan process & a timeline of their completed steps thus far so they can better understand how far along they are and what steps remain before closing.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <img src="/images/lsu-feature-3.png" alt="Next Steps" className={styles.featureImg} />
+                <img src="/images/lsu-feature-3.png" alt="Next Steps" className={styles.featureImg} onClick={() => openLightbox('/images/lsu-feature-3.png', 'Next Steps')} />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Next Steps</h3>
                   <p className={styles.featureText}>This section outlines any action the borrower needs to take at this stage, so it's clear what's expected of them and why it's urgent.</p>
@@ -311,7 +334,7 @@ export default function CaseStudy() {
               </div>
             </div>
 
-            <p className={styles.pullQuote}>In Retrospect...</p>
+            <p className={styles.pullQuote}>Where I'd Push Further</p>
             <div className={styles.body_text}>
               <p>If I were starting this project again, I'd spend more time upfront learning Arive's technical limitations and email client quirks, rather than discovering them mid-build after already designing around different assumptions. I'd also want to spend time doing discovery on a way to track actual borrower engagement with the emails. Arive doesn't provide any analytics on its system email sends, so the only feedback I have is qualitative, from LOs and borrowers after launch, rather than real data to measure success against.</p>
             </div>
@@ -322,5 +345,20 @@ export default function CaseStudy() {
       </div>
 
     </article>
+
+      {lightbox && (
+        <div className={styles.lightboxOverlay} onClick={closeLightbox}>
+          <div className={styles.lightboxInner} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.lightboxClose} onClick={closeLightbox} aria-label="Close">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <p className={styles.lightboxLabel}>{lightbox.alt}</p>
+            <img src={lightbox.src} alt={lightbox.alt} className={styles.lightboxImg} />
+          </div>
+        </div>
+      )}
+    </>
   )
 }

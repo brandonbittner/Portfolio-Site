@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './EmailScrollSection.module.css'
 
 const EMAILS = [
@@ -18,6 +18,18 @@ export default function EmailScrollSection() {
   const railRef = useRef(null)
   const progressRef = useRef(0)
   const lockedRef = useRef(false)
+  const [lightbox, setLightbox] = useState(null) // { src, label }
+
+  const openLightbox = (email) => setLightbox(email)
+  const closeLightbox = () => setLightbox(null)
+
+  // Close on Escape
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e) => { if (e.key === 'Escape') closeLightbox() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox])
 
   useEffect(() => {
     const container = containerRef.current
@@ -28,7 +40,6 @@ export default function EmailScrollSection() {
       return rail.scrollWidth - container.offsetWidth + 48
     }
 
-    // True when the container's center is within ~200px of the viewport center
     const isCentered = () => {
       const rect = container.getBoundingClientRect()
       const containerCenter = (rect.top + rect.bottom) / 2
@@ -50,6 +61,9 @@ export default function EmailScrollSection() {
     }
 
     const onWheel = (e) => {
+      // Don't intercept scroll when lightbox is open
+      if (lockedRef.current === 'lightbox') return
+
       const goingDown = e.deltaY > 0
 
       if (lockedRef.current) {
@@ -57,7 +71,6 @@ export default function EmailScrollSection() {
         const p = progressRef.current
         const max = getMax()
 
-        // At boundaries: release the page, let normal scroll resume
         if (p <= 0 && !goingDown) { unlock(); return }
         if (p >= 1 && goingDown) { unlock(); return }
 
@@ -67,8 +80,6 @@ export default function EmailScrollSection() {
         return
       }
 
-      // Not locked — engage when viewport midline is inside the container
-      // and there are emails left to reveal in this direction
       if (!isCentered()) return
 
       const p = progressRef.current
@@ -92,19 +103,41 @@ export default function EmailScrollSection() {
   }, [])
 
   return (
-    <div ref={containerRef} className={styles.container}>
-      <div className={styles.viewport}>
-        <div ref={railRef} className={styles.rail}>
-          {EMAILS.map((email, i) => (
-            <div key={i} className={styles.slide}>
-              <p className={styles.slideLabel}>{email.label}</p>
-              <div className={styles.emailFrame}>
-                <img src={email.src} alt={email.label} className={styles.img} />
+    <>
+      <div ref={containerRef} className={styles.container}>
+        <div className={styles.viewport}>
+          <div ref={railRef} className={styles.rail}>
+            {EMAILS.map((email, i) => (
+              <div key={i} className={styles.slide}>
+                <p className={styles.slideLabel}>{email.label}</p>
+                <div
+                  className={styles.emailFrame}
+                  onClick={() => openLightbox(email)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && openLightbox(email)}
+                >
+                  <img src={email.src} alt={email.label} className={styles.img} />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      {lightbox && (
+        <div className={styles.lightboxOverlay} onClick={closeLightbox}>
+          <div className={styles.lightboxInner} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.lightboxClose} onClick={closeLightbox} aria-label="Close">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <p className={styles.lightboxLabel}>{lightbox.label}</p>
+            <img src={lightbox.src} alt={lightbox.label} className={styles.lightboxImg} />
+          </div>
+        </div>
+      )}
+    </>
   )
 }
