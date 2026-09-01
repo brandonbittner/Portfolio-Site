@@ -147,11 +147,14 @@ export default function LoanBlogCaseStudy() {
             </div>
             <div className={styles.body_text}>
               <p>For marketing specifically, solving this also lined up with a broader goal, improving the site's SEO and making sure UMortgage's information showed up when borrowers asked mortgage questions through tools like ChatGPT. Borrowers were increasingly turning to those tools for answers before ever reaching out to an LO, and our marketing team saw an opportunity for UMortgage's educational resources to be included in those responses.</p>
+              <p>All of that information gave us a clear set of goals to work towards when designing a solution:</p>
             </div>
             <ul className={styles.checklist}>
-              <li>Goal placeholder one</li>
-              <li>Goal placeholder two</li>
-              <li>Goal placeholder three</li>
+              <li>Create a self-serve way for borrowers to learn about our loan products</li>
+              <li>Provide Loan Originators with loan program resources they can easily find and distribute to their borrowers</li>
+              <li>Build the solution in a way that the marketing team can easily add new resources and maintain existing ones</li>
+              <li>Improve UMortgage's SEO results for educational mortgage content searches</li>
+              <li>Get UMortgage's information included in AI-generated responses to mortgage questions</li>
             </ul>
           </section>
 
