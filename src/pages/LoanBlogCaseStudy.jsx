@@ -329,8 +329,8 @@ export default function LoanBlogCaseStudy() {
                   </svg>
                 </div>
                 <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
+                  <h3 className={styles.learnedTitle}>Designing Adaptable Systems</h3>
+                  <p className={styles.learnedText}>This project pushed me to think in terms of a flexible content system rather than a single page, building something that could hold whatever a copywriter needed to say about any program, not just the four we tested it against.</p>
                 </div>
               </div>
 
@@ -338,13 +338,16 @@ export default function LoanBlogCaseStudy() {
                 <div className={styles.learnedIcon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" />
-                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                    <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                    <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                    <path d="m21 3 1 11h-2" />
+                    <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                    <path d="M3 4h8" />
                   </svg>
                 </div>
                 <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
+                  <h3 className={styles.learnedTitle}>Cross-Disciplinary Collaboration</h3>
+                  <p className={styles.learnedText}>Being involved with our copywriter and data engineer from the very start was what made a system this flexible possible in the first place. I'm not an expert in writing or backend systems, so building this out on my own simply wasn't realistic, it was the combination of all three of our areas of expertise that made the final system as robust as it is.</p>
                 </div>
               </div>
 
@@ -352,20 +355,20 @@ export default function LoanBlogCaseStudy() {
                 <div className={styles.learnedIcon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
                   </svg>
                 </div>
                 <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
+                  <h3 className={styles.learnedTitle}>Content strategy beyond visual design</h3>
+                  <p className={styles.learnedText}>Being close to the SEO and AI-visibility side of this project gave me a better sense of how content strategy and structure affect discoverability, not just how a page looks or functions.</p>
                 </div>
               </div>
             </div>
 
             <p className={styles.pullQuote}>Where I'd Push Further</p>
             <div className={styles.body_text}>
-              <p>Retrospective body text placeholder.</p>
+              <p>If I could revisit this project, I'd want to put more structure around measuring its impact from the start, tracking SEO performance and AI-response visibility over time, rather than shipping the system without a clear way to see which decisions had the biggest impact.</p>
             </div>
           </section>
 
