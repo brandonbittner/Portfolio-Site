@@ -220,9 +220,6 @@ export default function LoanBlogCaseStudy() {
                 <div className={styles.placeholder} style={{ flex: 1 }}>Image placeholder</div>
               </div>
             </div>
-            <div className={styles.body_text}>
-              <p>None of this was a one-size-fits-all template bolted onto every page, it was a system built to flex around whatever a given program actually needed, while still giving our copywriter a structure he could work within independently.</p>
-            </div>
           </section>
 
           {/* ── Solution ───────────────────────────────────────── */}
