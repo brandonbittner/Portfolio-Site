@@ -161,45 +161,67 @@ export default function LoanBlogCaseStudy() {
           {/* ── Process ────────────────────────────────────────── */}
           <section id="process" className={styles.section}>
             <h2 className={styles.sectionLabel}>Process</h2>
-            <p className={styles.pullQuote}>Process sub-header placeholder</p>
+            <p className={styles.pullQuote}>Finding a standard structure</p>
             <div className={styles.body_text}>
-              <p>Process body text placeholder.</p>
+              <p>Before anything else, the team identified the core challenge: build a standard structure that would let marketing rapidly produce genuinely helpful, informative loan program resources, while fitting them into a tight design system whose frontend could adapt to whatever each resource needed. As a small team with limited bandwidth, a repeatable structure meant the copywriter could format and publish new program pages independently, without needing design or engineering involved every time, and without the team having to build and maintain a one-off layout for every product.</p>
+            </div>
+            <div className={styles.body_text}>
+              <p>To find that structure, our copywriter first drafted informational guidelines for four structurally different loan products, a 30-year conventional, a cash-out refinance, a HELOC, and a VA loan, writing each one freely with whatever information he felt gave a comprehensive picture of the program. Rather than designing around assumptions, the team broke all four drafts down into their essential recurring parts: an overview, value props, requirements, and program intricacies. Those recurring parts became the foundation for a single standardized page structure.</p>
             </div>
             <div className={styles.placeholderRow}>
-              <div className={styles.placeholderCol}>
-                <div className={styles.placeholder}>Image placeholder</div>
-                <p className={styles.caption}>Caption placeholder</p>
+              <div className={styles.placeholderImagesRow}>
+                <img
+                  src="/images/loan-blog-draft-1.jpg"
+                  alt="Initial loan product guideline draft"
+                  className={styles.iterationImg}
+                />
+                <div className={styles.iterationArrow}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+                <img
+                  src="/images/loan-blog-draft-2.jpg"
+                  alt="Edited loan product guideline draft"
+                  className={styles.iterationImg}
+                />
               </div>
-              <div className={styles.placeholderCol}>
-                <div className={styles.placeholder}>Image placeholder</div>
-                <p className={styles.caption}>Caption placeholder</p>
+              <div className={styles.colorKey}>
+                <div className={styles.colorKeyItem}>
+                  <span className={styles.colorSwatch} style={{ background: '#d2e1f0' }} />
+                  <span className={styles.colorKeyLabel}>Basic Program Information</span>
+                </div>
+                <div className={styles.colorKeyItem}>
+                  <span className={styles.colorSwatch} style={{ background: '#d2f0e1' }} />
+                  <span className={styles.colorKeyLabel}>Program Benefits</span>
+                </div>
+                <div className={styles.colorKeyItem}>
+                  <span className={styles.colorSwatch} style={{ background: '#fff0c3' }} />
+                  <span className={styles.colorKeyLabel}>Eligibility Requirements</span>
+                </div>
+                <div className={styles.colorKeyItem}>
+                  <span className={styles.colorSwatch} style={{ background: '#e1d2f0' }} />
+                  <span className={styles.colorKeyLabel}>Program Intricacies</span>
+                </div>
               </div>
             </div>
-            <p className={styles.pullQuote}>Process sub-header placeholder</p>
+            <p className={styles.pullQuote}>Validating the Structure</p>
             <div className={styles.body_text}>
-              <p>Process body text placeholder.</p>
+              <p>With those recurring parts identified, I built a wireframe around them, giving the standardized structure something concrete to actually test rather than just a list of pieces on paper. Our copywriter then took his original conventional 30-year guideline and reformatted it to fit the new structure, plugging that reformatted content back into the wireframe to see whether it held up. It did, confirming the structure could hold a real, fully-written program guide rather than just fitting the four drafts it had been distilled from.</p>
             </div>
-            <p className={styles.pullQuote}>Design & Iteration</p>
+            <div className={styles.placeholder}>Image placeholder</div>
+            <p className={styles.pullQuote}>Building a Flexible CMS Structure</p>
             <div className={styles.body_text}>
-              <p>Design & iteration body text placeholder.</p>
+              <p>With the structure validated, the next challenge was making it hold up in a real CMS, not just on a wireframe. Working closely with our copywriter and data engineer, the team built out Sanity architecture flexible enough to handle any loan product, despite how much variation existed between programs. That meant building toggleable calculators that could show a refinance-savings calculator, a monthly-payment calculator, or no calculator at all depending on the program; qualification containers that could scale from a single requirement up to five or more without breaking the layout; a large icon library giving our copywriter a wide range of icons to pull from to visually supplement whatever value props, qualifications, or FAQs he ended up writing for a given program; and a dynamic comparison table that let users stack multiple loan programs against each other.</p>
             </div>
-            <div className={styles.iterationRow}>
-              <div className={styles.placeholder}>Image placeholder</div>
-              <div className={styles.iterationArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+            <div className={styles.placeholderRow}>
+              <div className={styles.placeholderImagesRow}>
+                <div className={styles.placeholder} style={{ flex: 1 }}>Image placeholder</div>
+                <div className={styles.placeholder} style={{ flex: 1 }}>Image placeholder</div>
               </div>
-              <div className={styles.placeholder}>Image placeholder</div>
-              <div className={styles.iterationArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-              <div className={styles.placeholder}>Image placeholder</div>
             </div>
             <div className={styles.body_text}>
-              <p>Post-iteration body text placeholder.</p>
+              <p>None of this was a one-size-fits-all template bolted onto every page, it was a system built to flex around whatever a given program actually needed, while still giving our copywriter a structure he could work within independently.</p>
             </div>
           </section>
 
