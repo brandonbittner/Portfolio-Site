@@ -1,11 +1,16 @@
 .container {
   width: 100%;
   margin: 2rem 0;
+  padding: 0;
+  transition: padding 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .laptopWrapper {
   position: relative;
   width: 100%;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .laptopImg {

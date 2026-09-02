@@ -3,37 +3,83 @@ import styles from './LaptopScrollSection.module.css'
 
 export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Webpage screenshot' }) {
   const containerRef = useRef(null)
+  const wrapperRef   = useRef(null)
   const viewportRef  = useRef(null)
   const pageImgRef   = useRef(null)
   const offsetRef    = useRef(0)
   const canScrollRef = useRef(false)
+  const lockedRef    = useRef(false)
+  const isActiveRef  = useRef(false)
+
+  const getDist = useCallback(() => {
+    const el = containerRef.current
+    if (!el) return Infinity
+    const rect = el.getBoundingClientRect()
+    const containerCenter = rect.top + rect.height / 2
+    return Math.abs(containerCenter - window.innerHeight / 2)
+  }, [])
 
   const getMax = useCallback(() => {
     const vp  = viewportRef.current
     const img = pageImgRef.current
     if (!vp || !img) return 0
-    const imgH = img.getBoundingClientRect().height
-    const vpH  = vp.getBoundingClientRect().height
-    return Math.max(0, imgH - vpH)
+    return Math.max(0, img.offsetHeight - vp.offsetHeight)
   }, [])
 
-  const isCentered = useCallback(() => {
+  const lock = useCallback(() => {
+    if (lockedRef.current) return
+    lockedRef.current = true
+    document.documentElement.style.overflow = 'hidden'
+  }, [])
+
+  const unlock = useCallback(() => {
+    if (!lockedRef.current) return
+    lockedRef.current = false
+    document.documentElement.style.overflow = ''
+  }, [])
+
+  const setActive = useCallback((active) => {
+    const wrapper = wrapperRef.current
     const el = containerRef.current
-    if (!el) return false
-    const rect = el.getBoundingClientRect()
-    const containerCenter = rect.top + rect.height / 2
-    const viewportCenter  = window.innerHeight / 2
-    return Math.abs(containerCenter - viewportCenter) < 220
+    if (!wrapper || !el || active === isActiveRef.current) return
+    isActiveRef.current = active
+    wrapper.style.transform = active ? 'scale(1.14)' : 'scale(1)'
+    el.style.padding = active ? '4rem 0' : '0'
   }, [])
 
+  // Scroll listener: proactively locks when laptop enters center zone,
+  // unlocks when it leaves, resets canScroll only once far away.
   useEffect(() => {
-    const onWheel = (e) => {
-      if (!isCentered()) {
+    const onScroll = () => {
+      const dist = getDist()
+
+      // Reset canScroll once laptop is clearly past the section
+      if (canScrollRef.current && dist > window.innerHeight * 0.55) {
         canScrollRef.current = false
-        return
       }
 
-      if (canScrollRef.current) return
+      if (!canScrollRef.current) {
+        if (dist < 220) {
+          lock()         // pre-lock: stops the next scroll frame
+        } else {
+          unlock()
+        }
+        setActive(dist < window.innerHeight * 0.28)
+      } else {
+        unlock()
+        setActive(false)
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [getDist, lock, unlock, setActive])
+
+  // Wheel listener: handles internal page scroll while locked
+  useEffect(() => {
+    const onWheel = (e) => {
+      if (!lockedRef.current || canScrollRef.current) return
 
       e.preventDefault()
 
@@ -42,6 +88,8 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
 
       if (newOffset === offsetRef.current) {
         canScrollRef.current = true
+        unlock()
+        setActive(false)
         return
       }
 
@@ -52,16 +100,21 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
 
       if (newOffset <= 0 || newOffset >= max) {
         canScrollRef.current = true
+        unlock()
+        setActive(false)
       }
     }
 
     window.addEventListener('wheel', onWheel, { passive: false })
-    return () => window.removeEventListener('wheel', onWheel)
-  }, [isCentered, getMax])
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+      unlock()
+    }
+  }, [getMax, unlock, setActive])
 
   return (
     <div ref={containerRef} className={styles.container}>
-      <div className={styles.laptopWrapper}>
+      <div ref={wrapperRef} className={styles.laptopWrapper}>
         <div ref={viewportRef} className={styles.screenViewport}>
           <img
             ref={pageImgRef}

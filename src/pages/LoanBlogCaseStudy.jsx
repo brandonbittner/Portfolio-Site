@@ -247,26 +247,31 @@ export default function LoanBlogCaseStudy() {
             <div className={styles.body_text}>
               <p>The result was a browsable landing page listing UMortgage's full loan product lineup, with each program built out on its own dedicated page using the standardized structure the team designed and validated. Every page follows the same core shape, overview, value props, requirements, and how to apply, while still flexing to fit what each individual program actually needs.</p>
             </div>
+            <div className={styles.featureRow}>
+              <div className={styles.body_text}>
+                <p>Alongside the individual product pages, the team also had to design a navigation page that let users actually find their way through the full lineup. It uses a tagging system to categorize each loan product, a search feature for finding a specific program directly, and loan type filtering so users can narrow the list down to the kind of loan they're looking for.</p>
+              </div>
+              <img
+                src="/images/loan-blog-landing-page.jpg"
+                alt="Loan product landing page"
+                className={styles.featureImg}
+                onClick={() => openLightbox('/images/loan-blog-landing-page.jpg', 'Loan product landing page')}
+              />
+            </div>
+            <p className={styles.pullQuote} style={{ marginBottom: '2rem' }}>Built to Flex Where It Needs to</p>
             <div className={styles.featureList}>
               <div className={styles.featureRow}>
                 <div className={styles.placeholder}>Image placeholder</div>
                 <div className={styles.featureInfo}>
-                  <h3 className={styles.featureTitle}>Feature title placeholder</h3>
-                  <p className={styles.featureText}>Feature body text placeholder.</p>
+                  <h3 className={styles.featureTitle}>Comparison Tables</h3>
+                  <p className={styles.featureText}>A dynamic table lets users stack multiple loan programs side by side, pulling in the relevant details for whichever programs are selected so borrowers can compare their options directly instead of flipping between pages.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
                 <div className={styles.placeholder}>Image placeholder</div>
                 <div className={styles.featureInfo}>
-                  <h3 className={styles.featureTitle}>Feature title placeholder</h3>
-                  <p className={styles.featureText}>Feature body text placeholder.</p>
-                </div>
-              </div>
-              <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Image placeholder</div>
-                <div className={styles.featureInfo}>
-                  <h3 className={styles.featureTitle}>Feature title placeholder</h3>
-                  <p className={styles.featureText}>Feature body text placeholder.</p>
+                  <h3 className={styles.featureTitle}>Mortgage Calculators</h3>
+                  <p className={styles.featureText}>Depending on the program, a page might surface a refinance-savings calculator, a monthly-payment calculator, or no calculator at all, toggled based on what actually makes sense for that loan type.</p>
                 </div>
               </div>
             </div>
