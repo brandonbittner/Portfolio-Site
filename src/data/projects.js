@@ -7,7 +7,7 @@ export const projects = [
     section: 'case-studies',
     type: 'product-design',
     year: 2025,
-    coverImage: '',
+    coverImage: '/images/loan-blog-hero.jpg',
     heroImage: '',
     tags: ['Product Design', 'Web Design', 'Content Strategy'],
     summary: 'Placeholder summary for the Loan Product Blog Website case study.',
