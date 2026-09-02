@@ -53,7 +53,7 @@ export default function LoanBlogCaseStudy() {
       <div className={styles.pageTop} data-nav-dark>
         {/* ── Hero splash image ───────────────────────────────── */}
         <div className={styles.splash}>
-          <div className={styles.splashPlaceholder}>Hero Placeholder</div>
+          <img src="/images/loan-blog-hero.jpg" alt="Loan Product Blog Website hero" className={styles.splashImg} />
         </div>
 
         {/* ── Title block ─────────────────────────────────────── */}
