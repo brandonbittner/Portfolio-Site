@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './CaseStudy.module.css'
+import LaptopScrollSection from '../components/LaptopScrollSection'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview' },
@@ -231,9 +232,20 @@ export default function LoanBlogCaseStudy() {
           {/* ── Solution ───────────────────────────────────────── */}
           <section id="solution" className={styles.section}>
             <h2 className={styles.sectionLabel}>Solution</h2>
-            <p className={styles.pullQuote}>What I Built</p>
+            <p className={styles.pullQuote}>A repeatable webpage structure that adapts to any loan program</p>
+            <LaptopScrollSection
+              laptopSrc="/images/laptopmockup.png"
+              pageSrc="/images/30yr-conventional.jpg"
+              pageAlt="Conventional 30-year fixed mortgage page"
+            />
+            <div className={styles.mobileScreensRow}>
+              <img src="/images/loan-blog-mobile-1.jpg" alt="Mobile screen 1" className={styles.mobileScreen} onClick={() => openLightbox('/images/loan-blog-mobile-1.jpg', 'Mobile screen 1')} />
+              <img src="/images/loan-blog-mobile-2.jpg" alt="Mobile screen 2" className={styles.mobileScreen} onClick={() => openLightbox('/images/loan-blog-mobile-2.jpg', 'Mobile screen 2')} />
+              <img src="/images/loan-blog-mobile-3.jpg" alt="Mobile screen 3" className={styles.mobileScreen} onClick={() => openLightbox('/images/loan-blog-mobile-3.jpg', 'Mobile screen 3')} />
+              <img src="/images/loan-blog-mobile-4.jpg" alt="Mobile screen 4" className={styles.mobileScreen} onClick={() => openLightbox('/images/loan-blog-mobile-4.jpg', 'Mobile screen 4')} />
+            </div>
             <div className={styles.body_text}>
-              <p>Solution body text placeholder.</p>
+              <p>The result was a browsable landing page listing UMortgage's full loan product lineup, with each program built out on its own dedicated page using the standardized structure the team designed and validated. Every page follows the same core shape, overview, value props, requirements, and how to apply, while still flexing to fit what each individual program actually needs.</p>
             </div>
             <div className={styles.featureList}>
               <div className={styles.featureRow}>

@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.laptopWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.laptopImg {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Positioned precisely over the transparent screen area of the laptop PNG.
+   Measured values: screen x=162-1447, y=133-858 on a 1611x980 image. */
+.screenViewport {
+  position: absolute;
+  left: 10.06%;
+  top: 13.57%;
+  width: 79.76%;
+  height: 73.98%;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.pageImg {
+  width: 100%;
+  display: block;
+  transform: translateY(0);
+  will-change: transform;
+}
