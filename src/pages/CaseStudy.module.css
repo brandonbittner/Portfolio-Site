@@ -628,6 +628,16 @@
   margin-bottom: 0;
 }
 
+.featureDualImg {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.featureDualImg .featureImg {
+  flex: 1;
+  width: 0;
+}
+
 .featureImg {
   width: 100%;
   height: auto;

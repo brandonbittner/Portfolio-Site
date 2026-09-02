@@ -261,23 +261,54 @@ export default function LoanBlogCaseStudy() {
             <p className={styles.pullQuote} style={{ marginBottom: '2rem' }}>Built to Flex Where It Needs to</p>
             <div className={styles.featureList}>
               <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Image placeholder</div>
+                <img
+                  src="/images/loan-blog-comparison-table.png"
+                  alt="Comparison table feature"
+                  className={styles.featureImg}
+                  onClick={() => openLightbox('/images/loan-blog-comparison-table.png', 'Comparison table feature')}
+                />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Comparison Tables</h3>
                   <p className={styles.featureText}>A dynamic table lets users stack multiple loan programs side by side, pulling in the relevant details for whichever programs are selected so borrowers can compare their options directly instead of flipping between pages.</p>
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <div className={styles.placeholder}>Image placeholder</div>
+                <img
+                  src="/images/loan-blog-calculator.png"
+                  alt="Mortgage calculator feature"
+                  className={styles.featureImg}
+                  onClick={() => openLightbox('/images/loan-blog-calculator.png', 'Mortgage calculator feature')}
+                />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Mortgage Calculators</h3>
                   <p className={styles.featureText}>Depending on the program, a page might surface a refinance-savings calculator, a monthly-payment calculator, or no calculator at all, toggled based on what actually makes sense for that loan type.</p>
                 </div>
               </div>
+              <div className={styles.featureRow}>
+                <div className={styles.featureDualImg}>
+                  <img
+                    src="/images/loan-blog-content-container-1.png"
+                    alt="Content container example 1"
+                    className={styles.featureImg}
+                    onClick={() => openLightbox('/images/loan-blog-content-container-1.png', 'Content container example 1')}
+                  />
+                  <img
+                    src="/images/loan-blog-content-container-2.png"
+                    alt="Content container example 2"
+                    className={styles.featureImg}
+                    onClick={() => openLightbox('/images/loan-blog-content-container-2.png', 'Content container example 2')}
+                  />
+                </div>
+                <div className={styles.featureInfo}>
+                  <h3 className={styles.featureTitle}>Content Containers</h3>
+                  <p className={styles.featureText}>Three containers throughout each page (used for things like value props, requirements, and FAQs) support dynamic icon selection and a layout that adapts to however many points our copywriter wants to include for a given program.</p>
+                </div>
+              </div>
             </div>
-            <p className={styles.pullQuote}>Rollout</p>
+            <p className={styles.pullQuote}>Built for Search & AI Visibility</p>
             <div className={styles.body_text}>
-              <p>Rollout body text placeholder.</p>
+              <p>Beyond the page structure itself, two more pieces were built specifically to support the SEO and AI-visibility goals from Research. Our copywriter did extensive research into SEO around mortgage-related keywords, specifically the terms and phrasing tied to individual loan programs, and used that research to shape how each page's content was written and structured.</p>
+              <p>On the AI side, each page's content was also paired with a structured backend markdown file that fed into an AI-readable data source, helping large language models pull accurate program information directly from UMortgage's content when generating responses to mortgage-related questions.</p>
             </div>
           </section>
 
