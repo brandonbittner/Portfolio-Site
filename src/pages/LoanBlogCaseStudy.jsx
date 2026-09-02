@@ -174,6 +174,7 @@ export default function LoanBlogCaseStudy() {
                   src="/images/loan-blog-draft-1.jpg"
                   alt="Initial loan product guideline draft"
                   className={styles.iterationImg}
+                  onClick={() => openLightbox('/images/loan-blog-draft-1.jpg', 'Initial loan product guideline draft')}
                 />
                 <div className={styles.iterationArrow}>
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -184,6 +185,7 @@ export default function LoanBlogCaseStudy() {
                   src="/images/loan-blog-draft-2.jpg"
                   alt="Edited loan product guideline draft"
                   className={styles.iterationImg}
+                  onClick={() => openLightbox('/images/loan-blog-draft-2.jpg', 'Edited loan product guideline draft')}
                 />
               </div>
               <div className={styles.colorKey}>
@@ -216,8 +218,12 @@ export default function LoanBlogCaseStudy() {
             </div>
             <div className={styles.placeholderRow}>
               <div className={styles.placeholderImagesRow}>
-                <img src="/images/loan-blog-cms-1.png" alt="CMS structure screenshot 1" className={styles.iterationImg} />
-                <img src="/images/loan-blog-cms-2.png" alt="CMS structure screenshot 2" className={styles.iterationImg} />
+                <img src="/images/loan-blog-cms-1.png" alt="CMS structure screenshot 1" className={styles.iterationImg} onClick={() => openLightbox('/images/loan-blog-cms-1.png', 'CMS structure screenshot 1')} />
+                <img src="/images/loan-blog-cms-2.png" alt="CMS structure screenshot 2" className={styles.iterationImg} onClick={() => openLightbox('/images/loan-blog-cms-2.png', 'CMS structure screenshot 2')} />
+              </div>
+              <div className={styles.placeholderCaptionsRow}>
+                <p className={styles.caption}>Calculator CMS module that let's the user select the calculator type, color theme, or no calculator at all</p>
+                <p className={styles.caption}>Program comparison table module allows the user to select criterias to compare programs by and what programs to compare them against</p>
               </div>
             </div>
           </section>
