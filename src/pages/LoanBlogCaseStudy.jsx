@@ -216,8 +216,8 @@ export default function LoanBlogCaseStudy() {
             </div>
             <div className={styles.placeholderRow}>
               <div className={styles.placeholderImagesRow}>
-                <div className={styles.placeholder} style={{ flex: 1 }}>Image placeholder</div>
-                <div className={styles.placeholder} style={{ flex: 1 }}>Image placeholder</div>
+                <img src="/images/loan-blog-cms-1.png" alt="CMS structure screenshot 1" className={styles.iterationImg} />
+                <img src="/images/loan-blog-cms-2.png" alt="CMS structure screenshot 2" className={styles.iterationImg} />
               </div>
             </div>
           </section>
