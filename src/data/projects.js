@@ -1,5 +1,19 @@
 export const projects = [
   {
+    id: 6,
+    slug: 'tempo',
+    title: 'Tempo',
+    employer: 'Self-initiated',
+    section: 'case-studies',
+    type: 'product-design',
+    year: 2025,
+    coverImage: '',
+    heroImage: '',
+    tags: ['UX Design', 'Product Design', 'Figma'],
+    summary: 'Placeholder summary for the Tempo case study.',
+    description: '',
+  },
+  {
     id: 5,
     slug: 'loan-product-blog-website',
     title: 'Loan Product Blog Website',
