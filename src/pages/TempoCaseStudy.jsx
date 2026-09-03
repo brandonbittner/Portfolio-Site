@@ -264,6 +264,22 @@ export default function TempoCaseStudy() {
                   },
                   { type: 'subhead', content: 'Trend Indicators' },
                   { type: 'text', content: 'A color-coded change column shows how each relationship is moving, giving an instant read on momentum without opening anything.' },
+                  { type: 'scoreRow', scores: [
+                    '/images/tempo-score-1.svg',
+                    '/images/tempo-score-2.svg',
+                    '/images/tempo-score-3.svg',
+                    '/images/tempo-score-4.svg',
+                    '/images/tempo-score-5.svg',
+                  ]},
+                  { type: 'subhead', content: 'Last Contact & Last Lead Recency Indicators' },
+                  { type: 'text', content: 'Color-coded columns surface how recently an LO has reached out and how recently that relationship has sent them business, two of the clearest signals of relationship health.' },
+                  { type: 'scoreRow', fill: true, scores: [
+                    '/images/tempo-recency-1.svg',
+                    '/images/tempo-recency-2.svg',
+                    '/images/tempo-recency-3.svg',
+                    '/images/tempo-recency-4.svg',
+                    '/images/tempo-recency-5.svg',
+                  ]},
                 ],
               },
             },
@@ -377,6 +393,12 @@ export default function TempoCaseStudy() {
                                         <img src={tier.tag} alt={tier.label} className={styles.tierTag} />
                                         <p className={styles.tierDefinition}>{tier.definition}</p>
                                       </div>
+                                    ))}
+                                  </div>
+                                : block.type === 'scoreRow'
+                                ? <div key={i} className={`${styles.scoreRow}${block.fill ? ` ${styles.scoreRowFill}` : ''}`}>
+                                    {block.scores.map((src, si) => (
+                                      <img key={si} src={src} alt={`Score ${si + 1}`} className={`${styles.scoreImg}${block.fill ? ` ${styles.scoreImgFill}` : ''}`} />
                                     ))}
                                   </div>
                                 : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
