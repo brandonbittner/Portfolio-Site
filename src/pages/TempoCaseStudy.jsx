@@ -2,11 +2,10 @@ import { useEffect, useState, useCallback } from 'react'
 import styles from './CaseStudy.module.css'
 
 const SECTIONS = [
-  { id: 'overview',   label: 'Overview' },
-  { id: 'problem',    label: 'Problem' },
-  { id: 'process',    label: 'Process' },
-  { id: 'solution',   label: 'Solution' },
-  { id: 'reflection', label: 'Reflection' },
+  { id: 'overview',      label: 'Overview' },
+  { id: 'case-study-1', label: 'Relationship Tracker' },
+  { id: 'case-study-2', label: 'Lead Tracker' },
+  { id: 'case-study-3', label: 'Marketing Library' },
 ]
 
 export default function TempoCaseStudy() {
@@ -221,85 +220,177 @@ export default function TempoCaseStudy() {
             </div>
           </section>
 
-          {/* ── Problem ── */}
-          <section id="problem" className={styles.section}>
-            <h2 className={styles.sectionLabel}>Problem</h2>
-            <p className={styles.pullQuote}>Problem headline placeholder</p>
-            <div className={styles.body_text}>
-              <p>Problem body text placeholder.</p>
-            </div>
-          </section>
-
-          {/* ── Process ── */}
-          <section id="process" className={styles.section}>
-            <h2 className={styles.sectionLabel}>Process</h2>
-            <p className={styles.pullQuote}>Process headline placeholder</p>
-            <div className={styles.body_text}>
-              <p>Process body text placeholder.</p>
-            </div>
-          </section>
-
-          {/* ── Solution ── */}
-          <section id="solution" className={styles.section}>
-            <h2 className={styles.sectionLabel}>Solution</h2>
-            <p className={styles.pullQuote}>Solution headline placeholder</p>
-            <div className={styles.body_text}>
-              <p>Solution body text placeholder.</p>
-            </div>
-          </section>
-
-          {/* ── Reflection ── */}
-          <section id="reflection" className={styles.section}>
-            <h2 className={styles.sectionLabel}>Reflection</h2>
-            <p className={styles.pullQuote}>What I've Learned From This Project</p>
-            <div className={styles.learnedGrid}>
-              <div className={styles.learnedCard}>
-                <div className={styles.learnedIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="7" height="7" rx="1" />
-                    <rect x="14" y="3" width="7" height="7" rx="1" />
-                    <rect x="3" y="14" width="7" height="7" rx="1" />
-                    <rect x="14" y="14" width="7" height="7" rx="1" />
+          {[
+            {
+              id: 'case-study-1',
+              title: 'Relationship Tracker',
+              quarter: 'Q2 2025',
+              problem: {
+                headline: 'No System to Evaluate Business Relationships',
+                body: ["The common pushback LOs gave when told to do more sales activities was \"I don't know who to call.\" Digging into that, we found most LOs were operating on loose instinct or gut feel about which business relationships were strong, which were weakening, and whether the strength of these relationships have meaningfully changed over time. Without a real system to track that, partnerships often slipped away quietly, not from any dramatic falling out, but simply because an LO forgot to check in or hadn't called in a while."],
+                goalsIntro: 'From that problem, we defined a clear set of goals for the feature:',
+                goals: [
+                  'Give LOs a clear, at-a-glance view of the strength of their business relationships',
+                  'Surface which relationships are thriving, which are cooling off, and which need attention before they\'re lost',
+                  'Automate relationship scoring based on real activity data instead of memory or gut feel',
+                  'Make relationship intel accessible wherever an LO is already working with a contact, not siloed in a separate tool',
+                ],
+              },
+              process: {
+                headline: 'Defining How to Value a Relationship',
+                blocks: [
+                  { type: 'text', content: 'Before any design work could start, we had to answer a harder question: with the data available, how do we score a relationship in a way that actually reflects its value, and captures how that value changes over time? That took a combined effort with our sales team, CEO, and sales coaching team to work out.' },
+                  { type: 'text', content: 'We landed on two data sources: sales activities (the controllable actions an LO takes) and loan outcomes like application submitted, credit pulled, rate locked, and loan funded (the business a relationship actually returns). We already had a points system valuing sales activities based on what our sales coaching team found most predictive of funded loans, so we extended that same scale to loan outcomes, giving us one unified way to weigh both effort and results.' },
+                  { type: 'placeholder' },
+                  { type: 'text', content: "The next problem was reflecting change over time. A referral partner who sent five loans last year but hasn't called in months isn't as strong a relationship as the score might suggest if it only counted lifetime totals. To solve this, every activity and outcome was assigned a decay period, points earned fade the longer it's been since that activity occurred, at a rate specific to how lasting its impact tends to be. A phone call (8 points) decays over 30 days; a funded loan (50 points) decays over 90. That combination of point values and decay rates gave us a score that reflected current relationship health, not just history." },
+                  { type: 'placeholder' },
+                  { type: 'text', content: 'We validated the model with a test group of about 10 LOs, running their existing contacts through the algorithm and reviewing the resulting rankings with them. Feedback was consistently positive, the rankings matched their own sense of who their strongest referral partners actually were. From there, we scoped the experience around two views: a high-level dashboard for comparing relationships at a glance, and a deeper single-relationship view showing how that score had progressed over time.' },
+                ],
+              },
+              solution: {
+                headline: 'Relationship Tracker Table',
+                blocks: [
+                  { type: 'image', src: '/images/tempo-relationship-tracker.png', alt: 'Relationship Tracker Table' },
+                  { type: 'text', content: 'We started by designing a dashboard that gives LOs a scannable, high-level view of every tracked relationship in one place, ranked and color-coded to surface who\'s thriving, who\'s cooling off, and who needs attention, all at a glance.' },
+                  { type: 'featureRowLeft', src: '/images/tempo-rt-tier-system.png', alt: 'Relationship Tier System', subhead: 'Relationship Tier System', body: 'Every relationship is automatically tagged as one of 3 relationship tiers based on referral and funding history, so LOs can gain a quick overview of what that relationship has provided them at a glance.',
+                    rightBlocks: [
+                      { type: 'tierChart', tiers: [
+                        { tag: '/images/tempo-tag-prospect.svg',   label: 'Prospect',   definition: 'A relationship that has not yet provided a lead or referral' },
+                        { tag: '/images/tempo-tag-connection.svg', label: 'Connection', definition: 'A relationship that has provided a lead or referral, but not one that has closed a loan' },
+                        { tag: '/images/tempo-tag-partner.svg',    label: 'Partner',    definition: 'A relationship that has provided at least 1 lead or referral that has closed a loan' },
+                      ]},
+                      { type: 'text', content: 'Every relationship starts as a Prospect, someone with no referral history yet. As they begin sending referrals, they move up to Connection, and once one of those referrals results in a funded loan, they become a Partner. The goal for LOs is to move as many relationships up that ladder as possible over time. Tiers update automatically as activity comes in, but LOs can manually override a relationship\'s status if they feel it\'s been misclassified.' },
+                    ],
+                  },
+                  { type: 'subhead', content: 'Trend Indicators' },
+                  { type: 'text', content: 'A color-coded change column shows how each relationship is moving, giving an instant read on momentum without opening anything.' },
+                ],
+              },
+            },
+            {
+              id: 'case-study-2',
+              title: 'Lead Tracker',
+              quarter: 'Q3 2025',
+              problem: { headline: 'Problem headline placeholder', body: ['Problem body text placeholder.'] },
+              process: { headline: 'Process headline placeholder', body: ['Process body text placeholder.'] },
+              solution: { headline: 'Solution headline placeholder', body: ['Solution body text placeholder.'] },
+            },
+            {
+              id: 'case-study-3',
+              title: 'Marketing Library',
+              quarter: 'Q2 2026',
+              problem: { headline: 'Problem headline placeholder', body: ['Problem body text placeholder.'] },
+              process: { headline: 'Process headline placeholder', body: ['Process body text placeholder.'] },
+              solution: { headline: 'Solution headline placeholder', body: ['Solution body text placeholder.'] },
+            },
+          ].map(({ id, title, quarter, problem, process, solution }) => (
+            <section key={id} id={id} className={`${styles.section} ${styles.miniCaseStudy}`}>
+              <div className={styles.miniCaseStudyHeader}>
+                <span className={styles.caseStudyTag}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
                   </svg>
-                </div>
-                <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
-                </div>
+                  Case Study
+                </span>
+                <h2 className={styles.miniCaseStudyTitle}>{title}</h2>
+                <span className={styles.miniCaseStudyQuarter}>{quarter}</span>
               </div>
-              <div className={styles.learnedCard}>
-                <div className={styles.learnedIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" />
-                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                  </svg>
+              <div className={styles.miniCaseStudyBody}>
+
+                <div className={styles.miniSection}>
+                  <h3 className={styles.sectionLabel}>Problem</h3>
+                  <p className={styles.pullQuote}>{problem.headline}</p>
+                  <div className={styles.body_text}>
+                    {problem.body.map((p, i) => <p key={i}>{p}</p>)}
+                    {problem.goalsIntro && <p>{problem.goalsIntro}</p>}
+                  </div>
+                  {problem.goals && (
+                    <ul className={styles.checklist}>
+                      {problem.goals.map((g, i) => <li key={i}>{g}</li>)}
+                    </ul>
+                  )}
                 </div>
-                <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
+
+                <div className={styles.miniSection}>
+                  <h3 className={styles.sectionLabel}>Process</h3>
+                  <p className={styles.pullQuote}>{process.headline}</p>
+                  {process.blocks ? (
+                    process.blocks.map((block, i) =>
+                      block.type === 'placeholder'
+                        ? <div key={i} className={styles.placeholder} />
+                        : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                    )
+                  ) : (
+                    <div className={styles.body_text}>
+                      {process.body.map((p, i) => <p key={i}>{p}</p>)}
+                    </div>
+                  )}
                 </div>
+
+                <div className={styles.miniSection}>
+                  <h3 className={styles.sectionLabel}>Solution</h3>
+                  <p className={styles.pullQuote}>{solution.headline}</p>
+                  {solution.blocks ? (
+                    solution.blocks.map((block, i) =>
+                      block.type === 'placeholder'
+                        ? <div key={i} className={styles.placeholder} />
+                        : block.type === 'image'
+                          ? <img key={i} src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                          : block.type === 'dualImg'
+                            ? <div key={i} className={styles.dualImgCrop}>
+                                {block.images.map(img => (
+                                  <img key={img.src} src={img.src} alt={img.alt} className={styles.featureImg} onClick={() => openLightbox(img.src, img.alt)} />
+                                ))}
+                              </div>
+                            : block.type === 'subhead'
+                              ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
+                              : block.type === 'featureRowLeft'
+                                ? <div key={i} className={`${styles.featureRow} ${styles.featureRowCompact}`}>
+                                    <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                    <div className={styles.featureInfo}>
+                                      <span className={styles.featureTitle}>{block.subhead}</span>
+                                      <p className={styles.featureText}>{block.body}</p>
+                                      {block.rightBlocks && block.rightBlocks.map((rb, ri) =>
+                                        rb.type === 'tierChart'
+                                          ? <div key={ri} className={styles.tierChart}>
+                                              {rb.tiers.map((tier) => (
+                                                <div key={tier.label} className={styles.tierRow}>
+                                                  <span className={styles.tierTagCell}>
+                                                    <img src={tier.tag} alt={tier.label} className={styles.tierTag} />
+                                                  </span>
+                                                  <p className={styles.tierDefinition}>{tier.definition}</p>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          : rb.type === 'text'
+                                            ? <p key={ri} className={styles.featureText}>{rb.content}</p>
+                                            : null
+                                      )}
+                                    </div>
+                                  </div>
+                                : block.type === 'tierChart'
+                                ? <div key={i} className={styles.tierChart}>
+                                    {block.tiers.map((tier) => (
+                                      <div key={tier.label} className={styles.tierRow}>
+                                        <img src={tier.tag} alt={tier.label} className={styles.tierTag} />
+                                        <p className={styles.tierDefinition}>{tier.definition}</p>
+                                      </div>
+                                    ))}
+                                  </div>
+                                : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                    )
+                  ) : (
+                    <div className={styles.body_text}>
+                      {solution.body.map((p, i) => <p key={i}>{p}</p>)}
+                    </div>
+                  )}
+                </div>
+
               </div>
-              <div className={styles.learnedCard}>
-                <div className={styles.learnedIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
-                </div>
-                <div className={styles.learnedContent}>
-                  <h3 className={styles.learnedTitle}>Learned title placeholder</h3>
-                  <p className={styles.learnedText}>Learned body text placeholder.</p>
-                </div>
-              </div>
-            </div>
-            <p className={styles.pullQuote}>Where I'd Push Further</p>
-            <div className={styles.body_text}>
-              <p>Retrospective body text placeholder.</p>
-            </div>
-          </section>
+            </section>
+          ))}
 
         </div>
       </div>
