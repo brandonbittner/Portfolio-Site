@@ -175,6 +175,21 @@ export default function TempoCaseStudy() {
               />
             </div>
             <p className={styles.caption}>Screens from the activity logging user flow in Tempo</p>
+
+            <div className={`${styles.statsSection} ${styles.statsSectionCentered}`}>
+              <h3 className={styles.pullQuote}>That Philosophy Shows Up in the Numbers</h3>
+              <div className={styles.statsGrid2}>
+                <div className={styles.statCard}>
+                  <span className={styles.statNumber}>300+</span>
+                  <span className={styles.statLabel}>Active Users</span>
+                </div>
+                <div className={styles.statCard}>
+                  <span className={styles.statNumber}>2,500+</span>
+                  <span className={styles.statLabel}>Weekly Sales Activities Logged</span>
+                </div>
+              </div>
+            </div>
+
             <div className={styles.body_text}>
               <p>In the years since, our team has built on that foundation, combining sales activity data with loan pipeline data to power a suite of features that help LOs plan their day, see the big picture on their relationships, decide who to call, text, or meet with next, and win back time in their day, all in service of that same mantra: "ignore the noise, do more sales activities."</p>
             </div>
@@ -187,7 +202,7 @@ export default function TempoCaseStudy() {
                 { title: 'My Day',              quarter: 'Q4 2025', img: '/images/tempo-my-day.jpg',                               body: 'An Outlook-integrated calendar and time-blocking tool that helps LOs plan their day around high-value sales activities. LOs manage their full schedule directly inside Tempo, with the ability to create and execute on sales activity time blocks.' },
                 { title: 'Marketing Library',   quarter: 'Q2 2026', img: '/images/tempo-contacts.png',       body: "A centralized, easily searchable home for UMortgage's 500+ customizable marketing assets, giving LOs a fast way to find what they need and giving the marketing team an efficient way to share new assets as they're created." },
                 { title: 'Database Uploads',    quarter: 'Q2 2026', img: '/images/tempo-lead-tracker-2.png', body: "Allows LOs to upload their own contact databases and get them fully integrated into Tempo's systems and features in bulk, eliminating the manual work of entering and enrolling contacts one-by-one." },
-                { title: 'Email Center',        quarter: null,       img: '/images/tempo-email-center.png',   body: "Gives LOs full visibility into the automated email campaigns marketing sends to their contacts, weekly updates, refinance alerts, birthday and anniversary emails, and more, including performance metrics and the ability to manage who's enrolled." },
+                { title: 'Email Center',        quarter: 'Q3 2026',       img: '/images/tempo-email-center.png',   body: "Gives LOs full visibility into the automated email campaigns marketing sends to their contacts, weekly updates, refinance alerts, birthday and anniversary emails, and more, including performance metrics and the ability to manage who's enrolled." },
               ].map(({ title, quarter, img, body }) => (
                 <div key={title} className={styles.featureRow}>
                   {img
