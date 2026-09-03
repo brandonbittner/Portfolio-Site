@@ -280,6 +280,13 @@ export default function TempoCaseStudy() {
                     '/images/tempo-recency-4.svg',
                     '/images/tempo-recency-5.svg',
                   ]},
+                  { type: 'featureRowRight', src: '/images/tempo-rt-priority-list.png', alt: 'Priority List', subhead: 'Priority List', body: 'LOs can favorite up to 50 relationships into a dedicated list, a curated view of the partnerships they care about most or want to keep top of mind.',
+                    rightBlocks: [
+                      { type: 'subhead', content: 'Focused Views' },
+                      { type: 'text', content: 'Additional tabs break the full list down by what matters most in the moment, relationships needing attention, ones on the rise, or grouped by tier.' },
+                      { type: 'image', src: '/images/tempo-rt-focused-views.png', alt: 'Focused Views' },
+                    ],
+                  },
                 ],
               },
             },
@@ -400,6 +407,23 @@ export default function TempoCaseStudy() {
                                     {block.scores.map((src, si) => (
                                       <img key={si} src={src} alt={`Score ${si + 1}`} className={`${styles.scoreImg}${block.fill ? ` ${styles.scoreImgFill}` : ''}`} />
                                     ))}
+                                  </div>
+                                : block.type === 'featureRowRight'
+                                ? <div key={i} className={`${styles.featureRow} ${styles.featureRowRight}`}>
+                                    <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                    <div className={styles.featureInfo}>
+                                      <span className={styles.featureTitle}>{block.subhead}</span>
+                                      <p className={styles.featureText}>{block.body}</p>
+                                      {block.rightBlocks && block.rightBlocks.map((rb, ri) =>
+                                        rb.type === 'subhead'
+                                          ? <span key={ri} className={styles.featureTitle} style={{ marginTop: '1rem', display: 'block' }}>{rb.content}</span>
+                                          : rb.type === 'text'
+                                            ? <p key={ri} className={styles.featureText}>{rb.content}</p>
+                                            : rb.type === 'image'
+                                              ? <img key={ri} src={rb.src} alt={rb.alt} className={styles.featureImg} style={{ marginTop: '0.75rem' }} onClick={() => openLightbox(rb.src, rb.alt)} />
+                                              : null
+                                      )}
+                                    </div>
                                   </div>
                                 : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
                     )

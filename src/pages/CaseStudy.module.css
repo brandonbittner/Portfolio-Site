@@ -230,6 +230,14 @@
   margin-bottom: 1.25rem;
 }
 
+.miniCaseStudyBody .featureRow {
+  margin-bottom: 2rem;
+}
+
+.featureRowRight .featureInfo {
+  gap: 0.25rem;
+}
+
 .miniCaseStudyBody .featureText,
 .miniCaseStudyBody .body_text p,
 .miniCaseStudyBody .body_text {
@@ -240,7 +248,8 @@
   display: flex;
   gap: 1.25rem;
   align-items: center;
-  margin-top: -0.5rem;
+  margin-top: -0.85rem;
+  margin-bottom: 2rem;
 }
 
 .scoreImg {
@@ -309,7 +318,7 @@
   letter-spacing: -0.01em;
   color: var(--color-text);
   margin-bottom: 0.25rem;
-  margin-top: 1.5rem;
+  margin-top: 2.25rem;
 }
 
 .miniSection {
@@ -919,6 +928,16 @@
 
 .featureRowCompact .featureImg {
   width: 160px;
+  height: auto;
+}
+
+.featureRowRight {
+  grid-template-columns: 180px 1fr;
+  align-items: flex-start;
+}
+
+.featureRowRight > .featureImg {
+  width: 180px;
   height: auto;
 }
 
