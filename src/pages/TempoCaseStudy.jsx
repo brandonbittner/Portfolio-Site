@@ -287,6 +287,16 @@ export default function TempoCaseStudy() {
                       { type: 'image', src: '/images/tempo-rt-focused-views.png', alt: 'Focused Views' },
                     ],
                   },
+                  { type: 'pullQuote', content: 'Beyond the Dashboard' },
+                  { type: 'text', content: 'Every contact enrolled in the Relationship Tracker has a dedicated Relationship tab inside their existing contact modal. Clicking into a relationship from the Relationship Tracker opens straight to this tab, but because it lives inside the contact modal itself, that same relationship data is accessible anywhere in Tempo a user can already click into a contact, no need to go back to the dashboard just to check where things stand.' },
+                  { type: 'dualImg', images: [
+                    { src: '/images/tempo-rt-tracker-modal.jpg', alt: 'Relationship Tracker Contact Modal', flex: 1483 },
+                    { src: '/images/tempo-rt-modal-mobile-1.png', alt: 'Relationship Trend Graph', flex: 505 },
+                  ]},
+                  { type: 'subhead', content: 'Relationship Trend Graph' },
+                  { type: 'text', content: "A graph showing how the relationship's score has moved over different time frames, giving LOs a clear read on whether things are trending up, holding steady, or slipping." },
+                  { type: 'subhead', content: 'Relationship Activities Table' },
+                  { type: 'text', content: "A full breakdown of every activity completed with that contact, and how many points each is currently contributing to the score with decay factored in, giving LOs real insight into exactly what's making up a relationship's score." },
                 ],
               },
             },
@@ -361,12 +371,26 @@ export default function TempoCaseStudy() {
                         ? <div key={i} className={styles.placeholder} />
                         : block.type === 'image'
                           ? <img key={i} src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
-                          : block.type === 'dualImg'
-                            ? <div key={i} className={styles.dualImgCrop}>
-                                {block.images.map(img => (
-                                  <img key={img.src} src={img.src} alt={img.alt} className={styles.featureImg} onClick={() => openLightbox(img.src, img.alt)} />
+                          : block.type === 'dualImgCaptioned'
+                            ? <div key={i} className={styles.dualImgCaptioned}>
+                                {block.images.map((img, ii) => (
+                                  <div key={ii} className={styles.dualImgCaptionedCol}>
+                                    <img src={img.src} alt={img.alt} className={styles.featureImg} onClick={() => openLightbox(img.src, img.alt)} />
+                                    <div className={styles.featureInfo}>
+                                      <span className={styles.featureTitle}>{img.subhead}</span>
+                                      <p className={styles.featureText}>{img.body}</p>
+                                    </div>
+                                  </div>
                                 ))}
                               </div>
+                          : block.type === 'dualImg'
+                            ? <div key={i} className={`${styles.dualImgCrop}${block.equal ? ` ${styles.dualImgCropEqual}` : ''}`}>
+                                {block.images.map(img => (
+                                  <img key={img.src} src={img.src} alt={img.alt} className={styles.featureImg} style={img.flex ? { flex: img.flex } : undefined} onClick={() => openLightbox(img.src, img.alt)} />
+                                ))}
+                              </div>
+                            : block.type === 'pullQuote'
+                              ? <p key={i} className={styles.pullQuote}>{block.content}</p>
                             : block.type === 'subhead'
                               ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
                               : block.type === 'featureRowLeft'

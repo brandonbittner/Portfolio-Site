@@ -968,6 +968,35 @@
   flex: 491;
 }
 
+.dualImgCropEqual .featureImg:first-child,
+.dualImgCropEqual .featureImg:last-child {
+  flex: 1;
+}
+
+.dualImgCaptioned {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.dualImgCaptionedCol {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.dualImgCaptionedCol .featureImg {
+  width: 140px;
+  height: auto;
+}
+
+.dualImgCaptionedCol .featureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .featureDualImg .featureImg {
   flex: 1;
   width: 0;
