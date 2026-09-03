@@ -182,20 +182,23 @@ export default function TempoCaseStudy() {
 
             <div className={styles.featureList}>
               {[
-                {
-                  title: 'Relationship Tracker',
-                  body: "Analyzes an LO's logged sales activity to score the strength of their relationships, surfacing which partnerships are thriving and which need attention before they go cold.",
-                },
-                { title: 'Lead Tracker',       body: "Tracks a contact's full journey from initial lead to entry into the loan pipeline, using stage-based timers that create urgency to keep leads moving instead of sitting idle and getting forgotten." },
-                { title: 'My Day',             body: 'An Outlook-integrated calendar and time-blocking tool that helps LOs plan their day around high-value sales activities instead of guessing where their time should go. LOs manage their full schedule directly inside Tempo, with the ability to schedule planned call blocks with their Tempo contacts.' },
-                { title: 'Marketing Library',  body: "A centralized, easily searchable home for UMortgage's 500+ customizable marketing assets, giving LOs a fast way to find what they need and giving the marketing team an efficient way to share new assets as they're created." },
-                { title: 'Database Uploads',   body: "Allows LOs to upload their own contact databases and get them fully integrated into Tempo's systems and features in bulk, eliminating the manual work of entering and enrolling contacts one-by-one." },
-                { title: 'Email Center',       body: "Gives LOs full visibility into the automated email campaigns marketing sends to their contacts, weekly updates, refinance alerts, birthday and anniversary emails, and more, including performance metrics and the ability to manage who's enrolled." },
-              ].map(({ title, body }) => (
+                { title: 'Relationship Tracker', quarter: 'Q2 2025', img: null,                               body: "Analyzes an LO's logged sales activity to score the strength of their relationships, surfacing which partnerships are thriving and which need attention before they go cold." },
+                { title: 'Lead Tracker',        quarter: 'Q3 2025', img: '/images/tempo-lead-tracker-1.png', body: "Tracks a contact's full journey from initial lead to entry into the loan pipeline, using stage-based timers that create urgency to keep leads moving instead of sitting idle and getting forgotten." },
+                { title: 'My Day',              quarter: 'Q4 2025', img: null,                               body: 'An Outlook-integrated calendar and time-blocking tool that helps LOs plan their day around high-value sales activities. LOs manage their full schedule directly inside Tempo, with the ability to create and execute on sales activity time blocks.' },
+                { title: 'Marketing Library',   quarter: 'Q2 2026', img: '/images/tempo-contacts.png',       body: "A centralized, easily searchable home for UMortgage's 500+ customizable marketing assets, giving LOs a fast way to find what they need and giving the marketing team an efficient way to share new assets as they're created." },
+                { title: 'Database Uploads',    quarter: 'Q2 2026', img: '/images/tempo-lead-tracker-2.png', body: "Allows LOs to upload their own contact databases and get them fully integrated into Tempo's systems and features in bulk, eliminating the manual work of entering and enrolling contacts one-by-one." },
+                { title: 'Email Center',        quarter: null,       img: '/images/tempo-email-center.png',   body: "Gives LOs full visibility into the automated email campaigns marketing sends to their contacts, weekly updates, refinance alerts, birthday and anniversary emails, and more, including performance metrics and the ability to manage who's enrolled." },
+              ].map(({ title, quarter, img, body }) => (
                 <div key={title} className={styles.featureRow}>
-                  <div className={styles.placeholder} />
+                  {img
+                    ? <img src={img} alt={title} className={styles.featureImg} onClick={() => openLightbox(img, title)} />
+                    : <div className={styles.placeholder} />
+                  }
                   <div className={styles.featureInfo}>
-                    <span className={styles.featureTitle}>{title}</span>
+                    <div className={styles.featureTitleRow}>
+                      <span className={styles.featureTitle}>{title}</span>
+                      {quarter && <span className={styles.featureQuarter}>{quarter}</span>}
+                    </div>
                     <p className={styles.featureText}>{body}</p>
                   </div>
                 </div>

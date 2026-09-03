@@ -749,14 +749,15 @@
   display: flex;
   gap: 1.75rem;
   height: 380px;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .dualImgCrop .featureImg {
-  width: auto;
+  flex: 1;
+  min-width: 0;
   height: 100%;
-  object-fit: contain;
-  object-position: top left;
+  object-fit: cover;
+  object-position: top;
 }
 
 .featureDualImg .featureImg {
@@ -780,9 +781,29 @@
   gap: 0.6rem;
 }
 
+.featureTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.featureQuarter {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #5FA7FF;
+  background: oklch(95% 0.01 255);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .featureTitle {
   font-family: var(--font-sans);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text);
