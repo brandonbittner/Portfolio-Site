@@ -304,9 +304,55 @@ export default function TempoCaseStudy() {
               id: 'case-study-2',
               title: 'Lead Tracker',
               quarter: 'Q3 2025',
-              problem: { headline: 'Problem headline placeholder', body: ['Problem body text placeholder.'] },
-              process: { headline: 'Process headline placeholder', body: ['Process body text placeholder.'] },
-              solution: { headline: 'Solution headline placeholder', body: ['Solution body text placeholder.'] },
+              problem: {
+                headline: 'No System to Keep Leads Moving',
+                body: ['Every LO had their own way of tracking leads, memory, handwritten lists, personal spreadsheets, and none of it was standardized or reliable. Many of the tools LOs used to track their leads got bloated quickly, filled with leads that had gone cold months ago but sat in their systems idly without an exit mechanism, taking attention away from the leads that were actually worthwhile. Without a reliable system, hot leads were far too easy to lose track of. Some sat idle for weeks without follow-up, others got forgotten entirely, and LOs had no clear sense of which leads were actually worth their time versus which had already gone cold.'],
+                goalsIntro: 'From that problem, we defined a clear set of goals for the feature:',
+                goals: [
+                  'Give LOs a clear view of where every lead stands in their journey to the pipeline',
+                  'Score leads based on real activity and engagement, not memory or guesswork',
+                  'Create urgency to keep leads moving forward instead of sitting idle',
+                ],
+              },
+              process: {
+                headline: 'Connecting the Dots With Relationship Tracker',
+                blocks: [
+                  { type: 'text', content: "From the start, the team saw an opportunity to build Lead Tracker with tight synergy to Relationship Tracker, which had shipped just before it. Where Relationship Tracker gave LOs a big-picture view of their business relationships, Lead Tracker would do the same for active leads, and both ultimately served the same purpose: helping LOs quickly decide who to spend their time on. Knowing LOs would move back and forth between the two constantly, designing them as sibling features made sense from day one." },
+                  { type: 'text', content: "That meant reusing much of Relationship Tracker's underlying system rather than starting over. The scoring model carried over almost exactly, with only the outcome point values adjusted to better reflect what makes a lead valuable, giving LOs a clear read on which leads were \"hot\" and likely to convert." },
+                  { type: 'text', content: "Rather than the spreadsheet or table format most LOs were already using, we took inspiration from Kanban boards, a format our own product team relied on daily and found effective for exactly this kind of \"keep things moving\" goal. Working with the sales team, we mapped leads to three stages based on real conversion behavior: New Leads, Credit Pulled, and Pre-Approved." },
+                  { type: 'dualPlaceholder' },
+                  { type: 'subhead', content: 'Adding a Layer of Urgency' },
+                  { type: 'text', content: "With those stages defined, we built an expiration system that solved two problems at once: pushing LOs to keep moving a lead forward instead of letting it idle, and automatically clearing cold leads so the tracker stayed focused on what was still active. Each stage's expiration window was set based on real conversion behavior, earlier stages carry tighter deadlines since leads are most likely to go cold right after first contact, while later stages get more breathing room as the relationship becomes more committed. Once an application is submitted, the lead graduates out of the tracker entirely, they're no longer a lead, they're a client." },
+                  { type: 'placeholder' },
+                ],
+              },
+              solution: {
+                headline: 'Lead Tracker Board',
+                blocks: [
+                  { type: 'dualImg', images: [
+                    { src: '/images/tempo-lt-board-1.png', alt: 'Lead Tracker Board Desktop', flex: 1757 },
+                    { src: '/images/tempo-lt-board-mobile.jpg', alt: 'Lead Tracker Board Mobile', flex: 490 },
+                  ]},
+                  { type: 'text', content: 'We designed the Lead Tracker as a Kanban-style board, giving LOs a clear, at-a-glance view of every active lead and exactly where they stand in the process.' },
+                  { type: 'subhead', content: 'Three-Column Kanban Board' },
+                  { type: 'text', content: 'Leads are organized into three columns, New, Credit Pulled, and Pre-Approved, giving LOs a clear view of where every lead stands and what share of their pipeline sits in each stage.' },
+                  { type: 'image', src: '/images/tempo-lt-kanban.jpg', alt: 'Lead Tracker Kanban Board' },
+                  { type: 'subhead', content: 'Expiration Indicators' },
+                  { type: 'text', content: 'Reusing the same color system from Relationship Tracker, each lead shows an at-a-glance signal of how much time is left before it expires.' },
+                  { type: 'scoreRow', scores: [
+                    '/images/tempo-expiry-1.svg',
+                    '/images/tempo-expiry-2.svg',
+                    '/images/tempo-expiry-3.svg',
+                    '/images/tempo-expiry-4.svg',
+                    '/images/tempo-expiry-5.svg',
+                  ]},
+                  { type: 'featureRowLeft', src: null, alt: 'Expired View', subhead: 'Expired View', body: "Leads that expire aren't gone for good. A dedicated table shows every expired lead with the option to revive it, so a cold lead can always be brought back in." },
+                  { type: 'featureRowLeft', src: null, alt: 'Pausing Leads', subhead: 'Pausing Leads', body: "If a lead isn't ready to move forward, LOs can pause it and schedule it to automatically reappear in the tracker later. Pausing prompts for a quick reason, so there's context waiting when it resurfaces. All paused leads live in a dedicated waiting view." },
+                  { type: 'subhead', content: 'Progression Indicators' },
+                  { type: 'text', content: 'Lead cards get distinct styling to flag key moments at a glance, when a lead is brand new, recently revived, recently promoted to the next stage, or about to graduate out of the tracker and into the loan pipeline.' },
+                  { type: 'imageRow', images: [null, null, null, null] },
+                ],
+              },
             },
             {
               id: 'case-study-3',
@@ -353,7 +399,14 @@ export default function TempoCaseStudy() {
                     process.blocks.map((block, i) =>
                       block.type === 'placeholder'
                         ? <div key={i} className={styles.placeholder} />
-                        : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                        : block.type === 'dualPlaceholder'
+                          ? <div key={i} className={styles.dualPlaceholder}>
+                              <div className={styles.placeholder} />
+                              <div className={styles.placeholder} />
+                            </div>
+                          : block.type === 'subhead'
+                            ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
+                            : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
                     )
                   ) : (
                     <div className={styles.body_text}>
@@ -395,7 +448,10 @@ export default function TempoCaseStudy() {
                               ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
                               : block.type === 'featureRowLeft'
                                 ? <div key={i} className={`${styles.featureRow} ${styles.featureRowCompact}`}>
-                                    <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                    {block.src
+                                      ? <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                      : <div className={styles.placeholder} />
+                                    }
                                     <div className={styles.featureInfo}>
                                       <span className={styles.featureTitle}>{block.subhead}</span>
                                       <p className={styles.featureText}>{block.body}</p>
@@ -425,6 +481,14 @@ export default function TempoCaseStudy() {
                                         <p className={styles.tierDefinition}>{tier.definition}</p>
                                       </div>
                                     ))}
+                                  </div>
+                                : block.type === 'imageRow'
+                                ? <div key={i} className={styles.imageRow}>
+                                    {block.images.map((src, ii) =>
+                                      src
+                                        ? <img key={ii} src={src} alt={`Image ${ii + 1}`} className={styles.imageRowImg} onClick={() => openLightbox(src, `Image ${ii + 1}`)} />
+                                        : <div key={ii} className={styles.imageRowPlaceholder} />
+                                    )}
                                   </div>
                                 : block.type === 'scoreRow'
                                 ? <div key={i} className={`${styles.scoreRow}${block.fill ? ` ${styles.scoreRowFill}` : ''}`}>

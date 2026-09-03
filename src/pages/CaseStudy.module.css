@@ -244,6 +244,29 @@
   color: #475569;
 }
 
+.imageRow {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.imageRowImg {
+  flex: 1;
+  width: 0;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  cursor: zoom-in;
+}
+
+.imageRowPlaceholder {
+  flex: 1;
+  min-height: 120px;
+  border-radius: 12px;
+  background: #e53e3e;
+}
+
 .scoreRow {
   display: flex;
   gap: 1.25rem;
@@ -971,6 +994,16 @@
 .dualImgCropEqual .featureImg:first-child,
 .dualImgCropEqual .featureImg:last-child {
   flex: 1;
+}
+
+.dualPlaceholder {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.dualPlaceholder .placeholder {
+  flex: 1;
+  margin-bottom: 0;
 }
 
 .dualImgCaptioned {
