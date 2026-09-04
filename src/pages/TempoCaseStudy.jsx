@@ -400,6 +400,15 @@ export default function TempoCaseStudy() {
                   { type: 'subhead', content: 'Featured Assets' },
                   { type: 'text', content: 'The marketing team can pin or feature specific assets at the top of the page, giving priority visibility to whatever\'s most relevant or timely.' },
                   { type: 'image', src: '/images/tempo-ml-featured.png', alt: 'Featured Assets' },
+                  { type: 'featureRowLeft', src: '/images/tempo-ml-filtering.png', alt: 'Filtering', subhead: 'Filtering', body: 'Assets are broken down into filters that match how LOs actually search, with the ability to select multiple filters at once to narrow things down further.', rightBlocks: [
+                    { type: 'subhead', content: 'Sort By' },
+                    { type: 'text', content: 'LOs can sort content by New to see marketing\'s latest assets, or by Popular to find what other LOs have been using most.' },
+                    { type: 'image', src: '/images/tempo-ml-sort.png', alt: 'Sort By', width: '160px' },
+                  ] },
+                  { type: 'pullQuote', content: 'Asset Modals' },
+                  { type: 'image', src: '/images/tempo-ml-asset-modal.jpg', alt: 'Asset Modal' },
+                  { type: 'text', content: 'Clicking into an asset opens a simple, focused view built around one core need: getting an LO from Tempo into the actual editable template as quickly as possible. Since nearly every asset lives in Canva, the modal links directly out to it. For assets that come in multiple formats, like social graphics with separate Facebook, Instagram, and Stories sizing, the modal surfaces a dedicated link for each version instead of forcing LOs to guess which template fits. Assets that come with suggested social copy include that text right in the modal with a one-click copy button, so LOs can paste it straight into their post.' },
+                  { type: 'featureRowLeft', wide: true, src: '/images/tempo-ml-flag.png', alt: 'Asset Flagging', subhead: 'Asset Flagging', body: 'Loan guidelines change often, sometimes without marketing knowing, which can quietly make an asset outdated. A flag button lets LOs report issues like bad info, broken links, or compliance concerns, automatically creating a Jira ticket for marketing to fix it, keeping the library accurate over time.' },
                 ],
               },
             },
@@ -481,7 +490,7 @@ export default function TempoCaseStudy() {
                       block.type === 'placeholder'
                         ? <div key={i} className={styles.placeholder} />
                         : block.type === 'image'
-                          ? <img key={i} src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                          ? <img key={i} src={block.src} alt={block.alt} className={`${styles.featureImg} ${styles.standaloneImg}${block.small ? ` ${styles.standaloneImgSmall}` : ''}`} onClick={() => openLightbox(block.src, block.alt)} />
                           : block.type === 'dualImgCaptioned'
                             ? <div key={i} className={styles.dualImgCaptioned}>
                                 {block.images.map((img, ii) => (
@@ -511,7 +520,7 @@ export default function TempoCaseStudy() {
                                       : <div className={styles.placeholder} />
                                     }
                                     <div className={styles.featureInfo}>
-                                      <span className={styles.featureTitle}>{block.subhead}</span>
+                                      {block.subhead && <span className={styles.featureTitle}>{block.subhead}</span>}
                                       <p className={styles.featureText}>{block.body}</p>
                                       {block.rightBlocks && block.rightBlocks.map((rb, ri) =>
                                         rb.type === 'tierChart'
@@ -527,7 +536,11 @@ export default function TempoCaseStudy() {
                                             </div>
                                           : rb.type === 'text'
                                             ? <p key={ri} className={styles.featureText}>{rb.content}</p>
-                                            : null
+                                            : rb.type === 'subhead'
+                                              ? <h4 key={ri} className={styles.miniSubhead}>{rb.content}</h4>
+                                              : rb.type === 'image'
+                                                ? <img key={ri} src={rb.src} alt={rb.alt} style={{ marginTop: '0.5rem', width: rb.width || '200px', height: 'auto', display: 'block', borderRadius: '12px' }} onClick={() => openLightbox(rb.src, rb.alt)} />
+                                                : null
                                       )}
                                     </div>
                                   </div>

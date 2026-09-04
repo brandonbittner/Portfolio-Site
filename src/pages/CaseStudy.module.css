@@ -227,16 +227,41 @@
 }
 
 .miniCaseStudyBody .featureImg {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
+}
+
+.miniCaseStudyBody .standaloneImg {
+  margin-top: 0.5rem;
+}
+
+.miniCaseStudyBody .standaloneImgSmall {
+  max-width: 320px;
 }
 
 .miniCaseStudyBody .imageRow {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+.miniCaseStudyBody .scoreRow {
+  margin-bottom: 0;
+}
+
+.miniCaseStudyBody .dualImgCrop {
+  margin-bottom: 0;
 }
 
 .miniCaseStudyBody .featureRow {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0;
+}
+
+.miniCaseStudyBody .featureRow + .pullQuote,
+.miniCaseStudyBody .imageRow + .pullQuote {
+  margin-top: 2.25rem;
+}
+
+.featureRowCompact .featureInfo {
+  gap: 0.3rem;
 }
 
 .featureRowRight .featureInfo {
@@ -255,6 +280,7 @@
 }
 
 .miniCaseStudyBody .body_text {
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
