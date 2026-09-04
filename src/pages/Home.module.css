@@ -18,6 +18,8 @@
   align-items: center;
   overflow: hidden;
   background: #000;
+  margin-top: -64px;
+  padding-top: 64px;
 }
 
 .hero::before {
@@ -115,6 +117,16 @@
   color: #5FA7FF;
   white-space: nowrap;
   border-right: 1px solid rgba(95, 167, 255, 0.25);
+  cursor: default;
+}
+
+.rolesCell span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.rolesCell:hover span {
+  transform: scale(1.04);
 }
 
 .rolesCellLast {

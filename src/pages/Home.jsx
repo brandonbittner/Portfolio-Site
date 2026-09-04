@@ -17,9 +17,9 @@ export default function Home() {
             <span>I'm Brandon.</span>
           </div>
           <div className={styles.rolesBar}>
-            <div className={styles.rolesCell}>UI/UX Designer</div>
-            <div className={styles.rolesCell}>Product Designer</div>
-            <div className={`${styles.rolesCell} ${styles.rolesCellLast}`}>Graphic Designer</div>
+            <div className={styles.rolesCell}><span>UI/UX Designer</span></div>
+            <div className={styles.rolesCell}><span>Product Designer</span></div>
+            <div className={`${styles.rolesCell} ${styles.rolesCellLast}`}><span>Graphic Designer</span></div>
           </div>
           <p className={styles.heroSub}>I'm a <span className={styles.heroAccent}>systems-minded</span> designer who thrives on untangling <span className={styles.heroAccent}>complex problems</span>, turning them into experiences that are simple, clear, and <span className={styles.heroAccent}>genuinely enjoyable</span> to use.</p>
         </div>
