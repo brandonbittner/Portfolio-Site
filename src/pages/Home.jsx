@@ -2,64 +2,19 @@ import styles from './Home.module.css'
 import { projects } from '../data/projects'
 import ProjectGrid from '../components/sections/ProjectGrid'
 
-const HERO_TAGS = [
-  { label: 'UI/UX Design',   rotate: -8,  left: '54%', top: '43%' },
-  { label: 'Brand Identity', rotate:  6,  left: '63%', top: '13%' },
-  { label: 'Motion',         rotate: -5,  left: '73%', top: '56%' },
-]
-
-const caseStudies   = projects.filter(p => p.section === 'case-studies')
-const selectedWork  = projects.filter(p => p.section === 'selected-work')
+const caseStudies  = projects.filter(p => p.section === 'case-studies')
+const selectedWork = projects.filter(p => p.section === 'selected-work')
 
 export default function Home() {
   return (
     <div className={styles.page}>
 
-      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className={styles.hero}>
-
-        <div className={styles.arch} aria-hidden="true" />
-
-        <img
-          src="/images/headshot.jpg"
-          alt="Brandon Bittner"
-          className={styles.photo}
-        />
-
-        {HERO_TAGS.map((t, i) => (
-          <div
-            key={t.label}
-            className={styles.tag}
-            style={{
-              '--r': `${t.rotate}deg`,
-              left: t.left,
-              top: t.top,
-              animationDelay: `${0.45 + i * 0.13}s`,
-            }}
-          >
-            {t.label}
-          </div>
-        ))}
-
-        <div className={styles.heroBottom}>
-          <p className={styles.greeting}>Hey, I'm Brandon.</p>
-          <h1 className={styles.headline}>
-            I'm a <em className={styles.dim}>systems-minded</em> designer
-            who thrives on solving complex problems — translating them
-            across <em className={styles.dim}>branding</em>,{' '}
-            <em className={styles.dim}>product</em>, and{' '}
-            <em className={styles.dim}>interface</em> into experiences
-            that are effortless and enjoyable
-          </h1>
-          <div className={styles.rolesCard}>
-            <span className={styles.role}>UX Design</span>
-            <div className={styles.statLine} />
-            <span className={styles.role}>Product Strategy</span>
-            <div className={styles.statLine} />
-            <span className={styles.role}>Brand Design</span>
-          </div>
+        <div className={styles.heroHeadline}>
+          <span>Hey!</span>
+          <img src="/images/brandon-hero.jpeg" alt="Brandon Bittner" className={styles.heroPill} />
+          <span>I'm Brandon.</span>
         </div>
-
       </section>
 
       <ProjectGrid id="work" title="Case Studies"  projects={caseStudies} />

@@ -14,9 +14,43 @@
   min-height: 76vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  background: var(--color-bg);
+  background: #000000;
+}
+
+.heroHeadline {
+  font-family: 'Crete Round', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  line-height: 1.1;
+}
+
+.heroPill {
+  width: auto;
+  height: 1.6em;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 999px;
+  display: block;
+  border: 2px solid #5FA7FF;
+  animation: pillFloat 3s ease-in-out infinite, pillGlow 3s ease-in-out infinite;
+}
+
+@keyframes pillFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+
+@keyframes pillGlow {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(95, 167, 255, 0.6); }
+  50%       { box-shadow: 0 0 12px 3px rgba(95, 167, 255, 0.6); }
 }
 
 /* ── Arch — right-anchored ── */
