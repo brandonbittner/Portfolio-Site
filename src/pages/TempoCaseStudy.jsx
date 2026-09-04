@@ -346,8 +346,8 @@ export default function TempoCaseStudy() {
                     '/images/tempo-expiry-4.svg',
                     '/images/tempo-expiry-5.svg',
                   ]},
-                  { type: 'featureRowLeft', src: null, alt: 'Expired View', subhead: 'Expired View', body: "Leads that expire aren't gone for good. A dedicated table shows every expired lead with the option to revive it, so a cold lead can always be brought back in." },
-                  { type: 'featureRowLeft', src: null, alt: 'Pausing Leads', subhead: 'Pausing Leads', body: "If a lead isn't ready to move forward, LOs can pause it and schedule it to automatically reappear in the tracker later. Pausing prompts for a quick reason, so there's context waiting when it resurfaces. All paused leads live in a dedicated waiting view." },
+                  { type: 'featureRowLeft', wide: true, src: '/images/tempo-lt-expired.png', alt: 'Expired View', subhead: 'Expired View', body: "Leads that expire aren't gone for good. A dedicated table shows every expired lead with the option to revive it, so a cold lead can always be brought back in." },
+                  { type: 'featureRowLeft', wide: true, src: '/images/tempo-lt-paused.png', alt: 'Pausing Leads', subhead: 'Pausing Leads', body: "If a lead isn't ready to move forward, LOs can pause it and schedule it to automatically reappear in the tracker later. Pausing prompts for a quick reason, so there's context waiting when it resurfaces. All paused leads live in a dedicated waiting view." },
                   { type: 'subhead', content: 'Progression Indicators' },
                   { type: 'text', content: 'Lead cards get distinct styling to flag key moments at a glance, when a lead is brand new, recently revived, recently promoted to the next stage, or about to graduate out of the tracker and into the loan pipeline.' },
                   { type: 'imageRow', images: [null, null, null, null] },
@@ -447,7 +447,7 @@ export default function TempoCaseStudy() {
                             : block.type === 'subhead'
                               ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
                               : block.type === 'featureRowLeft'
-                                ? <div key={i} className={`${styles.featureRow} ${styles.featureRowCompact}`}>
+                                ? <div key={i} className={`${styles.featureRow} ${block.wide ? styles.featureRowWide : styles.featureRowCompact}`}>
                                     {block.src
                                       ? <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
                                       : <div className={styles.placeholder} />

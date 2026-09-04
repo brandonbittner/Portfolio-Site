@@ -954,6 +954,11 @@
   height: auto;
 }
 
+.featureRowWide {
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+}
+
 .featureRowRight {
   grid-template-columns: 180px 1fr;
   align-items: flex-start;
