@@ -350,7 +350,12 @@ export default function TempoCaseStudy() {
                   { type: 'featureRowLeft', wide: true, src: '/images/tempo-lt-paused.png', alt: 'Pausing Leads', subhead: 'Pausing Leads', body: "If a lead isn't ready to move forward, LOs can pause it and schedule it to automatically reappear in the tracker later. Pausing prompts for a quick reason, so there's context waiting when it resurfaces. All paused leads live in a dedicated waiting view." },
                   { type: 'subhead', content: 'Progression Indicators' },
                   { type: 'text', content: 'Lead cards get distinct styling to flag key moments at a glance, when a lead is brand new, recently revived, recently promoted to the next stage, or about to graduate out of the tracker and into the loan pipeline.' },
-                  { type: 'imageRow', images: [null, null, null, null] },
+                  { type: 'imageRow', images: [
+                    '/images/tempo-lt-progress-1.png',
+                    '/images/tempo-lt-progress-2.png',
+                    '/images/tempo-lt-progress-3.png',
+                    '/images/tempo-lt-progress-4.png',
+                  ]},
                 ],
               },
             },
