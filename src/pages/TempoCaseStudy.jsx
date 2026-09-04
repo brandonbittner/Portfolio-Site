@@ -366,9 +366,39 @@ export default function TempoCaseStudy() {
               id: 'case-study-3',
               title: 'Marketing Library',
               quarter: 'Q2 2026',
-              problem: { headline: 'Problem headline placeholder', body: ['Problem body text placeholder.'] },
-              process: { headline: 'Process headline placeholder', body: ['Process body text placeholder.'] },
-              solution: { headline: 'Solution headline placeholder', body: ['Solution body text placeholder.'] },
+              problem: {
+                blocks: [
+                  { type: 'pullQuote', content: '500+ Assets, No Easy Way to Find Them' },
+                  { type: 'text', content: "Since 2022, UMortgage's marketing team had built out a library of 500+ customizable marketing assets (flyers, social graphics, slide decks, event promo, and more), but the system for actually finding and using them wasn't up to par. The system was very unintuitive and lacked search features making it incredibly difficult for our Loan Originators to find the resources they were looking for. This often led to frustration and requests for assets that we already provided (not to mention the time spent responding to requests weighing down the marketing team). Our loan originators weren't uninterested in using our marketing team's offerings, they just couldn't reliably find and access them." },
+                  { type: 'pullQuote', content: 'Managing the Library Was Its Own Struggle' },
+                  { type: 'text', content: "On the marketing side, the tool used to manage and upload the library had become increasingly clunky. Years of workaround habits had left it disorganized in ways that made it harder to maintain, let alone improve, or hand off cleanly to anyone else." },
+                  { type: 'goals', intro: 'From that problem, we defined a clear set of goals for the feature:', items: [
+                    "Create one easily navigable centralized home for LOs to find and use marketing's customizable assets",
+                    'Create a browsing experience that is functional and enjoyable whether an LO is searching for something specific or just exploring general options',
+                    'Give marketing a fast, simple way to upload new assets as they\'re created and migrate old assets into the new library',
+                  ]},
+                ],
+              },
+              process: {
+                headline: 'Learning from What Our LOs Already Knew',
+                blocks: [
+                  { type: 'text', content: "Rather than designing from scratch, I drew inspiration from asset library experiences LOs had already used through lender-partners, familiar interaction patterns meant more of the design's job was already done before an LO ever opened it. Instead of pitching leadership with mockups, I built a working prototype, loaded with real demo assets, and presented it side-by-side with the existing library. That comparison alone was enough to get fast approval to move forward." },
+                  { type: 'subhead', content: 'Designing for Two Kinds of Search' },
+                  { type: 'text', content: "Talking to LOs about what they want out of a marketing asset library surfaced two distinct ways they approached our resources and offerings: some came in looking for one specific asset they already knew existed, while others had only a general goal in mind, like wanting a social post, with no particular asset picked out. I quickly realized that in order for this tool to solve the pain points previously outlined, it was vital to design a filtering and organization system that works for both." },
+                  { type: 'text', content: "That same problem carried into arguably the biggest decision of the project: how to tag and categorize assets. In the old system, each asset lived under a single category page, forcing awkward fits for anything that didn't cleanly belong to one bucket. These awkward fits led to those assets being very difficult for users to track down. Working directly with the marketing team, we broke down the existing categories and rebuilt them from the ground up, creating an organization system that any resource we've ever made can fit into. We also made the decision to allow assets to be tagged by multiple categories (something that wasn't possible in our previous library) so that any assets that don't fit cleanly into one group can be found when searching for multiple." },
+                  { type: 'placeholder' },
+                  { type: 'subhead', content: 'Building the Upload Experience, and the Product Itself' },
+                  { type: 'text', content: "With the LO-facing experience taking shape, I turned to the upload flow marketing would use to add new assets. Having uploaded assets myself under the old system, I had a clear sense of the pain points to solve for going in. Once a working prototype was ready, I tested it unmoderated with three marketing team members, no instructions, just asked to upload an asset. This user testing allowed me to quickly find clunky points of the process and iron them out to create a fluid experience that our team was immediately comfortable with." },
+                ],
+              },
+              solution: {
+                headline: 'The Marketing Library',
+                blocks: [
+                  { type: 'image', src: '/images/tempo-ml-library.png', alt: 'The Marketing Library' },
+                  { type: 'text', content: 'We designed the Marketing Asset Library as a single, searchable home for every customizable asset LOs need, organized to work whether they know exactly what they\'re looking for or are just browsing.' },
+                  { type: 'featureRowLeft', wide: true, src: '/images/tempo-ml-collections.png', alt: 'Collections', subhead: 'Collections', body: 'Related assets are grouped into collection folders, like a full set of open house materials, so everything tied to a theme or use case lives in one place.' },
+                ],
+              },
             },
           ].map(({ id, title, quarter, problem, process, solution }) => (
             <section key={id} id={id} className={`${styles.section} ${styles.miniCaseStudy}`}>
@@ -388,15 +418,32 @@ export default function TempoCaseStudy() {
 
                 <div className={styles.miniSection}>
                   <h3 className={styles.sectionLabel}>Problem</h3>
-                  <p className={styles.pullQuote}>{problem.headline}</p>
-                  <div className={styles.body_text}>
-                    {problem.body.map((p, i) => <p key={i}>{p}</p>)}
-                    {problem.goalsIntro && <p>{problem.goalsIntro}</p>}
-                  </div>
-                  {problem.goals && (
-                    <ul className={styles.checklist}>
-                      {problem.goals.map((g, i) => <li key={i}>{g}</li>)}
-                    </ul>
+                  {problem.blocks ? (
+                    problem.blocks.map((block, i) =>
+                      block.type === 'pullQuote'
+                        ? <p key={i} className={styles.pullQuote}>{block.content}</p>
+                        : block.type === 'subhead'
+                          ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
+                          : block.type === 'goals'
+                            ? <>
+                                <div key={`intro-${i}`} className={styles.body_text}><p>{block.intro}</p></div>
+                                <ul key={`list-${i}`} className={styles.checklist}>{block.items.map((g, gi) => <li key={gi}>{g}</li>)}</ul>
+                              </>
+                            : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                    )
+                  ) : (
+                    <>
+                      <p className={styles.pullQuote}>{problem.headline}</p>
+                      <div className={styles.body_text}>
+                        {problem.body.map((p, i) => <p key={i}>{p}</p>)}
+                        {problem.goalsIntro && <p>{problem.goalsIntro}</p>}
+                      </div>
+                      {problem.goals && (
+                        <ul className={styles.checklist}>
+                          {problem.goals.map((g, i) => <li key={i}>{g}</li>)}
+                        </ul>
+                      )}
+                    </>
                   )}
                 </div>
 
