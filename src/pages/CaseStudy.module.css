@@ -148,6 +148,76 @@
   background: #5FA7FF;
 }
 
+.navGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.navParent {
+  text-decoration: none;
+}
+
+.navChildren {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 0.85rem;
+  padding-left: 1.25rem;
+  margin-top: 0.1rem;
+}
+
+.navChild {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 0.2rem 0;
+  transition: color 0.2s ease;
+}
+
+/* L-shaped branch: vertical down + curve right */
+.navChild::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 0;
+  width: 1rem;
+  height: calc(50% + 1px);
+  border-left: 1.5px solid #e2e8f0;
+  border-bottom: 1.5px solid #e2e8f0;
+  border-bottom-left-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease, filter 0.25s ease;
+}
+
+/* Vertical continuation down to next sibling */
+.navChild:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: calc(50% + 1px);
+  bottom: -0.5rem;
+  width: 1.5px;
+  background: #e2e8f0;
+  transition: background 0.25s ease;
+}
+
+.navChild:hover {
+  color: #475569;
+}
+
+.navChildActive {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.navChildActive::before {
+  border-color: #5FA7FF;
+  filter: drop-shadow(0 0 4px rgba(95, 167, 255, 0.6));
+}
+
 /* ─── Content sections ───────────────────────────────────── */
 
 .content {
@@ -164,6 +234,27 @@
 .section:last-child {
   border-bottom: none;
   margin-bottom: 0;
+}
+
+.miniCaseStudyIntro {
+  margin-bottom: 2rem;
+}
+
+.miniCaseStudyIntroHead {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.miniCaseStudyIntroBody {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
 }
 
 .miniCaseStudy {
@@ -202,7 +293,7 @@
 
 .miniCaseStudyTitle {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
+  font-size: 1.85rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -232,6 +323,13 @@
 
 .miniCaseStudyBody .standaloneImg {
   margin-top: 0.5rem;
+}
+
+.featureImgTransparent {
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .miniCaseStudyBody .standaloneImgSmall {
@@ -286,22 +384,48 @@
 
 .imageRow {
   display: flex;
-  gap: 0.4rem;
+  gap: 1rem;
   align-items: flex-start;
+  margin-top: 1.25rem;
+}
+
+.imageRowCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.imageRowImgWrap {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F1F5F9;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .imageRowImg {
-  flex: 1;
-  width: 0;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   cursor: zoom-in;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.imageRowCaption {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .imageRowPlaceholder {
-  flex: 1;
-  min-height: 120px;
-  border-radius: 12px;
+  width: 100%;
+  height: 100%;
   background: #e53e3e;
 }
 
@@ -1127,6 +1251,24 @@
   font-size: 1rem;
   line-height: 1.45;
   color: var(--color-text-muted);
+}
+
+.jumpLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5FA7FF;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
+}
+
+.jumpLink:hover {
+  opacity: 0.75;
 }
 
 /* ─── Learned cards ──────────────────────────────────────── */

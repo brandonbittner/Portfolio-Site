@@ -196,13 +196,13 @@ export default function TempoCaseStudy() {
 
             <div className={styles.featureList}>
               {[
-                { title: 'Relationship Tracker', quarter: 'Q2 2025', img: '/images/tempo-relationship-tracker.png',                               body: "Analyzes an LO's logged sales activity to score the strength of their relationships, surfacing which partnerships are thriving and which need attention before they go cold." },
-                { title: 'Lead Tracker',        quarter: 'Q3 2025', img: '/images/tempo-lead-tracker-1.png', body: "Tracks a contact's full journey from initial lead to entry into the loan pipeline, using stage-based timers that create urgency to keep leads moving instead of sitting idle and getting forgotten." },
+                { title: 'Relationship Tracker', quarter: 'Q2 2025', img: '/images/tempo-relationship-tracker.png', caseStudyId: 'case-study-1', body: "Analyzes an LO's logged sales activity to score the strength of their relationships, surfacing which partnerships are thriving and which need attention before they go cold." },
+                { title: 'Lead Tracker',        quarter: 'Q3 2025', img: '/images/tempo-lead-tracker-1.png',        caseStudyId: 'case-study-2', body: "Tracks a contact's full journey from initial lead to entry into the loan pipeline, using stage-based timers that create urgency to keep leads moving instead of sitting idle and getting forgotten." },
                 { title: 'My Day',              quarter: 'Q4 2025', img: '/images/tempo-my-day.jpg',                               body: 'An Outlook-integrated calendar and time-blocking tool that helps LOs plan their day around high-value sales activities. LOs manage their full schedule directly inside Tempo, with the ability to create and execute on sales activity time blocks.' },
-                { title: 'Marketing Library',   quarter: 'Q2 2026', img: '/images/tempo-contacts.png',       body: "A centralized, easily searchable home for UMortgage's 500+ customizable marketing assets, giving LOs a fast way to find what they need and giving the marketing team an efficient way to share new assets as they're created." },
+                { title: 'Marketing Library',   quarter: 'Q2 2026', img: '/images/tempo-contacts.png',              caseStudyId: 'case-study-3', body: "A centralized, easily searchable home for UMortgage's 500+ customizable marketing assets, giving LOs a fast way to find what they need and giving the marketing team an efficient way to share new assets as they're created." },
                 { title: 'Database Uploads',    quarter: 'Q2 2026', img: '/images/tempo-lead-tracker-2.png', body: "Allows LOs to upload their own contact databases and get them fully integrated into Tempo's systems and features in bulk, eliminating the manual work of entering and enrolling contacts one-by-one." },
                 { title: 'Email Center',        quarter: 'Q3 2026',       img: '/images/tempo-email-center.png',   body: "Gives LOs full visibility into the automated email campaigns marketing sends to their contacts, weekly updates, refinance alerts, birthday and anniversary emails, and more, including performance metrics and the ability to manage who's enrolled." },
-              ].map(({ title, quarter, img, body }) => (
+              ].map(({ title, quarter, img, body, caseStudyId }) => (
                 <div key={title} className={styles.featureRow}>
                   {img
                     ? <img src={img} alt={title} className={styles.featureImg} onClick={() => openLightbox(img, title)} />
@@ -214,11 +214,24 @@ export default function TempoCaseStudy() {
                       {quarter && <span className={styles.featureQuarter}>{quarter}</span>}
                     </div>
                     <p className={styles.featureText}>{body}</p>
+                    {caseStudyId && (
+                      <a href={`#${caseStudyId}`} className={styles.jumpLink}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                        Jump to Case Study
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           </section>
+
+          <div id="case-studies" className={styles.miniCaseStudyIntro}>
+            <h2 className={styles.miniCaseStudyIntroHead}>Featured Case Studies</h2>
+            <p className={styles.miniCaseStudyIntroBody}>Rather than walk through every feature, here's a closer look at three that best capture how we approach problems and build solutions inside Tempo.</p>
+          </div>
 
           {[
             {
@@ -403,12 +416,33 @@ export default function TempoCaseStudy() {
                   { type: 'featureRowLeft', src: '/images/tempo-ml-filtering.png', alt: 'Filtering', subhead: 'Filtering', body: 'Assets are broken down into filters that match how LOs actually search, with the ability to select multiple filters at once to narrow things down further.', rightBlocks: [
                     { type: 'subhead', content: 'Sort By' },
                     { type: 'text', content: 'LOs can sort content by New to see marketing\'s latest assets, or by Popular to find what other LOs have been using most.' },
-                    { type: 'image', src: '/images/tempo-ml-sort.png', alt: 'Sort By', width: '160px' },
+                    { type: 'image', src: '/images/tempo-ml-sort.png', alt: 'Sort By', width: '160px', maxHeight: '100px' },
                   ] },
                   { type: 'pullQuote', content: 'Asset Modals' },
                   { type: 'image', src: '/images/tempo-ml-asset-modal.jpg', alt: 'Asset Modal' },
                   { type: 'text', content: 'Clicking into an asset opens a simple, focused view built around one core need: getting an LO from Tempo into the actual editable template as quickly as possible. Since nearly every asset lives in Canva, the modal links directly out to it. For assets that come in multiple formats, like social graphics with separate Facebook, Instagram, and Stories sizing, the modal surfaces a dedicated link for each version instead of forcing LOs to guess which template fits. Assets that come with suggested social copy include that text right in the modal with a one-click copy button, so LOs can paste it straight into their post.' },
                   { type: 'featureRowLeft', wide: true, src: '/images/tempo-ml-flag.png', alt: 'Asset Flagging', subhead: 'Asset Flagging', body: 'Loan guidelines change often, sometimes without marketing knowing, which can quietly make an asset outdated. A flag button lets LOs report issues like bad info, broken links, or compliance concerns, automatically creating a Jira ticket for marketing to fix it, keeping the library accurate over time.' },
+                  { type: 'pullQuote', content: 'The Upload Experience' },
+                  { type: 'image', src: '/images/tempo-ml-upload.png', alt: 'The Upload Experience' },
+                  { type: 'text', content: 'Rather than managing assets in a separate CMS, I built the entire upload and editing experience directly inside Tempo, keeping everything marketing needed in one place. Certain accounts are marked with marketing admin permissions, unlocking edit and upload controls invisible to regular users throughout the library.' },
+                  { type: 'featureRowLeft', wide: true, src: '/images/tempo-ml-upload-breakdown.png', alt: 'Upload Flow', subhead: null, body: 'Uploading an asset is broken into three parts: Asset Type, Asset Content, and Asset Resources. Selecting an asset type dynamically changes the inputs shown next, since a social graphic and a presentation deck need very different information to go live.', transparent: true, largeBody: true },
+                  { type: 'subhead', content: 'Asset Content & Tagging' },
+                  { type: 'text', content: 'The Asset Content section covers the essentials, title, thumbnail, and tags, plus any additional fields specific to that asset type, like social copy for social graphics or a training video link for presentation decks. Tags are organized into an accordion of groups that can be expanded and toggled individually, with the option to create a new tag or group on the fly if nothing existing fits.' },
+                  { type: 'imageRow', images: [
+                    { src: '/images/tempo-ml-upload-type.png', caption: 'Users can upload multiple thumbnail images to create a carousel that shows different styles and options' },
+                    { src: '/images/tempo-ml-upload-content.png', caption: 'Adding suggested social copy allows users to copy with a single click and paste into their posts' },
+                    { src: '/images/tempo-ml-upload-resources.png', caption: 'Users can select multiple tags for any asset to make it easier to find' },
+                  ] },
+                  { type: 'featureRowLeft', src: '/images/tempo-ml-resource-links.png', alt: 'Resource Links', subhead: 'Resource Links', body: 'Marketing pastes in the actual resource links for an asset, with a Canva Resource toggle that adds a small Canva icon to the link so LOs know at a glance it\'s an editable template.' },
+                  { type: 'featureRowLeft', src: '/images/tempo-ml-scheduling.png', alt: 'Asset Scheduling', subhead: 'Asset Scheduling', body: 'Assets go live immediately by default, but marketing can schedule a future go-live date instead. Until then, the asset stays visible to admins only, invisible to regular users.' },
+                  { type: 'featureRowLeft', src: '/images/tempo-ml-expiration.png', alt: 'Asset Expiration', subhead: 'Asset Expiration', body: 'An optional expiration date automatically removes an asset from the library once it passes, keeping content current without manual cleanup. Admins can still access expired assets later if needed.' },
+                  { type: 'pullQuote', content: 'Putting it to the test' },
+                  { type: 'richText', segments: [
+                    { text: 'To validate the new flow, I tested it against the old upload process with members of the marketing team. On average, upload time per asset ' },
+                    { text: 'dropped from roughly 2.5 minutes to about 20 seconds', bold: true },
+                    { text: ', a big enough gap that migrating the full library of 500+ existing assets took only about two weeks.' },
+                  ] },
+                  { type: 'text', content: 'The impact showed up on the LO side too. In the first quarter post-launch, 106 unique users generated nearly 1,930 content views and almost 1,200 template link clicks, numbers that grew the very next quarter to 136 users, over 2,000 views, and more than 1,250 link clicks. Just as telling, the steady stream of "help me find X" emails to marketing largely disappeared, with the requests still coming in almost entirely from new LOs who hadn\'t yet been onboarded to Tempo.' },
                 ],
               },
             },
@@ -516,12 +550,15 @@ export default function TempoCaseStudy() {
                               : block.type === 'featureRowLeft'
                                 ? <div key={i} className={`${styles.featureRow} ${block.wide ? styles.featureRowWide : styles.featureRowCompact}`}>
                                     {block.src
-                                      ? <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                      ? <img src={block.src} alt={block.alt} className={`${styles.featureImg}${block.transparent ? ` ${styles.featureImgTransparent}` : ''}`} onClick={() => openLightbox(block.src, block.alt)} />
                                       : <div className={styles.placeholder} />
                                     }
                                     <div className={styles.featureInfo}>
                                       {block.subhead && <span className={styles.featureTitle}>{block.subhead}</span>}
-                                      <p className={styles.featureText}>{block.body}</p>
+                                      {block.largeBody
+                                        ? <div className={styles.body_text}><p>{block.body}</p></div>
+                                        : <p className={styles.featureText}>{block.body}</p>
+                                      }
                                       {block.rightBlocks && block.rightBlocks.map((rb, ri) =>
                                         rb.type === 'tierChart'
                                           ? <div key={ri} className={styles.tierChart}>
@@ -537,9 +574,9 @@ export default function TempoCaseStudy() {
                                           : rb.type === 'text'
                                             ? <p key={ri} className={styles.featureText}>{rb.content}</p>
                                             : rb.type === 'subhead'
-                                              ? <h4 key={ri} className={styles.miniSubhead}>{rb.content}</h4>
+                                              ? <h4 key={ri} className={styles.miniSubhead} style={{ marginTop: '0.75rem' }}>{rb.content}</h4>
                                               : rb.type === 'image'
-                                                ? <img key={ri} src={rb.src} alt={rb.alt} style={{ marginTop: '0.5rem', width: rb.width || '200px', height: 'auto', display: 'block', borderRadius: '12px' }} onClick={() => openLightbox(rb.src, rb.alt)} />
+                                                ? <img key={ri} src={rb.src} alt={rb.alt} style={{ marginTop: '0.5rem', width: rb.width || '200px', height: rb.maxHeight || 'auto', maxHeight: rb.maxHeight, objectFit: rb.maxHeight ? 'cover' : undefined, objectPosition: rb.maxHeight ? 'top' : undefined, display: 'block', borderRadius: '12px' }} onClick={() => openLightbox(rb.src, rb.alt)} />
                                                 : null
                                       )}
                                     </div>
@@ -555,11 +592,21 @@ export default function TempoCaseStudy() {
                                   </div>
                                 : block.type === 'imageRow'
                                 ? <div key={i} className={styles.imageRow}>
-                                    {block.images.map((src, ii) =>
-                                      src
-                                        ? <img key={ii} src={src} alt={`Image ${ii + 1}`} className={styles.imageRowImg} onClick={() => openLightbox(src, `Image ${ii + 1}`)} />
-                                        : <div key={ii} className={styles.imageRowPlaceholder} />
-                                    )}
+                                    {block.images.map((item, ii) => {
+                                      const src = typeof item === 'string' ? item : item?.src
+                                      const caption = typeof item === 'object' && item?.caption
+                                      return (
+                                        <div key={ii} className={styles.imageRowCol}>
+                                          <div className={styles.imageRowImgWrap}>
+                                            {src
+                                              ? <img src={src} alt={caption || `Image ${ii + 1}`} className={styles.imageRowImg} onClick={() => openLightbox(src, caption || `Image ${ii + 1}`)} />
+                                              : <div className={styles.imageRowPlaceholder} />
+                                            }
+                                          </div>
+                                          {caption && <p className={styles.imageRowCaption}>{caption}</p>}
+                                        </div>
+                                      )
+                                    })}
                                   </div>
                                 : block.type === 'scoreRow'
                                 ? <div key={i} className={`${styles.scoreRow}${block.fill ? ` ${styles.scoreRowFill}` : ''}`}>
@@ -584,7 +631,9 @@ export default function TempoCaseStudy() {
                                       )}
                                     </div>
                                   </div>
-                                : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                                : block.type === 'richText'
+                                  ? <div key={i} className={styles.body_text}><p>{block.segments.map((seg, si) => seg.bold ? <strong key={si}>{seg.text}</strong> : seg.text)}</p></div>
+                                  : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
                     )
                   ) : (
                     <div className={styles.body_text}>
