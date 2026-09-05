@@ -19,7 +19,8 @@
   overflow: hidden;
   background: #000;
   margin-top: -64px;
-  padding-top: 64px;
+  padding-top: calc(64px + 4rem);
+  padding-bottom: 5rem;
 }
 
 .hero::before {
@@ -56,7 +57,7 @@
 }
 
 .heroHeadline {
-  font-family: 'Crete Round', serif;
+  font-family: cattivo, serif;
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 400;
   color: #ffffff;
@@ -78,7 +79,7 @@
 }
 
 .heroAccent {
-  font-family: 'Crete Round', serif;
+  font-family: cattivo, serif;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 18px rgba(95, 167, 255, 0.7), 0 0 40px rgba(95, 167, 255, 0.25);
 }

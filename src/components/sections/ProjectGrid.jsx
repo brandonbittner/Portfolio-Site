@@ -4,42 +4,38 @@ import styles from './ProjectGrid.module.css'
 export default function ProjectGrid({ title, projects, id }) {
   return (
     <section id={id} className={styles.section}>
-      <header className={styles.header}>
-        <h2 className={styles.title}>{title}</h2>
-      </header>
+      <h2 className={styles.sectionTitle}>{title}</h2>
 
-      <div className={styles.list}>
-        {projects.map((p) => (
-          <Link key={p.id} to={`/work/${p.slug}`} className={styles.card}>
-            <div className={styles.cardImage}>
-              {p.coverImage && (
-                <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
-              )}
-            </div>
-            <div className={styles.cardBody}>
-              <div className={styles.cardInfo}>
+      {projects.map((p) => (
+        <div key={p.id} className={styles.card}>
+
+          <div className={styles.cardImage}>
+            {p.coverImage && (
+              <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
+            )}
+          </div>
+
+          <div className={styles.cardRight}>
+            <div className={styles.cardTitleGroup}>
+              <div className={styles.cardMeta}>
+                <span className={styles.cardEmployer}>{p.employer}</span>
                 <span className={styles.cardYear}>{p.year}</span>
-                <h3 className={styles.cardTitle}>{p.title}</h3>
-                <p className={styles.cardSummary}>{p.summary}</p>
-                <div className={styles.cardTags}>
-                  {p.tags.map((tag) => (
-                    <span key={tag} className={styles.cardTag}>{tag}</span>
-                  ))}
-                </div>
               </div>
-              <div className={styles.cardCta}>
-                <span className={styles.ctaBtn}>
-                  Read Full Case Study
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </div>
+              <h3 className={styles.cardTitle}>{p.title}</h3>
             </div>
-          </Link>
-        ))}
-      </div>
+            <p className={styles.cardSummary}>{p.summary}</p>
+            <div className={styles.cardTags}>
+              {p.tags.map((tag) => (
+                <span key={tag} className={styles.cardTag}>{tag}</span>
+              ))}
+            </div>
+            <Link to={`/work/${p.slug}`} className={styles.ctaBtn}>
+              Read Case Study <span>→</span>
+            </Link>
+          </div>
+
+        </div>
+      ))}
     </section>
   )
 }

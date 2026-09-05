@@ -14,7 +14,7 @@ export default function Home() {
           <div className={styles.heroHeadline}>
             <span>Hey!</span>
             <img src="/images/brandon-hero.jpeg" alt="Brandon Bittner" className={styles.heroPill} />
-            <span>I'm Brandon.</span>
+            <span>I'm Brandon</span>
           </div>
           <div className={styles.rolesBar}>
             <div className={styles.rolesCell}><span>UI/UX Designer</span></div>
@@ -27,7 +27,6 @@ export default function Home() {
       </section>
 
       <ProjectGrid id="work" title="Case Studies"  projects={caseStudies} />
-      <ProjectGrid          title="Selected Work"  projects={selectedWork} />
 
     </div>
   )
