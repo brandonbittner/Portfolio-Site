@@ -1,33 +1,53 @@
 .section {
-  padding: 6rem 16rem;
-  background: #ffffff;
+  padding: 3.5rem 5rem;
+  background: #f1f5f9;
   border-top: 1px solid var(--color-border);
+}
+
+.cardsWrapper {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 4rem 4rem 2.5rem;
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
 }
 
 .sectionTitle {
   font-family: cattivo, serif;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 400;
-  color: var(--color-text);
-  margin-bottom: 5rem;
-  letter-spacing: -0.01em;
+  font-size: clamp(4rem, 7.5vw, 9rem);
+  font-weight: 200;
+  color: #5FA7FF;
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: -1.5rem;
+  position: relative;
+  z-index: 0;
 }
 
 /* ── Card ── */
 .card {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
   gap: 4rem;
-  padding-bottom: 5rem;
+  padding: 0 7rem;
   margin-bottom: 5rem;
-  border-bottom: 1px solid var(--color-border);
   align-items: center;
 }
 
-.card:last-child {
-  border-bottom: none;
+.cardWrapper:last-child .card {
   margin-bottom: 0;
-  padding-bottom: 0;
+}
+
+.cardDivider {
+  height: 1px;
+  background: rgba(226, 232, 240, 0.75);
+  margin: 0 -4rem 5rem;
 }
 
 /* ── Left: image ── */
@@ -56,6 +76,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 0;
 }
 
 .cardTitleGroup {
