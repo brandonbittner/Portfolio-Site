@@ -91,6 +91,8 @@
 }
 
 .cardTitle {
+  text-decoration: none;
+  cursor: pointer;
   font-family: cattivo, serif;
   font-size: clamp(2.5rem, 3.5vw, 4rem);
   font-weight: 400;
@@ -168,6 +170,6 @@
 }
 
 .ctaBtn:hover {
-  opacity: 0.75;
+  background: #3d8fe0;
 }
 

@@ -46,7 +46,7 @@ export default function ProjectGrid({ title, projects, id }) {
                     <span className={styles.cardEmployer}>{p.employer}</span>
                     <span className={styles.cardYear}>{p.year}</span>
                   </div>
-                  <h3 className={styles.cardTitle}>{p.title}</h3>
+                  <Link to={`/work/${p.slug}`} className={styles.cardTitle}><h3>{p.title}</h3></Link>
                 </div>
                 <p className={styles.cardSummary}>{p.summary}</p>
                 <div className={styles.cardTags}>
