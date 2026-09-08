@@ -1052,6 +1052,22 @@
   min-width: 0;
 }
 
+.placeholderRowCols {
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.placeholderRowCols .placeholderCol {
+  flex: 1;
+  min-width: 0;
+}
+
+.placeholderRowCols .sectionImg {
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+}
+
 .placeholderCol {
   display: flex;
   flex-direction: column;
@@ -1880,21 +1896,13 @@
     height: 220px;
   }
 
-  /* ── Side-by-side column pairs (legacy emails, tracker screenshots) ── */
+  /* ── Side-by-side column pairs: stack on mobile ── */
   .placeholderRowCols {
-    flex-direction: row;
-    gap: 0.75rem;
-  }
-
-  .placeholderRowCols .placeholderCol {
-    flex: 1;
-    min-width: 0;
+    flex-direction: column;
   }
 
   .placeholderRowCols .sectionImg {
-    height: 260px;
-    object-fit: cover;
-    object-position: top;
+    height: 220px;
   }
 
   .imageRow {
