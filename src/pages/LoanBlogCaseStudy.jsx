@@ -285,20 +285,12 @@ export default function LoanBlogCaseStudy() {
                 </div>
               </div>
               <div className={styles.featureRow}>
-                <div className={styles.featureDualImg}>
-                  <img
-                    src="/images/loan-blog-content-container-1.png"
-                    alt="Content container example 1"
-                    className={styles.featureImg}
-                    onClick={() => openLightbox('/images/loan-blog-content-container-1.png', 'Content container example 1')}
-                  />
-                  <img
-                    src="/images/loan-blog-content-container-2.png"
-                    alt="Content container example 2"
-                    className={styles.featureImg}
-                    onClick={() => openLightbox('/images/loan-blog-content-container-2.png', 'Content container example 2')}
-                  />
-                </div>
+                <img
+                  src="/images/loan-blog-content-container-2.png"
+                  alt="FAQ content container"
+                  className={styles.featureImg}
+                  onClick={() => openLightbox('/images/loan-blog-content-container-2.png', 'FAQ content container')}
+                />
                 <div className={styles.featureInfo}>
                   <h3 className={styles.featureTitle}>Content Containers</h3>
                   <p className={styles.featureText}>Three containers throughout each page (used for things like value props, requirements, and FAQs) support dynamic icon selection and a layout that adapts to however many points our copywriter wants to include for a given program.</p>
