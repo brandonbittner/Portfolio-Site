@@ -1402,6 +1402,80 @@
   background: rgba(255, 255, 255, 0.22);
 }
 
+/* ─── Relationship score chart ───────────────────────────── */
+
+.scoreChart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+
+.scoreChartGroup {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.scoreChartGroupTitle {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #5FA7FF;
+  padding: 0.5rem 1.25rem;
+}
+
+.scoreChartRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.scoreChartRow:last-child {
+  border-bottom: none;
+}
+
+.scoreChartLabel {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.scoreChartBar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.scoreChartBarFill {
+  height: 100%;
+  background: #5FA7FF;
+  border-radius: 999px;
+}
+
+.scoreChartPts {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5FA7FF;
+  white-space: nowrap;
+  text-align: right;
+  min-width: 34px;
+}
+
 /* ─── 404 fallback ───────────────────────────────────────── */
 
 .notFound {

@@ -55,7 +55,7 @@ export default function TempoCaseStudy() {
               </svg>
               Case Study
             </span>
-            <span className={styles.employer}>Self-initiated</span>
+            <span className={styles.employer}>UMortgage</span>
           </div>
           <h1 className={styles.projectTitle}>Tempo</h1>
         </div>
@@ -99,6 +99,10 @@ export default function TempoCaseStudy() {
                   <div className={styles.metaItem}>
                     <span className={styles.metaLabel}>Timeline</span>
                     <span className={styles.metaValue}>Q2 2024 – Q3 2026</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className={styles.metaLabel}>Recognition</span>
+                    <span className={styles.metaValue}>2026 HousingWire Tech100 Recipient</span>
                   </div>
                 </div>
                 <div className={styles.metaGrid}>
@@ -254,9 +258,39 @@ export default function TempoCaseStudy() {
                 blocks: [
                   { type: 'text', content: 'Before any design work could start, we had to answer a harder question: with the data available, how do we score a relationship in a way that actually reflects its value, and captures how that value changes over time? That took a combined effort with our sales team, CEO, and sales coaching team to work out.' },
                   { type: 'text', content: 'We landed on two data sources: sales activities (the controllable actions an LO takes) and loan outcomes like application submitted, credit pulled, rate locked, and loan funded (the business a relationship actually returns). We already had a points system valuing sales activities based on what our sales coaching team found most predictive of funded loans, so we extended that same scale to loan outcomes, giving us one unified way to weigh both effort and results.' },
-                  { type: 'placeholder' },
+                  { type: 'scoreChart', groups: [
+                    { title: 'Activity Points', items: [
+                      { label: 'Face-to-Face Meeting', pts: 12 },
+                      { label: 'Open House',           pts: 10 },
+                      { label: 'Event',                pts: 10 },
+                      { label: 'Phone Conversation',   pts: 8  },
+                      { label: 'Thank You Card',       pts: 4  },
+                      { label: 'Text Conversation',    pts: 2  },
+                    ]},
+                    { title: 'Loan Outcome Points', items: [
+                      { label: 'Loan Funded',        pts: 50 },
+                      { label: 'Loan Locked',        pts: 25 },
+                      { label: 'Credit Pull',        pts: 10 },
+                      { label: 'Application Intake', pts: 6  },
+                    ]},
+                  ]},
                   { type: 'text', content: "The next problem was reflecting change over time. A referral partner who sent five loans last year but hasn't called in months isn't as strong a relationship as the score might suggest if it only counted lifetime totals. To solve this, every activity and outcome was assigned a decay period, points earned fade the longer it's been since that activity occurred, at a rate specific to how lasting its impact tends to be. A phone call (8 points) decays over 30 days; a funded loan (50 points) decays over 90. That combination of point values and decay rates gave us a score that reflected current relationship health, not just history." },
-                  { type: 'placeholder' },
+                  { type: 'scoreChart', suffix: ' days', groups: [
+                    { title: 'Activity Decay', items: [
+                      { label: 'Face-to-Face Meeting', pts: 30 },
+                      { label: 'Open House',           pts: 30 },
+                      { label: 'Event',                pts: 30 },
+                      { label: 'Phone Conversation',   pts: 14 },
+                      { label: 'Thank You Card',       pts: 14 },
+                      { label: 'Text Conversation',    pts: 7  },
+                    ]},
+                    { title: 'Loan Outcome Decay', items: [
+                      { label: 'Loan Funded',        pts: 120 },
+                      { label: 'Loan Locked',        pts: 90  },
+                      { label: 'Credit Pull',        pts: 60  },
+                      { label: 'Application Intake', pts: 30  },
+                    ]},
+                  ]},
                   { type: 'text', content: 'We validated the model with a test group of about 10 LOs, running their existing contacts through the algorithm and reviewing the resulting rankings with them. Feedback was consistently positive, the rankings matched their own sense of who their strongest referral partners actually were. From there, we scoped the experience around two views: a high-level dashboard for comparing relationships at a glance, and a deeper single-relationship view showing how that score had progressed over time.' },
                 ],
               },
@@ -505,9 +539,30 @@ export default function TempoCaseStudy() {
                               <div className={styles.placeholder} />
                               <div className={styles.placeholder} />
                             </div>
-                          : block.type === 'subhead'
-                            ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
-                            : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
+                          : block.type === 'scoreChart'
+                            ? <div key={i} className={styles.scoreChart}>
+                                {block.groups.map((group, gi) => (
+                                  <div key={gi} className={styles.scoreChartGroup}>
+                                    <div className={styles.scoreChartGroupTitle}>{group.title}</div>
+                                    {group.items.map((item, ii) => (
+                                      <div key={ii} className={styles.scoreChartRow}>
+                                        <span className={styles.scoreChartLabel}>{item.label}</span>
+                                        <span className={styles.scoreChartPts}>
+                                          {block.suffix && (
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                            </svg>
+                                          )}
+                                          {item.pts}{block.suffix || 'pts'}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ))}
+                              </div>
+                            : block.type === 'subhead'
+                              ? <h4 key={i} className={styles.miniSubhead}>{block.content}</h4>
+                              : <div key={i} className={styles.body_text}><p>{block.content}</p></div>
                     )
                   ) : (
                     <div className={styles.body_text}>
