@@ -59,12 +59,12 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
       }
 
       if (!canScrollRef.current) {
-        if (dist < 220) {
+        if (dist < 80) {
           lock()         // pre-lock: stops the next scroll frame
         } else {
           unlock()
         }
-        setActive(dist < window.innerHeight * 0.28)
+        setActive(dist < window.innerHeight * 0.18)
       } else {
         unlock()
         setActive(false)
@@ -86,7 +86,7 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
       // Adaptive threshold: lock earlier for fast scrolls to catch momentum,
       // tighter for slow scrolls so it locks at true center
       const speed = Math.abs(e.deltaY)
-      const lockDist = speed > 80 ? 320 : speed > 30 ? 240 : 180
+      const lockDist = speed > 80 ? 160 : speed > 30 ? 110 : 70
 
       if (dist < lockDist) {
         lock()
