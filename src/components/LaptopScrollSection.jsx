@@ -79,14 +79,21 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
   // Wheel listener: proactively locks when approaching center, handles internal scroll
   useEffect(() => {
     const onWheel = (e) => {
-      if (canScrollRef.current) return
-
-      const dist = getDist()
-
-      // Adaptive threshold: lock earlier for fast scrolls to catch momentum,
-      // tighter for slow scrolls so it locks at true center
-      const speed = Math.abs(e.deltaY)
+      const dist     = getDist()
+      const goingDown = e.deltaY > 0
+      const speed    = Math.abs(e.deltaY)
       const lockDist = speed > 80 ? 160 : speed > 30 ? 110 : 70
+      const max      = getMax()
+
+      if (canScrollRef.current) {
+        // Allow re-entry when scrolling back through the section in the opposite direction
+        const reEntry = dist < lockDist && (
+          (!goingDown && offsetRef.current > 0) ||
+          (goingDown  && offsetRef.current < max)
+        )
+        if (!reEntry) return
+        canScrollRef.current = false
+      }
 
       if (dist < lockDist) {
         lock()
@@ -96,7 +103,6 @@ export default function LaptopScrollSection({ laptopSrc, pageSrc, pageAlt = 'Web
 
       e.preventDefault()
 
-      const max       = getMax()
       const newOffset = Math.max(0, Math.min(max, offsetRef.current + e.deltaY))
 
       if (newOffset === offsetRef.current) {

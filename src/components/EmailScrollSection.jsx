@@ -44,7 +44,7 @@ export default function EmailScrollSection() {
       const rect = container.getBoundingClientRect()
       const containerCenter = (rect.top + rect.bottom) / 2
       const viewportCenter = window.innerHeight / 2
-      return Math.abs(containerCenter - viewportCenter) < 80
+      return Math.abs(containerCenter - viewportCenter) < 150
     }
 
     const lock = () => {
