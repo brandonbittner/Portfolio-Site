@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import styles from './About.module.css'
 
 const philosophies = [
@@ -24,7 +25,23 @@ const hobbies = [
   { title: 'Hobby three', body: 'A line or two about this interest.' },
 ]
 
+const hobbyImgs = [
+  '/images/hobby-1.jpg',
+  '/images/hobby-2.jpg',
+  '/images/hobby-3.jpg',
+  '/images/hobby-4.jpg',
+]
+
 export default function About() {
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx(i => (i + 1) % hobbyImgs.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className={styles.page}>
 
@@ -93,16 +110,28 @@ export default function About() {
 
         {/* Section 3 — Hobbies */}
         <section className={styles.darkSection}>
-          <h2 className={styles.darkSectionTitle}>Outside of work</h2>
-          <div className={styles.hobbiesGrid}>
-            {hobbies.map(item => (
-              <div key={item.title} className={styles.darkCard}>
-                <h3 className={styles.darkCardTitle}>{item.title}</h3>
-                <p className={styles.darkCardBody}>{item.body}</p>
-              </div>
-            ))}
+          <div className={styles.hobbiesLayout}>
+            <div className={styles.hobbiesLeft}>
+              <h2 className={styles.hobbiesTitle}>Outside of work</h2>
+              <p className={styles.hobbiesBody}>When I'm not designing, you'll probably find me out on a run (<a href="https://www.strava.com/athletes/148598347" target="_blank" rel="noopener noreferrer" className={styles.stravaLink}>connect with me on Strava!</a>), enjoying a summer night at Citizen's Bank Park, hitting the links, or hanging out at home with my 2 cats, Dude & Stella.</p>
+            </div>
+            <div className={styles.hobbiesRight}>
+              {hobbyImgs.map((src, i) => (
+                <div
+                  key={src}
+                  className={`${styles.hobbySlide} ${i === activeIdx ? styles.hobbySlideActive : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                >
+                  <img src={src} alt="" className={styles.hobbyImg} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
+
+        <footer className={styles.darkFooter}>
+          <p className={styles.darkFooterCopy}>&copy; {new Date().getFullYear()} Brandon Bittner. All rights reserved.</p>
+        </footer>
 
       </div>
 
