@@ -1476,6 +1476,69 @@
   min-width: 34px;
 }
 
+/* ─── Stage timeline ─────────────────────────────────────── */
+
+.stageTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.stageTimelineTitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  text-align: center;
+}
+
+.stageTable {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.stageTableHeader {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #5FA7FF;
+}
+
+.stageTableHeader span {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.stageTableHeader span:last-child {
+  border-right: none;
+}
+
+.stageTableRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #ffffff;
+}
+
+.stageTableRow span {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 0.75rem 1.25rem;
+  border-right: 1px solid #f1f5f9;
+  text-align: center;
+}
+
+.stageTableRow span:last-child {
+  border-right: none;
+}
+
 /* ─── 404 fallback ───────────────────────────────────────── */
 
 .notFound {

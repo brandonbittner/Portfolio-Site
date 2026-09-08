@@ -110,9 +110,9 @@ export default function TempoCaseStudy() {
                     <span className={styles.metaLabel}>Team</span>
                   </div>
                   {[
-                    { name: 'Sean Grapevine', role: 'Product Manager',   linkedin: '', avatar: '/images/team-sean-grapevine.jpg' },
-                    { name: 'Chris Le',        role: 'Software Engineer', linkedin: '', avatar: '' },
-                    { name: 'Adyson Harrah',   role: 'Data Engineer',     linkedin: '', avatar: '/images/team-adyson-harrah.jpg' },
+                    { name: 'Sean Grapevine', role: 'Product Manager',   linkedin: 'https://www.linkedin.com/in/sean-grapevine/', avatar: '/images/team-sean-grapevine.jpg' },
+                    { name: 'Chris Le',        role: 'Software Engineer', linkedin: 'https://www.linkedin.com/in/cl118/', avatar: '/images/avatar-chris-le.jpg' },
+                    { name: 'Adyson Harrah',   role: 'Data Engineer',     linkedin: 'https://www.linkedin.com/in/adyson-harrah-94a815195/', avatar: '/images/team-adyson-harrah.jpg' },
                   ].map(({ name, role, linkedin, avatar }) => (
                     <div key={name} className={styles.teamRow}>
                       {avatar
@@ -367,10 +367,14 @@ export default function TempoCaseStudy() {
                   { type: 'text', content: "From the start, the team saw an opportunity to build Lead Tracker with tight synergy to Relationship Tracker, which had shipped just before it. Where Relationship Tracker gave LOs a big-picture view of their business relationships, Lead Tracker would do the same for active leads, and both ultimately served the same purpose: helping LOs quickly decide who to spend their time on. Knowing LOs would move back and forth between the two constantly, designing them as sibling features made sense from day one." },
                   { type: 'text', content: "That meant reusing much of Relationship Tracker's underlying system rather than starting over. The scoring model carried over almost exactly, with only the outcome point values adjusted to better reflect what makes a lead valuable, giving LOs a clear read on which leads were \"hot\" and likely to convert." },
                   { type: 'text', content: "Rather than the spreadsheet or table format most LOs were already using, we took inspiration from Kanban boards, a format our own product team relied on daily and found effective for exactly this kind of \"keep things moving\" goal. Working with the sales team, we mapped leads to three stages based on real conversion behavior: New Leads, Credit Pulled, and Pre-Approved." },
-                  { type: 'dualPlaceholder' },
+                  { type: 'imageBlurb', src: '/images/tempo-kanban-inspiration.png', alt: 'Jira Kanban board inspiration', blurb: "Our own Jira board was the starting point. The same \"move it forward or it stalls\" logic that ran our team's workload became the foundation for how Lead Tracker handles active leads." },
                   { type: 'subhead', content: 'Adding a Layer of Urgency' },
                   { type: 'text', content: "With those stages defined, we built an expiration system that solved two problems at once: pushing LOs to keep moving a lead forward instead of letting it idle, and automatically clearing cold leads so the tracker stayed focused on what was still active. Each stage's expiration window was set based on real conversion behavior, earlier stages carry tighter deadlines since leads are most likely to go cold right after first contact, while later stages get more breathing room as the relationship becomes more committed. Once an application is submitted, the lead graduates out of the tracker entirely, they're no longer a lead, they're a client." },
-                  { type: 'placeholder' },
+                  { type: 'stageTimeline', stages: [
+                    { label: 'New Lead',     days: 10 },
+                    { label: 'Credit Pulled', days: 14 },
+                    { label: 'Pre-Approved',  days: 60 },
+                  ]},
                 ],
               },
               solution: {
@@ -539,7 +543,30 @@ export default function TempoCaseStudy() {
                               <div className={styles.placeholder} />
                               <div className={styles.placeholder} />
                             </div>
-                          : block.type === 'scoreChart'
+                          : block.type === 'stageTimeline'
+                            ? <div key={i} className={styles.stageTimeline}>
+                                <span className={styles.stageTimelineTitle}>Lead Expiration Deadlines For Each Tracker Stage</span>
+                                <div className={styles.stageTable}>
+                                  <div className={styles.stageTableHeader}>
+                                    {block.stages.map((stage, si) => (
+                                      <span key={si}>{stage.label}</span>
+                                    ))}
+                                  </div>
+                                  <div className={styles.stageTableRow}>
+                                    {block.stages.map((stage, si) => (
+                                      <span key={si}>{stage.days} days</span>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            : block.type === 'imageBlurb'
+                            ? <div key={i} className={`${styles.featureRow} ${styles.featureRowWide}`}>
+                                <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
+                                <div className={styles.featureInfo}>
+                                  <p className={styles.featureText} style={{ color: '#94a3b8' }}>{block.blurb}</p>
+                                </div>
+                              </div>
+                            : block.type === 'scoreChart'
                             ? <div key={i} className={styles.scoreChart}>
                                 {block.groups.map((group, gi) => (
                                   <div key={gi} className={styles.scoreChartGroup}>
