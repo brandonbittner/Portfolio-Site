@@ -11,9 +11,12 @@ export default function Navbar() {
     const NAV_HEIGHT = 64
 
     const checkTheme = () => {
-      const darkSection = document.querySelector('[data-nav-dark]')
-      if (!darkSection) { setIsDark(false); return }
-      setIsDark(darkSection.getBoundingClientRect().bottom > NAV_HEIGHT)
+      const darkSections = document.querySelectorAll('[data-nav-dark]')
+      const isOverDark = Array.from(darkSections).some(el => {
+        const { top, bottom } = el.getBoundingClientRect()
+        return top < NAV_HEIGHT && bottom > 0
+      })
+      setIsDark(isOverDark)
     }
 
     checkTheme()
