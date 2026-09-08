@@ -21,7 +21,7 @@ export const projects = [
     section: 'case-studies',
     type: 'product-design',
     year: 2025,
-    coverImage: '/images/loan-blog-hero.jpg',
+    coverImage: '/images/loan-blog-thumbnail.jpg',
     heroImage: '',
     tags: ['Web Design', 'Systems Thinking'],
     summary: 'A library of standardized loan product pages for UMortgage, covering every loan program with toggleable calculators, qualification details, and a side-by-side comparison tool.',

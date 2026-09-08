@@ -437,7 +437,14 @@ export default function TempoCaseStudy() {
                   { type: 'subhead', content: 'Designing for Two Kinds of Search' },
                   { type: 'text', content: "Talking to LOs about what they want out of a marketing asset library surfaced two distinct ways they approached our resources and offerings: some came in looking for one specific asset they already knew existed, while others had only a general goal in mind, like wanting a social post, with no particular asset picked out. I quickly realized that in order for this tool to solve the pain points previously outlined, it was vital to design a filtering and organization system that works for both." },
                   { type: 'text', content: "That same problem carried into arguably the biggest decision of the project: how to tag and categorize assets. In the old system, each asset lived under a single category page, forcing awkward fits for anything that didn't cleanly belong to one bucket. These awkward fits led to those assets being very difficult for users to track down. Working directly with the marketing team, we broke down the existing categories and rebuilt them from the ground up, creating an organization system that any resource we've ever made can fit into. We also made the decision to allow assets to be tagged by multiple categories (something that wasn't possible in our previous library) so that any assets that don't fit cleanly into one group can be found when searching for multiple." },
-                  { type: 'placeholder' },
+                  { type: 'filterChart', categories: [
+                    { title: 'Type',             tags: ['Flyer', 'Social Media', 'Presentation Deck', 'Guide', 'Event Promo', 'Script', 'Blog', 'Misc'] },
+                    { title: 'Loan Programs',    tags: ['Conventional', 'FHA', 'HELOC', 'Incentives', 'Non-QM', 'Refinance', 'Specialty', 'USDA', 'VA'] },
+                    { title: 'Recruiting',       tags: ['Client Recruiting', 'LO Recruiting', 'Partner Recruiting'] },
+                    { title: 'Loan Fulfillment', tags: ['Borrower Intake', 'CTC', 'Funding', 'Open House', 'Processing', 'Pre-Approval', 'Qualification', 'Selling', 'Under Contract'] },
+                    { title: 'Education',        tags: ['Borrower Education', 'Partner Education'] },
+                    { title: 'Timely Content',   tags: ['Mortgage Market', 'Mortgage News', 'New Products', 'Seasonal'] },
+                  ]},
                   { type: 'subhead', content: 'Building the Upload Experience, and the Product Itself' },
                   { type: 'text', content: "With the LO-facing experience taking shape, I turned to the upload flow marketing would use to add new assets. Having uploaded assets myself under the old system, I had a clear sense of the pain points to solve for going in. Once a working prototype was ready, I tested it unmoderated with three marketing team members, no instructions, just asked to upload an asset. This user testing allowed me to quickly find clunky points of the process and iron them out to create a fluid experience that our team was immediately comfortable with." },
                 ],
@@ -559,6 +566,22 @@ export default function TempoCaseStudy() {
                                   </div>
                                 </div>
                               </div>
+                            : block.type === 'filterChart'
+                              ? <div key={i} className={styles.filterChartWrapper}>
+                                  <span className={styles.stageTimelineTitle}>Asset Filter & Organizational Breakdown</span>
+                                  <div className={styles.filterChart}>
+                                  {block.categories.map((cat, ci) => (
+                                    <div key={ci} className={styles.filterCategory}>
+                                      <div className={styles.filterCategoryTitle}>{cat.title}</div>
+                                      <div className={styles.filterTags}>
+                                        {cat.tags.map((tag, ti) => (
+                                          <span key={ti} className={styles.filterTag}>{tag}</span>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  ))}
+                                  </div>
+                                </div>
                             : block.type === 'imageBlurb'
                             ? <div key={i} className={`${styles.featureRow} ${styles.featureRowWide}`}>
                                 <img src={block.src} alt={block.alt} className={styles.featureImg} onClick={() => openLightbox(block.src, block.alt)} />
