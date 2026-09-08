@@ -69,7 +69,7 @@ export default function LoanBlogCaseStudy() {
             </span>
             <span className={styles.employer}>UMortgage</span>
           </div>
-          <h1 className={styles.projectTitle}>Loan Product Blog Website</h1>
+          <h1 className={styles.projectTitle}>Loan Product Pages</h1>
         </div>
       </div>
 

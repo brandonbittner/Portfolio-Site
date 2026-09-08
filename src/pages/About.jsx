@@ -61,7 +61,10 @@ export default function About() {
             </p>
           </div>
           <div className={styles.introRight}>
-            <img src="/images/brandon-hero.jpeg" alt="Brandon Bittner" className={styles.photo} />
+            <picture>
+              <source media="(max-width: 639px)" srcSet="/images/brandon-hero-mobile.jpg" />
+              <img src="/images/brandon-hero.jpeg" alt="Brandon Bittner" className={styles.photo} />
+            </picture>
             <div className={styles.contactList}>
               <a href="mailto:brandonbittner@outlook.com" className={styles.contactRow}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5FA7FF" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -116,6 +119,11 @@ export default function About() {
               <p className={styles.hobbiesBody}>When I'm not designing, you'll probably find me out on a run (<a href="https://www.strava.com/athletes/148598347" target="_blank" rel="noopener noreferrer" className={styles.stravaLink}>connect with me on Strava!</a>), enjoying a summer night at Citizen's Bank Park, hitting the links, or hanging out at home with my 2 cats, Dude & Stella.</p>
             </div>
             <div className={styles.hobbiesRight}>
+              {/* mobile-only: large focused image */}
+              <div className={styles.hobbyPreview}>
+                <img src={hobbyImgs[activeIdx]} alt="" className={styles.hobbyPreviewImg} />
+              </div>
+              {/* thumbnail strip — always shows all 4 */}
               {hobbyImgs.map((src, i) => (
                 <div
                   key={src}

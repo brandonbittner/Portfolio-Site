@@ -157,7 +157,7 @@ export default function CaseStudy() {
               <p>I was asked by our marketing team to redesign a set of legacy emails sent to borrowers from our loan origination system (LOS) whenever their loan file hit certain milestones in the process. Once I looked into it, the emails were unclear at their core. Borrowers had no real sense of where their loan stood or what came next. Conversations with loan originators (LOs) revealed an even bigger gap: many didn't even know these emails were being sent to their own borrowers, and engagement was poor across the board.</p>
               <p>That confirmed this needed to be more than a visual refresh. This was a chance to fix a real, underused touchpoint in the borrower experience.</p>
             </div>
-            <div className={styles.placeholderRow}>
+            <div className={`${styles.placeholderRow} ${styles.placeholderRowCols}`}>
               <div className={styles.placeholderCol}>
                 <img src="/images/legacy-email-1.png" alt="Legacy loan status email" className={styles.sectionImg} />
               </div>
@@ -184,7 +184,7 @@ export default function CaseStudy() {
               <p>I started by looking at how other mortgage lenders handled their own loan status emails, hoping to find a pattern worth building on. Most were just as unclear as ours. Plain text updates with little sense of progress or context, which told me this wasn't a problem anyone in the industry had really solved.</p>
               <p>Rather than stay locked into mortgage-specific examples, I looked at how other industries communicated progress during a waiting period. I was particularly drawn to how delivery services use online trackers to give people clarity on their order status within the context of the overall delivery process. That was the same experience borrowers needed, just applied to a mortgage instead of a package.</p>
             </div>
-            <div className={styles.placeholderRow}>
+            <div className={`${styles.placeholderRow} ${styles.placeholderRowCols}`}>
               <div className={styles.placeholderCol}>
                 <img src="/images/usps-tracker.jpg" alt="USPS Shipment Tracker" className={styles.sectionImg} />
                 <p className={styles.caption}>USPS Shipment Tracker</p>

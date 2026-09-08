@@ -43,7 +43,10 @@ export default function TempoCaseStudy() {
 
       <div className={styles.pageTop} data-nav-dark>
         <div className={styles.splash}>
-          <img src="/images/hero-tempo.jpg" alt="Tempo" className={styles.splashImg} />
+          <picture>
+            <source media="(max-width: 639px)" srcSet="/images/tempo-thumbnail.jpg" />
+            <img src="/images/hero-tempo.jpg" alt="Tempo" className={styles.splashImg} />
+          </picture>
         </div>
         <div className={styles.titleBlock}>
           <div className={styles.tagRow}>

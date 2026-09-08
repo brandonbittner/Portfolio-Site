@@ -1661,6 +1661,12 @@
     padding: 2rem 1.25rem 4rem;
   }
 
+  /* grid items need min-width: 0 to prevent content blowout */
+  .content {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .sidenav {
     display: none;
   }
@@ -1669,6 +1675,12 @@
   .overviewLayout {
     flex-direction: column;
     gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .overviewLeft {
+    width: 100%;
+    min-width: 0;
   }
 
   .overviewLayout .metaGrid,
@@ -1785,6 +1797,11 @@
   }
 
   /* ── Mapping grid: tighten cell padding ── */
+  .mappingGrid {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .mappingCell {
     padding: 0.75rem 0.75rem;
     font-size: 0.9rem;
@@ -1861,6 +1878,23 @@
 
   .sectionImg {
     height: 220px;
+  }
+
+  /* ── Side-by-side column pairs (legacy emails, tracker screenshots) ── */
+  .placeholderRowCols {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .placeholderRowCols .placeholderCol {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .placeholderRowCols .sectionImg {
+    height: 260px;
+    object-fit: cover;
+    object-position: top;
   }
 
   .imageRow {

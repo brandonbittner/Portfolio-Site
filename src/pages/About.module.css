@@ -327,3 +327,201 @@ a.contactRow:hover {
   object-fit: cover;
   display: block;
 }
+
+.hobbyPreview {
+  display: none;
+}
+
+.hobbyPreviewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────────
+   Tailwind breakpoints: sm 640px | md 768px | lg 1024px | xl 1280px | 2xl 1536px
+   ─────────────────────────────────────────────────────────── */
+
+/* < sm — mobile */
+@media (max-width: 639px) {
+  .introSection {
+    padding: 2rem 1.25rem 3rem;
+    padding-top: calc(64px + 2rem);
+  }
+
+  .introCard {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* un-stick the sidebar so it doesn't trap scroll on mobile */
+  .introRight {
+    position: static;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .introName {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .introPara {
+    font-size: 1rem;
+  }
+
+  .darkSection {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .darkCard {
+    padding: 1.25rem;
+  }
+
+  .darkCardTitle {
+    font-size: 1.5rem;
+  }
+
+  .hobbiesLayout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hobbiesBody {
+    font-size: 1.05rem;
+  }
+
+  /* Carousel: preview large on top, all 4 thumbnails always visible below */
+  .hobbiesRight {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hobbyPreview {
+    display: block;
+    flex: 0 0 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* thumbnails: equal-width row, opacity-only transition */
+  .hobbySlide {
+    transition: opacity 0.3s ease;
+    flex: 1;
+    height: 80px;
+    opacity: 0.35;
+    border-radius: 8px;
+    order: 0;
+  }
+
+  .hobbySlideActive {
+    transition: opacity 0.3s ease;
+    flex: 1;
+    height: 80px;
+    opacity: 1;
+    border-radius: 8px;
+    order: 0;
+  }
+}
+
+/* sm — 640px → 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  .introSection {
+    padding: 2.5rem 2rem 3.5rem;
+    padding-top: calc(64px + 2.5rem);
+  }
+
+  .introCard {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .introRight {
+    position: static;
+  }
+
+  .darkSection {
+    padding: 3rem 2rem 5rem;
+  }
+
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hobbiesLayout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hobbiesRight {
+    height: 320px;
+    justify-content: center;
+  }
+}
+
+/* md — 768px → 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .introSection {
+    padding: 3rem 2.5rem;
+    padding-top: calc(64px + 3rem);
+  }
+
+  .introCard {
+    grid-template-columns: 1fr 260px;
+    gap: 3rem;
+  }
+
+  .darkSection {
+    padding: 3rem 2.5rem 5.5rem;
+  }
+
+  .philosophyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* lone card on row 2: span both columns, cap width to one column, center it */
+  .philosophyGrid .darkCard:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.75rem);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hobbiesLayout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hobbiesRight {
+    height: 380px;
+    justify-content: center;
+  }
+}
+
+/* lg — 1024px → 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hobbiesLayout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hobbiesRight {
+    height: 420px;
+    justify-content: center;
+  }
+}
