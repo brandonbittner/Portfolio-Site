@@ -39,6 +39,7 @@
   padding: 0 7rem;
   margin-bottom: 5rem;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .cardWrapper:last-child .card {
@@ -54,6 +55,8 @@
 /* ── Left: image ── */
 .cardImage {
   display: block;
+  width: 100%;
+  min-width: 0;
   border-radius: 16px;
   overflow: hidden;
   aspect-ratio: 16 / 10;
@@ -84,6 +87,7 @@
   flex-direction: column;
   gap: 1.5rem;
   min-width: 0;
+  overflow: hidden;
 }
 
 .cardTitleGroup {
@@ -263,9 +267,34 @@
   }
 
   .card {
-    gap: 2.5rem;
-    padding: 0 2rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
     margin-bottom: 4rem;
+  }
+
+  .cardDivider {
+    margin: 0 -2.5rem 4rem;
+  }
+
+  .cardTitle {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+  }
+}
+
+/* lg — 1024px → 1440px (small/medium laptops) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .section {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .cardsWrapper {
+    padding: 3rem 2.5rem 2rem;
+  }
+
+  .card {
+    padding: 0;
+    gap: 2rem;
   }
 
   .cardDivider {
