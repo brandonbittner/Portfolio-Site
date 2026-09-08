@@ -59,14 +59,6 @@ export default function Navbar() {
           About
         </NavLink>
 
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            `${styles.link} ${isDark ? styles.linkDark : ''} ${isActive ? styles.active : ''}`
-          }
-        >
-          Contact
-        </NavLink>
       </nav>
     </header>
   )
