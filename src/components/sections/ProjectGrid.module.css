@@ -177,3 +177,99 @@
   background: #3d8fe0;
 }
 
+
+/* ─── Responsive ──────────────────────────────────────────────
+   Tailwind breakpoints: sm 640px | md 768px | lg 1024px | xl 1280px | 2xl 1536px
+   ─────────────────────────────────────────────────────────── */
+
+/* < sm — mobile */
+@media (max-width: 639px) {
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    margin-bottom: -0.75rem;
+  }
+
+  .cardsWrapper {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .cardDivider {
+    margin: 0 -1.25rem 2.5rem;
+  }
+
+  .cardTitle {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+  }
+
+  .cardSummary {
+    font-size: 1rem;
+  }
+
+  .cardRight {
+    gap: 1rem;
+  }
+}
+
+/* sm — 640px → 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    margin-bottom: -1rem;
+  }
+
+  .cardsWrapper {
+    padding: 2.5rem 2rem 2rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .cardDivider {
+    margin: 0 -2rem 3rem;
+  }
+
+  .cardTitle {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+  }
+}
+
+/* md — 768px → 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .cardsWrapper {
+    padding: 3rem 2.5rem 2rem;
+  }
+
+  .card {
+    gap: 2.5rem;
+    padding: 0 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .cardDivider {
+    margin: 0 -2.5rem 4rem;
+  }
+}
+

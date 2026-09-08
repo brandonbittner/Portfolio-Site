@@ -65,3 +65,26 @@
 .linkDark.active {
   color: #ffffff;
 }
+
+
+/* ─── Responsive ──────────────────────────────────────────────
+   Tailwind breakpoints: sm 640px | md 768px | lg 1024px | xl 1280px | 2xl 1536px
+   ─────────────────────────────────────────────────────────── */
+
+/* < sm — mobile */
+@media (max-width: 639px) {
+  .header {
+    padding: 1rem 1.25rem;
+  }
+
+  .nav {
+    gap: 1.25rem;
+  }
+}
+
+/* sm — 640px → 767px */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .header {
+    padding: 1.25rem 2rem;
+  }
+}

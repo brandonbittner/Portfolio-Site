@@ -106,9 +106,7 @@ export default function TempoCaseStudy() {
                   </div>
                 </div>
                 <div className={styles.metaGrid}>
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaLabel}>Team</span>
-                  </div>
+                  <div className={styles.teamHeader}>Team</div>
                   {[
                     { name: 'Sean Grapevine', role: 'Product Manager',   linkedin: 'https://www.linkedin.com/in/sean-grapevine/', avatar: '/images/team-sean-grapevine.jpg' },
                     { name: 'Chris Le',        role: 'Software Engineer', linkedin: 'https://www.linkedin.com/in/cl118/', avatar: '/images/avatar-chris-le.jpg' },
@@ -725,6 +723,7 @@ export default function TempoCaseStudy() {
                                     <div className={styles.featureInfo}>
                                       <span className={styles.featureTitle}>{block.subhead}</span>
                                       <p className={styles.featureText}>{block.body}</p>
+                                      {block.src && <img src={block.src} alt={block.alt} className={styles.featureImgRightMobile} onClick={() => openLightbox(block.src, block.alt)} />}
                                       {block.rightBlocks && block.rightBlocks.map((rb, ri) =>
                                         rb.type === 'subhead'
                                           ? <span key={ri} className={styles.featureTitle} style={{ marginTop: '1rem', display: 'block' }}>{rb.content}</span>

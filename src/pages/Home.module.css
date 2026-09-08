@@ -21,6 +21,8 @@
   margin-top: -100px;
   padding-top: calc(100px + 4rem);
   padding-bottom: 5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .hero::before {
@@ -54,6 +56,7 @@
   gap: 1rem;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .heroHeadline {
@@ -90,6 +93,7 @@
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
+  width: 100%;
   max-width: 900px;
   line-height: 1.45;
   margin: 0.45rem 0 0;
@@ -280,4 +284,87 @@
 @keyframes tagIn {
   from { opacity: 0; transform: rotate(var(--r)) translateY(14px); }
   to   { opacity: 1; transform: rotate(var(--r)) translateY(0); }
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────────
+   Tailwind breakpoints: sm 640px | md 768px | lg 1024px | xl 1280px | 2xl 1536px
+   ─────────────────────────────────────────────────────────── */
+
+/* < sm — mobile */
+@media (max-width: 639px) {
+  .hero {
+    padding-top: calc(100px + 2rem);
+    padding-bottom: 3.5rem;
+  }
+
+  /* width: 100% (not just max-width) pins the container to heroCenter's width;
+     flex-wrap + justify-content: center keep spans tidy if they ever need to break */
+  .heroHeadline {
+    font-size: clamp(1.4rem, 7.8vw, 2.15rem);
+    gap: 0.2em;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .heroSub {
+    font-size: clamp(1.05rem, 4.6vw, 1.3rem);
+  }
+
+  /* stretch to available width and divide cells evenly so nothing overflows */
+  .rolesBar {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+
+  .rolesCell {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 6px;
+    font-size: 11px;
+  }
+}
+
+/* sm — 640px → 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  .hero {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .heroHeadline {
+    font-size: clamp(2.2rem, 6.5vw, 3.6rem);
+    max-width: 100%;
+  }
+
+  .heroSub {
+    font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  }
+
+  /* cells still need to flex at tablet widths where bar might overflow */
+  .rolesBar {
+    width: 100%;
+  }
+
+  .rolesCell {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* md — 768px → 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* lg+ — 1024px and up */
+@media (min-width: 1024px) {
+  .hero {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }

@@ -258,7 +258,7 @@ export default function LoanBlogCaseStudy() {
                 onClick={() => openLightbox('/images/loan-blog-landing-page.jpg', 'Loan product landing page')}
               />
             </div>
-            <p className={styles.pullQuote} style={{ marginBottom: '2rem' }}>Built to Flex Where It Needs to</p>
+            <p className={styles.pullQuote}>Built to Flex Where It Needs to</p>
             <div className={styles.featureList}>
               <div className={styles.featureRow}>
                 <img

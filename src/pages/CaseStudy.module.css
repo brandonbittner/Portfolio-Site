@@ -635,6 +635,17 @@
 
 /* ─── Team table ─────────────────────────────────────────── */
 
+.teamHeader {
+  background: #5FA7FF;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
 .teamRow {
   display: flex;
   align-items: center;
@@ -1588,6 +1599,10 @@
   padding: 0.2rem 0.65rem;
 }
 
+.featureImgRightMobile {
+  display: none;
+}
+
 /* ─── 404 fallback ───────────────────────────────────────── */
 
 .notFound {
@@ -1599,4 +1614,406 @@
   text-align: center;
   font-family: var(--font-sans);
   color: var(--color-text-muted);
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────────
+   Tailwind breakpoints: sm 640px | md 768px | lg 1024px | xl 1280px | 2xl 1536px
+   ─────────────────────────────────────────────────────────── */
+
+/* < sm — mobile */
+@media (max-width: 639px) {
+
+  /* ── Top / Hero ── */
+  .splash {
+    padding: 0;
+    margin: 10px;
+  }
+
+  .splashImg {
+    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .titleBlock {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .caseStudyTag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .employer {
+    font-size: 0.9rem;
+  }
+
+  .projectTitle {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* ── Body: drop to single column, hide sidebar ── */
+  .body {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .sidenav {
+    display: none;
+  }
+
+  /* ── Overview ── */
+  .overviewLayout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .overviewLayout .metaGrid,
+  .overviewRight {
+    width: 100%;
+  }
+
+  /* ── Pull quote / body text ── */
+  .pullQuote {
+    font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+    padding-top: 1.25rem;
+  }
+
+  .body_text p {
+    font-size: 1rem;
+  }
+
+  /* ── Stats ── */
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
+
+  .statCard {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+  }
+
+  /* ── Pain points: single column, hide the connecting line ── */
+  .painPointRow {
+    grid-template-columns: 1fr;
+  }
+
+  .painPointRow::before {
+    display: none;
+  }
+
+  /* ── Feature rows: all collapse to single column ── */
+  .featureRow,
+  .featureRowCompact,
+  .featureRowWide,
+  .featureRowRight {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* body_text margin-bottom creates extra gap between text and image inside featureRow */
+  .featureRow .body_text,
+  .featureRowCompact .body_text,
+  .featureRowWide .body_text,
+  .featureRowRight .body_text {
+    margin-bottom: 0;
+  }
+
+  /* more breathing room between a standalone featureRow and the pullQuote/subhead below it */
+  .featureRow + .pullQuote {
+    padding-top: 2.25rem;
+  }
+
+  .featureRowCompact .featureImg {
+    width: 50%;
+    max-height: 220px;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .featureRowCompact .featureInfo {
+    order: 1;
+  }
+
+  .featureRowRight > .featureImg {
+    display: none;
+  }
+
+  .featureImgRightMobile {
+    display: block;
+    width: 70%;
+    max-height: 220px;
+    object-fit: cover;
+    object-position: top;
+    margin: 0.25rem auto 0;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    cursor: zoom-in;
+  }
+
+  /* ── Feature list: wrap each row in a card so features don't blend ── */
+  .featureList {
+    gap: 1rem;
+  }
+
+  .featureList .featureRow {
+    background: #f8fafc;
+    border-radius: 16px;
+    border: 1px solid oklch(92.9% 0.013 255.508);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 1.25rem;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  .featureList .featureImg {
+    border-radius: 10px;
+  }
+
+  /* ── Mapping grid: tighten cell padding ── */
+  .mappingCell {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .mappingHeader span {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  /* ── Score rows: wrap to 3-top / 2-bottom centered layout ── */
+  .scoreRow,
+  .scoreRowFill {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  /* fill indicators need an explicit 1/3 width so exactly 3 land per row */
+  .scoreImgFill {
+    flex: 0 0 calc(33.33% - 0.4rem);
+    width: auto;
+    height: auto;
+  }
+
+  /* ── Score chart ── */
+  .scoreChart {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Stage timeline table ── */
+  .stageTableHeader span,
+  .stageTableRow span {
+    font-size: 0.78rem;
+    padding: 0.6rem 0.5rem;
+  }
+
+  /* ── Filter chart: single column ── */
+  .filterChart {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Image row: remove fixed height so images show at natural proportions ── */
+  .imageRowImgWrap {
+    height: auto;
+  }
+
+  .imageRowImg {
+    height: auto;
+    object-fit: unset;
+  }
+
+  /* ── Side-by-side image rows ── */
+  .placeholderImagesRow {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .placeholderImagesRow .iterationImg {
+    width: 100%;
+    flex: none;
+  }
+
+  .placeholderImagesRow .iterationArrow {
+    transform: rotate(90deg);
+  }
+
+  .placeholderCaptionsRow {
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+  }
+
+  .sectionImg {
+    height: 220px;
+  }
+
+  .imageRow {
+    flex-wrap: wrap;
+  }
+
+  .imageRowCol {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+
+  /* ── Dual image captioned ── */
+  .dualImgCaptionedCol {
+    grid-template-columns: 1fr;
+  }
+
+  .dualImgCaptionedCol .featureImg {
+    width: 100%;
+  }
+
+  /* ── Mini case study: 10px from each edge ── */
+  .miniCaseStudy {
+    margin-left: calc(-1.25rem + 10px);
+    margin-right: calc(-1.25rem + 10px);
+    border-radius: 14px;
+  }
+
+  .miniCaseStudyHeader {
+    padding: 0.85rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.6rem;
+    align-items: center;
+  }
+
+  .miniCaseStudyHeader .caseStudyTag {
+    order: 1;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .miniCaseStudyQuarter {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .miniCaseStudyTitle {
+    order: 3;
+    flex: 0 0 100%;
+    font-size: 1.6rem;
+  }
+
+  .miniCaseStudyBody {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* ── Reflection cards: icon + title on row 1, body copy on row 2 ── */
+  .learnedCard {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 0.75rem;
+    row-gap: 0.6rem;
+    align-items: center;
+  }
+
+  /* flatten learnedContent so its children participate directly in the card grid */
+  .learnedContent {
+    display: contents;
+  }
+
+  .learnedText {
+    grid-column: 1 / -1;
+  }
+
+  /* ── Lightbox: less padding on small screens ── */
+  .lightboxOverlay {
+    padding: 1rem;
+  }
+}
+
+/* sm — 640px → 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  .splash {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .titleBlock {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .body {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 2.5rem 2rem 5rem;
+  }
+
+  .sidenav {
+    display: none;
+  }
+
+  .overviewLayout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .overviewLayout .metaGrid,
+  .overviewRight {
+    width: 100%;
+  }
+
+  .featureRow,
+  .featureRowWide {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreChart {
+    grid-template-columns: 1fr;
+  }
+
+  .filterChart {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .painPointRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* md — 768px → 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .splash {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .body {
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 3rem 2rem 6rem;
+  }
+
+  .overviewLayout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .overviewLayout .metaGrid,
+  .overviewRight {
+    width: 100%;
+  }
+
+  .scoreChart {
+    grid-template-columns: 1fr;
+  }
+
+  .filterChart {
+    grid-template-columns: 1fr 1fr;
+  }
 }
