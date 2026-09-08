@@ -225,28 +225,20 @@ export default function CaseStudy() {
                 </div>
               ))}
             </div>
+            {/* TODO: uncomment Design & Iteration section once wireframes are ready */}
+            {false && <>
             <p className={styles.pullQuote}>Design & Iteration</p>
             <div className={styles.body_text}>
               <p>With the milestones mapped, I moved into design. I started with rough sketches to explore different ways of visually communicating progress, then moved into high-fidelity Figma prototypes once I had a direction worth refining.</p>
             </div>
             <div className={styles.iterationRow}>
               <img src="/images/lsu-sketch-1.jpg" alt="Initial wireframe sketch" className={styles.iterationImg} onClick={() => openLightbox('/images/lsu-sketch-1.jpg', 'Initial Wireframe Sketch')} />
-              <div className={styles.iterationArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-              <div className={styles.placeholder}>Placeholder</div>
-              <div className={styles.iterationArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-              <div className={styles.placeholder}>Placeholder</div>
+              {/* TODO: add wireframe image(s) here to complete the sketch → wireframe → final iteration row */}
             </div>
             <div className={styles.body_text}>
               <p>From there, I brought the designs to our sales team for feedback, focused mainly on the copy and the specific action items being asked of borrowers at each step. I iterated through several rounds with loan originators directly, refining the language and structure until we landed on the final version of the full six-email series.</p>
             </div>
+            </>}
           </section>
           <section id="solution" className={styles.section}>
             <h2 className={styles.sectionLabel}>Solution</h2>
