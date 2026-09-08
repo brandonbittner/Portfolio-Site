@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 103.33 103.33">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #5fa7ff;
+      }
+    </style>
+    <filter id="drop-shadow-1" x="11.69" y="10.86" width="80.16" height="88.56" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <circle class="cls-3" cx="51.67" cy="51.67" r="51.67"/>
+  <g class="cls-1">
+    <path class="cls-2" d="M26.76,72.5h4.46c3.43,0,4.63-.86,4.63-4.63v-35.66c0-3.77-1.2-4.63-4.63-4.63h-4.46v-6.69h28.72c11.57,0,17.92,5.91,17.92,15,0,6-2.83,10.29-8.06,12.43,7.2,1.89,11.32,6.69,11.32,14.4,0,10.2-7.2,16.46-19.72,16.46h-30.17v-6.69ZM56.42,45.67c7.37,0,11.4-3.17,11.4-9.09s-4.03-9-11.4-9h-15.17v18.09h15.17ZM57.88,72.5c8.06,0,13.2-2.83,13.2-10.03s-5.14-10.12-13.2-10.12h-16.63v20.15h16.63Z"/>
+  </g>
+</svg>
