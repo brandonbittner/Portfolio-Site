@@ -7,7 +7,7 @@ export const projects = [
     section: 'case-studies',
     type: 'product-design',
     year: '2024–2026',
-    coverImage: '/images/tempo-ml-asset-modal.jpg',
+    coverImage: '/images/tempo-thumbnail.jpg',
     heroImage: '',
     tags: ['UI/UX Design', 'Product Strategy'],
     summary: 'A suite of internal tools for loan officers — relationship tracker, lead pipeline, and a full marketing asset library — built to make complex workflows feel effortless.',

@@ -34,11 +34,11 @@ export default function ProjectGrid({ title, projects, id }) {
             {i > 0 && <div className={styles.cardDivider} />}
             <div className={styles.card}>
 
-              <div className={styles.cardImage}>
+              <Link to={`/work/${p.slug}`} className={styles.cardImage}>
                 {p.coverImage && (
                   <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
                 )}
-              </div>
+              </Link>
 
               <div className={styles.cardRight}>
                 <div className={styles.cardTitleGroup}>
