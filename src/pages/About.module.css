@@ -15,7 +15,7 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 200;
   color: var(--color-text);
-  letter-spacing: -0.03em;
+
   line-height: 1.15;
   margin-bottom: 1rem;
 }
@@ -172,7 +172,7 @@ a.contactRow:hover {
   font-size: clamp(2.5rem, 4.5vw, 5.5rem);
   font-weight: 200;
   color: #fff;
-  letter-spacing: -0.03em;
+
   line-height: 1;
   margin-bottom: 2rem;
   text-align: center;
@@ -223,7 +223,7 @@ a.contactRow:hover {
   font-size: 1.85rem;
   font-weight: 400;
   color: #fff;
-  letter-spacing: -0.02em;
+
   line-height: 1.05;
 }
 
@@ -266,7 +266,7 @@ a.contactRow:hover {
   font-size: clamp(2.5rem, 3.5vw, 3.5rem);
   font-weight: 200;
   color: #fff;
-  letter-spacing: -0.03em;
+
   line-height: 1;
 }
 
