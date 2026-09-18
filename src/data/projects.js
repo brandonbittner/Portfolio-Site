@@ -55,9 +55,25 @@ export const projects = [
       },
       {
         title: 'Print Graphics',
-        items: [
-          { image: '', caption: 'Caption placeholder' },
-          { image: '', caption: 'Caption placeholder' },
+        groups: [
+          {
+            subhead: 'Flyers',
+            items: [
+              { image: '/images/brand-identity/print/flyer-1.jpg' },
+              { image: '/images/brand-identity/print/flyer-2.png' },
+              { image: '/images/brand-identity/print/flyer-open-house.jpg' },
+              { image: '/images/brand-identity/print/flyer-aven-heloc.png' },
+            ],
+          },
+          {
+            subhead: 'UMortgage Recruiting Guide',
+            items: [
+              {
+                type: 'carousel',
+                slides: Array.from({ length: 23 }, (_, i) => `/images/brand-identity/print/recruiting-packet/${i + 1}.jpg`),
+              },
+            ],
+          },
         ],
       },
       {

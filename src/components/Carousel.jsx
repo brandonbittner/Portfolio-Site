@@ -11,11 +11,10 @@ export default function Carousel({ slides, caption, onImageClick }) {
     <figure className={styles.wrapper}>
       <div className={styles.track}>
         <img
-          key={index}
           src={slides[index]}
-          alt={`${caption} — slide ${index + 1}`}
+          alt={`${caption ? caption + ' — ' : ''}slide ${index + 1}`}
           className={`${styles.slide} ${onImageClick ? styles.slideClickable : ''}`}
-          onClick={() => onImageClick?.(slides[index], `${caption} — slide ${index + 1}`)}
+          onClick={() => onImageClick?.(slides[index], caption)}
         />
 
         {slides.length > 1 && (

@@ -135,7 +135,7 @@
 .sectionContent {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 3.5rem;
 }
 
 .group {
