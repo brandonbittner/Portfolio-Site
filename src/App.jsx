@@ -5,6 +5,7 @@ import About from './pages/About'
 import CaseStudy from './pages/CaseStudy'
 import LoanBlogCaseStudy from './pages/LoanBlogCaseStudy'
 import TempoCaseStudy from './pages/TempoCaseStudy'
+import SelectedWork from './pages/SelectedWork'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="work/loan-product-blog-website" element={<LoanBlogCaseStudy />} />
         <Route path="work/tempo" element={<TempoCaseStudy />} />
+        <Route path="work/selected/:slug" element={<SelectedWork />} />
         <Route path="work/:slug" element={<CaseStudy />} />
         <Route path="about" element={<About />} />
       </Route>

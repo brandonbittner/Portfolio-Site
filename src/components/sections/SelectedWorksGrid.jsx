@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './SelectedWorksGrid.module.css'
 
 export default function SelectedWorksGrid({ projects }) {
@@ -34,7 +35,7 @@ export default function SelectedWorksGrid({ projects }) {
       <div ref={wrapperRef} className={styles.cardsWrapper}>
         <div className={styles.grid}>
           {projects.map((p) => (
-            <div key={p.id} className={styles.card}>
+            <Link key={p.id} to={`/work/selected/${p.slug}`} className={styles.card}>
               <div className={styles.cardImage}>
                 {p.coverImage && (
                   <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
@@ -54,7 +55,7 @@ export default function SelectedWorksGrid({ projects }) {
                   </div>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -8,6 +8,73 @@ export const projects = [
     year: '2021–2026',
     coverImage: '',
     tags: ['Graphic Design', 'Branding'],
+    overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    workSections: [
+      {
+        title: 'Social Media Graphics',
+        groups: [
+          {
+            subhead: 'Loan Program Promo Graphics',
+            items: [
+              { image: '/images/brand-identity/social/usda-manufactured-home.jpg' },
+              { image: '/images/brand-identity/social/one-time-close.png' },
+              { image: '/images/brand-identity/social/uwm-closed-end-second.jpg' },
+              { image: '/images/brand-identity/social/aven-heloc-program.png' },
+            ],
+          },
+          {
+            subhead: 'Tempo Promotional Graphics',
+            items: [
+              { image: '/images/brand-identity/social/tempo-feature-brownstead.jpg' },
+              { image: '/images/brand-identity/social/tempo-wheel-graphic.jpg' },
+              {
+                type: 'carousel',
+                slides: [
+                  '/images/brand-identity/social/carousel-commission-tracker.jpg',
+                  '/images/brand-identity/social/carousel-commission-tracker-2.jpg',
+                  '/images/brand-identity/social/carousel-commission-tracker-3.jpg',
+                ],
+              },
+              {
+                type: 'carousel',
+                slides: [
+                  '/images/brand-identity/social/carousel-margin-cap.jpg',
+                  '/images/brand-identity/social/carousel-margin-cap-2.jpg',
+                ],
+              },
+            ],
+          },
+          {
+            subhead: 'UMortgage Recruiting Graphics',
+            items: [
+              { image: '/images/brand-identity/social/fastest-growing-company.png' },
+              { image: '/images/brand-identity/social/recruiting-meta-ad.jpg' },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Print Graphics',
+        items: [
+          { image: '', caption: 'Caption placeholder' },
+          { image: '', caption: 'Caption placeholder' },
+        ],
+      },
+      {
+        title: 'Slide Decks',
+        items: [
+          { image: '', caption: 'Caption placeholder' },
+          { image: '', caption: 'Caption placeholder' },
+        ],
+      },
+      {
+        title: 'Logos',
+        items: [
+          { image: '', caption: 'Caption placeholder' },
+          { image: '', caption: 'Caption placeholder' },
+        ],
+      },
+    ],
   },
   {
     id: 2,
