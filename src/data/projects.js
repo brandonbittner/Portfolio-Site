@@ -78,16 +78,49 @@ export const projects = [
       },
       {
         title: 'Slide Decks',
-        items: [
-          { image: '', caption: 'Caption placeholder' },
-          { image: '', caption: 'Caption placeholder' },
+        groups: [
+          {
+            items: [
+              {
+                type: 'carousel',
+                label: 'GoBroker Powered by UMortgage',
+                slides: [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,18,19,21,22,23,24].map(n => `/images/brand-identity/slides/gobroker/${n}.jpg`),
+              },
+              {
+                type: 'carousel',
+                label: 'Dollars & Sense',
+                slides: Array.from({ length: 15 }, (_, i) => `/images/brand-identity/slides/dollars-and-sense/${i + 1}.jpg`),
+              },
+              {
+                type: 'carousel',
+                label: 'One-Time Close New Construction',
+                slides: Array.from({ length: 9 }, (_, i) => `/images/brand-identity/slides/one-time-close/${i + 1}.jpg`),
+              },
+              {
+                type: 'carousel',
+                label: 'Optimizing Engagement & Driving Connection',
+                slides: Array.from({ length: 16 }, (_, i) => `/images/brand-identity/slides/optimizing-engagement/${i + 1}.jpg`),
+              },
+            ],
+          },
         ],
       },
       {
         title: 'Logos',
-        items: [
-          { image: '', caption: 'Caption placeholder' },
-          { image: '', caption: 'Caption placeholder' },
+        groups: [
+          {
+            layout: 'logos',
+            items: [
+              { image: '/images/brand-identity/logos/bell-mortgage.png' },
+              { image: '/images/brand-identity/logos/brand-asset-2color-dark.png' },
+              { image: '/images/brand-identity/logos/chris-brownstead.png' },
+              { image: '/images/brand-identity/logos/dale-corley.png' },
+              { image: '/images/brand-identity/logos/dan-clancy.png' },
+              { image: '/images/brand-identity/logos/ohio-valley-mortgage.png' },
+              { image: '/images/brand-identity/logos/pmc.png' },
+              { image: '/images/brand-identity/logos/sunnie-baltes.png' },
+            ],
+          },
         ],
       },
     ],

@@ -75,10 +75,15 @@ export default function SelectedWork() {
                 {(section.groups ?? [{ items: section.items }]).map((group, gi) => (
                   <div key={gi} className={styles.group}>
                     {group.subhead && <p className={styles.groupSubhead}>{group.subhead}</p>}
-                    <div className={styles.sectionItems}>
+                    <div className={group.layout === 'logos' ? styles.logosGrid : styles.sectionItems}>
                       {group.items.map((item, i) => (
                         item.type === 'carousel'
-                          ? <Carousel key={i} slides={item.slides} onImageClick={openLightbox} />
+                          ? (
+                            <div key={i} className={styles.carouselItem}>
+                              {item.label && <p className={styles.itemLabel}>{item.label}</p>}
+                              <Carousel slides={item.slides} onImageClick={openLightbox} />
+                            </div>
+                          )
                           : (
                             <figure key={i} className={styles.item}>
                               <div className={styles.itemImage}>
