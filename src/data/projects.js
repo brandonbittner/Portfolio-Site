@@ -6,9 +6,9 @@ export const projects = [
     employer: 'UMortgage',
     section: 'selected-work',
     year: '2021–2026',
-    coverImage: '',
+    coverImage: '/images/brand-identity/hero-v2.jpg',
     tags: ['Graphic Design', 'Branding'],
-    overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    overview: 'As part of my role at UMortgage, I helped shape and evolve the company\'s visual identity, a design system built to stay consistent across marketing, product, and internal materials. Below is a sample of the brand assets and marketing materials I designed along the way.',
     workSections: [
       {
         title: 'Social Media Graphics',

@@ -16,7 +16,7 @@
 }
 
 .heroImage {
-  overflow: hidden;
+  padding: 12px;
 }
 
 .heroImg {
@@ -24,12 +24,14 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
 .heroPlaceholder {
   width: 100%;
   height: 100%;
   background: #1a1a1a;
+  border-radius: 8px;
 }
 
 .heroContent {
@@ -82,11 +84,11 @@
 
 .overview {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  max-width: 480px;
+  max-width: 600px;
 }
 
 .typeTags {
@@ -333,13 +335,9 @@
 
 /* ─── Responsive ─────────────────────────────────────────── */
 
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   .hero {
     grid-template-columns: 1fr;
-  }
-
-  .heroImage {
-    height: 240px;
   }
 
   .heroContent {
@@ -364,9 +362,13 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
   .heroContent {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 3rem;
   }
 
   .workSection {
