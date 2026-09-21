@@ -29,6 +29,7 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${isDark ? styles.headerDark : ''} ${ready ? styles.headerReady : ''}`}>
       <NavLink to="/" className={`${styles.logo} ${isDark ? styles.logoDark : ''}`}>
+        <img src="/favicon.svg" alt="" className={styles.logoIcon} />
         Brandon Bittner
       </NavLink>
       <nav className={styles.nav}>

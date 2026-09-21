@@ -24,12 +24,20 @@
 
 
 .logo {
-  font-family: cattivo, serif;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 1rem;
   text-decoration: none;
   color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
+.logoIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 .headerReady .logo,

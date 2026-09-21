@@ -75,21 +75,57 @@ export default function SelectedWork() {
                 {(section.groups ?? [{ items: section.items }]).map((group, gi) => (
                   <div key={gi} className={styles.group}>
                     {group.subhead && <p className={styles.groupSubhead}>{group.subhead}</p>}
-                    <div className={group.layout === 'logos' ? styles.logosGrid : styles.sectionItems}>
-                      {group.items.map((item, i) => (
+                    {group.layout === 'balanced-columns' ? (
+                      <div className={styles.balancedCols}>
+                        {group.columns.map((col, ci) => (
+                          <div key={ci} className={styles.balancedCol}>
+                            {col.map((img, i) => (
+                              <div key={i} className={styles.balancedColItem} style={{ flex: img.aspectRatio }}>
+                                <img
+                                  src={img.image}
+                                  alt=""
+                                  className={styles.itemImgClickable}
+                                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                  onClick={() => openLightbox(img.image, '')}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                    <div className={
+                      group.layout === 'logos' ? styles.logosGrid :
+                      group.layout === 'masonry' ? styles.masonryItems :
+                      styles.sectionItems
+                    }>
+                      {group.items?.map((item, i) => (
                         item.type === 'pair'
                           ? (
                             <div key={i} className={styles.imagePair}>
                               {item.images.map((img, j) => (
                                 <div key={j} className={styles.imagePairCol} style={{ flex: img.aspectRatio }}>
-                                  <div className={styles.itemImage}>
+                                  {item.transparent ? (
                                     <img
                                       src={img.image}
                                       alt=""
-                                      className={`${styles.itemImg} ${styles.itemImgClickable}`}
+                                      className={styles.itemImgClickable}
+                                      style={{ width: '100%', height: 'auto', display: 'block' }}
                                       onClick={() => openLightbox(img.image, '')}
                                     />
-                                  </div>
+                                  ) : (
+                                    <div
+                                      className={styles.itemImage}
+                                      style={item.rounded ? { borderRadius: '8px', overflow: 'hidden' } : undefined}
+                                    >
+                                      <img
+                                        src={img.image}
+                                        alt=""
+                                        className={`${styles.itemImg} ${styles.itemImgClickable}`}
+                                        onClick={() => openLightbox(img.image, '')}
+                                      />
+                                    </div>
+                                  )}
                                 </div>
                               ))}
                             </div>
@@ -124,6 +160,7 @@ export default function SelectedWork() {
                           )
                       ))}
                     </div>
+                    )}
                     {gi < (section.groups?.length ?? 1) - 1 && <hr className={styles.groupDivider} />}
                   </div>
                 ))}

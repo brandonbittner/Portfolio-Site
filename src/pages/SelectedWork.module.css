@@ -23,6 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   border-radius: 8px;
 }
@@ -163,7 +164,48 @@
 .sectionItems {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  row-gap: 3.5rem;
+  column-gap: 2rem;
+}
+
+.stackItems {
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
+}
+
+.balancedCols {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.balancedCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.balancedColItem {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.masonryItems {
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.masonryItems .item {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+}
+
+.masonryItems .item:last-child {
+  margin-bottom: 0;
 }
 
 .item {

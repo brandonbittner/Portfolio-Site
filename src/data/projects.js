@@ -142,7 +142,7 @@ export const projects = [
     employer: 'UMortgage',
     section: 'selected-work',
     year: 2026,
-    coverImage: '',
+    coverImage: '/images/gobroker/hero.jpg',
     tags: ['Campaign Design', 'Branding', 'Web Design'],
     overview: '',
     workSections: [
@@ -179,14 +179,18 @@ export const projects = [
           },
           {
             subhead: 'HousingWire.com Digital Ad Mockups',
-            items: [
-              { image: '/images/gobroker/digital/hw-ads/page-01.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-02.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-03.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-04.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-06.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-08.jpg' },
-              { image: '/images/gobroker/digital/hw-ads/page-09.jpg' },
+            layout: 'balanced-columns',
+            columns: [
+              [
+                { image: '/images/gobroker/digital/hw-ads/page-01.jpg', aspectRatio: 0.531 },
+                { image: '/images/gobroker/digital/hw-ads/page-02.jpg', aspectRatio: 0.466 },
+                { image: '/images/gobroker/digital/hw-ads/page-03.jpg', aspectRatio: 0.411 },
+              ],
+              [
+                { image: '/images/gobroker/digital/hw-ads/page-04.jpg', aspectRatio: 0.721 },
+                { image: '/images/gobroker/digital/hw-ads/page-06.jpg', aspectRatio: 0.466 },
+                { image: '/images/gobroker/digital/hw-ads/page-08.jpg', aspectRatio: 0.291 },
+              ],
             ],
           },
           {
@@ -211,6 +215,55 @@ export const projects = [
                 images: [
                   { image: '/images/gobroker/digital/meta-ads/set2-ad-3.jpg', aspectRatio: 1.778 },
                   { image: '/images/gobroker/digital/meta-ads/ad-3-square-26.jpg', aspectRatio: 1 },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Webpage',
+        groups: [
+          {
+            items: [
+              {
+                type: 'pair',
+                transparent: true,
+                images: [
+                  { image: '/images/gobroker/webpage/desktop.png', aspectRatio: 1.643 },
+                  { image: '/images/gobroker/webpage/mobile.png', aspectRatio: 0.491 },
+                ],
+              },
+              {
+                type: 'pair',
+                rounded: true,
+                images: [
+                  { image: '/images/gobroker/webpage/desktop-2.jpg', aspectRatio: 1.065 },
+                  { image: '/images/gobroker/webpage/mobile-2.jpg', aspectRatio: 0.291 },
+                ],
+              },
+              {
+                type: 'pair',
+                rounded: true,
+                images: [
+                  { image: '/images/gobroker/webpage/desktop-3.jpg', aspectRatio: 1.491 },
+                  { image: '/images/gobroker/webpage/mobile-3.jpg', aspectRatio: 0.407 },
+                ],
+              },
+              {
+                type: 'pair',
+                rounded: true,
+                images: [
+                  { image: '/images/gobroker/webpage/desktop-4.jpg', aspectRatio: 2.009 },
+                  { image: '/images/gobroker/webpage/mobile-4.jpg', aspectRatio: 0.548 },
+                ],
+              },
+              {
+                type: 'pair',
+                rounded: true,
+                images: [
+                  { image: '/images/gobroker/webpage/desktop-5.jpg', aspectRatio: 2.198 },
+                  { image: '/images/gobroker/webpage/mobile-5.jpg', aspectRatio: 0.600 },
                 ],
               },
             ],
