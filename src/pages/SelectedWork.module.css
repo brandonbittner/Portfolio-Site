@@ -307,10 +307,35 @@
   cursor: zoom-in;
 }
 
+.imagePair {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.imagePairCol {
+  min-width: 0;
+}
+
+.imagePairCol .itemImage {
+  height: 100%;
+  border-radius: 0;
+}
+
+.imagePairCol .itemImg {
+  height: 100%;
+  object-fit: cover;
+}
+
 .carouselItem {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+
+.carouselFullWidth {
+  grid-column: 1 / -1;
 }
 
 .itemLabel {

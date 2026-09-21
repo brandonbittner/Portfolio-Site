@@ -144,6 +144,109 @@ export const projects = [
     year: 2026,
     coverImage: '',
     tags: ['Campaign Design', 'Branding', 'Web Design'],
+    overview: '',
+    workSections: [
+      {
+        title: 'Digital Graphics',
+        groups: [
+          {
+            subhead: 'Social Media Announcement Graphics',
+            items: [
+              { image: '/images/gobroker/branding/gobroker-announcement.jpg' },
+              { image: '/images/gobroker/branding/hw-broker-announcement.png' },
+            ],
+          },
+          {
+            subhead: 'Webinar Social Graphics',
+            items: [
+              {
+                type: 'pair',
+                images: [
+                  { image: '/images/gobroker/digital/webinar-social-1.jpg', aspectRatio: 1.778 },
+                  { image: '/images/gobroker/digital/webinar-social-2.jpg', aspectRatio: 0.801 },
+                ],
+              },
+            ],
+          },
+          {
+            subhead: 'GoBroker Workshops Carousel',
+            items: [
+              {
+                type: 'carousel',
+                slides: Array.from({ length: 6 }, (_, i) => `/images/gobroker/digital/workshops-carousel/${i + 1}.jpg`),
+              },
+            ],
+          },
+          {
+            subhead: 'HousingWire.com Digital Ad Mockups',
+            items: [
+              { image: '/images/gobroker/digital/hw-ads/page-01.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-02.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-03.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-04.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-06.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-08.jpg' },
+              { image: '/images/gobroker/digital/hw-ads/page-09.jpg' },
+            ],
+          },
+          {
+            subhead: 'Meta Ads',
+            items: [
+              {
+                type: 'pair',
+                images: [
+                  { image: '/images/gobroker/digital/meta-ads/set2-ad-1.jpg', aspectRatio: 1.778 },
+                  { image: '/images/gobroker/digital/meta-ads/ad-1-square.jpg', aspectRatio: 1 },
+                ],
+              },
+              {
+                type: 'pair',
+                images: [
+                  { image: '/images/gobroker/digital/meta-ads/set2-ad-2.jpg', aspectRatio: 1.778 },
+                  { image: '/images/gobroker/digital/meta-ads/ad-3-square.jpg', aspectRatio: 1 },
+                ],
+              },
+              {
+                type: 'pair',
+                images: [
+                  { image: '/images/gobroker/digital/meta-ads/set2-ad-3.jpg', aspectRatio: 1.778 },
+                  { image: '/images/gobroker/digital/meta-ads/ad-3-square-26.jpg', aspectRatio: 1 },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Slide Deck',
+        groups: [
+          {
+            items: [
+              {
+                type: 'carousel',
+                fullWidth: true,
+                slides: [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,18,19,21,22,23,24].map(n => `/images/brand-identity/slides/gobroker/${n}.jpg`),
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Recruiting Packet',
+        groups: [
+          {
+            items: [
+              {
+                type: 'carousel',
+                fullWidth: true,
+                maxWidth: '75%',
+                slides: Array.from({ length: 23 }, (_, i) => `/images/brand-identity/print/recruiting-packet/${i + 1}.jpg`),
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     id: 7,

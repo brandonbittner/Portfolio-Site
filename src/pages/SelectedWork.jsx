@@ -77,9 +77,30 @@ export default function SelectedWork() {
                     {group.subhead && <p className={styles.groupSubhead}>{group.subhead}</p>}
                     <div className={group.layout === 'logos' ? styles.logosGrid : styles.sectionItems}>
                       {group.items.map((item, i) => (
-                        item.type === 'carousel'
+                        item.type === 'pair'
                           ? (
-                            <div key={i} className={styles.carouselItem}>
+                            <div key={i} className={styles.imagePair}>
+                              {item.images.map((img, j) => (
+                                <div key={j} className={styles.imagePairCol} style={{ flex: img.aspectRatio }}>
+                                  <div className={styles.itemImage}>
+                                    <img
+                                      src={img.image}
+                                      alt=""
+                                      className={`${styles.itemImg} ${styles.itemImgClickable}`}
+                                      onClick={() => openLightbox(img.image, '')}
+                                    />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )
+                          : item.type === 'carousel'
+                          ? (
+                            <div
+                              key={i}
+                              className={`${styles.carouselItem} ${item.fullWidth ? styles.carouselFullWidth : ''}`}
+                              style={item.maxWidth ? { maxWidth: item.maxWidth } : undefined}
+                            >
                               {item.label && <p className={styles.itemLabel}>{item.label}</p>}
                               <Carousel slides={item.slides} onImageClick={openLightbox} />
                             </div>
