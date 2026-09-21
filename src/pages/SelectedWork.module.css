@@ -380,6 +380,10 @@
   grid-column: 1 / -1;
 }
 
+.carouselMaxWidth75 {
+  max-width: 75%;
+}
+
 .itemLabel {
   font-family: var(--font-sans);
   font-size: 0.85rem;
@@ -426,6 +430,36 @@
 
   .sectionItems {
     grid-template-columns: 1fr;
+  }
+
+  /* Stack webinar-style pairs vertically */
+  .imagePairMobileStack {
+    flex-direction: column;
+  }
+
+  .imagePairMobileStack .imagePairCol {
+    flex: unset !important;
+    width: 100%;
+  }
+
+  /* Stack balanced columns (HousingWire ads) vertically */
+  .balancedCols {
+    flex-direction: column;
+  }
+
+  /* Tighten gap within pairs (meta ads, webpage images) */
+  .imagePair {
+    gap: 0.75rem;
+  }
+
+  /* Logos: 2 columns instead of 4 */
+  .logosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Recruiting packet full width */
+  .carouselMaxWidth75 {
+    max-width: 100%;
   }
 }
 

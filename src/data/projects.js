@@ -126,25 +126,15 @@ export const projects = [
     ],
   },
   {
-    id: 2,
-    slug: 'mortgage-calculators',
-    title: 'Mortgage Calculators',
-    employer: 'UMortgage',
-    section: 'selected-work',
-    year: 2024,
-    coverImage: '',
-    tags: ['Web Design', 'Fintech'],
-  },
-  {
     id: 3,
     slug: 'gobroker',
-    title: 'GoBroker',
+    title: 'GoBroker Campaign',
     employer: 'UMortgage',
     section: 'selected-work',
     year: 2026,
     coverImage: '/images/gobroker/hero.jpg',
     tags: ['Campaign Design', 'Branding', 'Web Design'],
-    overview: '',
+    overview: 'As part of my role at UMortgage, I created the branding direction for GoBroker, our loan originator recruiting campaign promoting the company\'s new Broker model, and designed assets across digital, print, and web. Below is a sample of the marketing materials I created to bring the campaign to life.',
     workSections: [
       {
         title: 'Digital Graphics',
@@ -161,6 +151,7 @@ export const projects = [
             items: [
               {
                 type: 'pair',
+                stackOnMobile: true,
                 images: [
                   { image: '/images/gobroker/digital/webinar-social-1.jpg', aspectRatio: 1.778 },
                   { image: '/images/gobroker/digital/webinar-social-2.jpg', aspectRatio: 0.801 },
@@ -198,6 +189,7 @@ export const projects = [
             items: [
               {
                 type: 'pair',
+                stackOnMobile: true,
                 images: [
                   { image: '/images/gobroker/digital/meta-ads/set2-ad-1.jpg', aspectRatio: 1.778 },
                   { image: '/images/gobroker/digital/meta-ads/ad-1-square.jpg', aspectRatio: 1 },
@@ -205,6 +197,7 @@ export const projects = [
               },
               {
                 type: 'pair',
+                stackOnMobile: true,
                 images: [
                   { image: '/images/gobroker/digital/meta-ads/set2-ad-2.jpg', aspectRatio: 1.778 },
                   { image: '/images/gobroker/digital/meta-ads/ad-3-square.jpg', aspectRatio: 1 },
@@ -212,6 +205,7 @@ export const projects = [
               },
               {
                 type: 'pair',
+                stackOnMobile: true,
                 images: [
                   { image: '/images/gobroker/digital/meta-ads/set2-ad-3.jpg', aspectRatio: 1.778 },
                   { image: '/images/gobroker/digital/meta-ads/ad-3-square-26.jpg', aspectRatio: 1 },
@@ -302,6 +296,17 @@ export const projects = [
     ],
   },
   {
+    id: 2,
+    slug: 'mortgage-calculators',
+    title: 'Mortgage Calculators',
+    employer: 'UMortgage',
+    section: 'selected-work',
+    year: 2024,
+    coverImage: '',
+    tags: ['Web Design', 'Fintech'],
+    comingSoon: true,
+  },
+  {
     id: 7,
     slug: 'winners-win',
     title: 'Winners Win',
@@ -310,6 +315,7 @@ export const projects = [
     year: 2024,
     coverImage: '',
     tags: ['Branding', 'Event Design'],
+    comingSoon: true,
   },
   {
     id: 6,

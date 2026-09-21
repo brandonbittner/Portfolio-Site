@@ -34,29 +34,40 @@ export default function SelectedWorksGrid({ projects }) {
 
       <div ref={wrapperRef} className={styles.cardsWrapper}>
         <div className={styles.grid}>
-          {projects.map((p) => (
-            <Link key={p.id} to={`/work/selected/${p.slug}`} className={styles.card}>
-              <div className={styles.cardImage}>
-                {p.coverImage && (
-                  <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
-                )}
-              </div>
-              <div className={styles.cardBody}>
-                <div className={styles.cardMeta}>
-                  <span className={styles.cardEmployer}>{p.employer}</span>
-                  <span className={styles.cardYear}>{p.year}</span>
+          {projects.map((p) => {
+            const CardEl = p.comingSoon ? 'div' : Link
+            const cardProps = p.comingSoon
+              ? { className: `${styles.card} ${styles.cardDimmed}` }
+              : { to: `/work/selected/${p.slug}`, className: styles.card }
+            return (
+              <CardEl key={p.id} {...cardProps}>
+                <div className={styles.cardImage}>
+                  {p.coverImage && (
+                    <img src={p.coverImage} alt={p.title} className={styles.cardImg} />
+                  )}
+                  {p.comingSoon && (
+                    <div className={styles.comingSoonOverlay}>
+                      <span className={styles.comingSoonLabel}>Coming Soon</span>
+                    </div>
+                  )}
                 </div>
-                <h3 className={styles.cardTitle}>{p.title}</h3>
-                {p.tags?.length > 0 && (
-                  <div className={styles.cardTags}>
-                    {p.tags.map((tag) => (
-                      <span key={tag} className={styles.cardTag}>{tag}</span>
-                    ))}
+                <div className={styles.cardBody}>
+                  <div className={styles.cardMeta}>
+                    <span className={styles.cardEmployer}>{p.employer}</span>
+                    <span className={styles.cardYear}>{p.year}</span>
                   </div>
-                )}
-              </div>
-            </Link>
-          ))}
+                  <h3 className={styles.cardTitle}>{p.title}</h3>
+                  {p.tags?.length > 0 && (
+                    <div className={styles.cardTags}>
+                      {p.tags.map((tag) => (
+                        <span key={tag} className={styles.cardTag}>{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </CardEl>
+            )
+          })}
         </div>
       </div>
     </section>

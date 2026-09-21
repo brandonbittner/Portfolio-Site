@@ -102,7 +102,7 @@ export default function SelectedWork() {
                       {group.items?.map((item, i) => (
                         item.type === 'pair'
                           ? (
-                            <div key={i} className={styles.imagePair}>
+                            <div key={i} className={`${styles.imagePair} ${item.stackOnMobile ? styles.imagePairMobileStack : ''}`}>
                               {item.images.map((img, j) => (
                                 <div key={j} className={styles.imagePairCol} style={{ flex: img.aspectRatio }}>
                                   {item.transparent ? (
@@ -134,8 +134,7 @@ export default function SelectedWork() {
                           ? (
                             <div
                               key={i}
-                              className={`${styles.carouselItem} ${item.fullWidth ? styles.carouselFullWidth : ''}`}
-                              style={item.maxWidth ? { maxWidth: item.maxWidth } : undefined}
+                              className={`${styles.carouselItem} ${item.fullWidth ? styles.carouselFullWidth : ''} ${item.maxWidth === '75%' ? styles.carouselMaxWidth75 : ''}`}
                             >
                               {item.label && <p className={styles.itemLabel}>{item.label}</p>}
                               <Carousel slides={item.slides} onImageClick={openLightbox} />

@@ -48,12 +48,49 @@
   color: inherit;
 }
 
+.cardDimmed {
+  cursor: default;
+}
+
+.cardDimmed .cardEmployer,
+.cardDimmed .cardYear,
+.cardDimmed .cardTitle,
+.cardDimmed .cardTag {
+  color: #b0bec5;
+  border-color: rgba(176, 190, 197, 0.35);
+  background: rgba(176, 190, 197, 0.08);
+}
+
 .cardImage {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #e2e8f0;
+  background: #f1f5f9;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
+}
+
+.comingSoonOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.comingSoonLabel {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5FA7FF;
+  background: rgba(95, 167, 255, 0.1);
+  border: 1px solid rgba(95, 167, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
 }
 
 .cardImg {
