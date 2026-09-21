@@ -1,6 +1,7 @@
 import styles from './Home.module.css'
 import { projects } from '../data/projects'
 import ProjectGrid from '../components/sections/ProjectGrid'
+import SelectedWorksGrid from '../components/sections/SelectedWorksGrid'
 
 const caseStudies  = projects.filter(p => p.section === 'case-studies')
 const selectedWork = projects.filter(p => p.section === 'selected-work')
@@ -27,6 +28,7 @@ export default function Home() {
       </section>
 
       <ProjectGrid id="work" title="Case Studies"  projects={caseStudies} />
+      <SelectedWorksGrid projects={selectedWork} />
 
     </div>
   )
